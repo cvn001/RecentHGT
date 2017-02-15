@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
-# Introduction: 本程序用于批量对核心基因进行两两菌株之间的needle双序列比对，针对携带菌和土著菌之间的比对
+# Introduction: This script is used to prepare and run rHGT detection automatically
 # Created by galaxy on 2016/10/19 11:19
 
 import os
