@@ -1,3 +1,8 @@
+#' This script is used to detect rHGT
+#' @param file,should be a file address str
+#' @param sheet_name,if the sheetname be one column of the result
+#' @export
+
 library(fitdistrplus)
 
 
