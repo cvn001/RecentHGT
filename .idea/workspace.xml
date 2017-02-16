@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="08feb3a7-eff9-4e07-a141-440ecffdc126" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fetch_pairwise_genome.py" afterPath="$PROJECT_DIR$/fetch_pairwise_genome.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -358,7 +357,14 @@
       <option name="project" value="LOCAL" />
       <updated>1487231961866</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="add replace script.">
+      <created>1487233048543</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1487233048543</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -394,7 +400,8 @@
     <MESSAGE value="rename R script" />
     <MESSAGE value="rename Python script" />
     <MESSAGE value="add some descriptions.&#10;add fetch pairwise genome script." />
-    <option name="LAST_COMMIT_MESSAGE" value="add some descriptions.&#10;add fetch pairwise genome script." />
+    <MESSAGE value="add replace script." />
+    <option name="LAST_COMMIT_MESSAGE" value="add replace script." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
