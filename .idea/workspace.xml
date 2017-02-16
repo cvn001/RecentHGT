@@ -32,8 +32,8 @@
       <file leaf-file-name="fetch_pairwise_genome.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/fetch_pairwise_genome.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="350">
-              <caret line="59" column="9" lean-forward="true" selection-start-line="59" selection-start-column="9" selection-end-line="59" selection-end-column="9" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="23" />
               <folding>
                 <element signature="e#138#147#0" expanded="true" />
               </folding>
@@ -45,8 +45,10 @@
         <entry file="file://$PROJECT_DIR$/replace.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="140">
-              <caret line="6" column="20" lean-forward="true" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
-              <folding />
+              <caret line="4" column="10" lean-forward="false" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="10" />
+              <folding>
+                <element signature="e#43#57#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -64,6 +66,7 @@
         <option value="$PROJECT_DIR$/readme.txt" />
         <option value="$PROJECT_DIR$/main_process.py" />
         <option value="$PROJECT_DIR$/fetch_pairwise_genome.py" />
+        <option value="$PROJECT_DIR$/replace.py" />
       </list>
     </option>
   </component>
@@ -364,7 +367,14 @@
       <option name="project" value="LOCAL" />
       <updated>1487233048543</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="add replace script.">
+      <created>1487233066048</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1487233066048</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -472,8 +482,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/fetch_pairwise_genome.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="59" column="9" lean-forward="true" selection-start-line="59" selection-start-column="9" selection-end-line="59" selection-end-column="9" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="23" />
           <folding>
             <element signature="e#138#147#0" expanded="true" />
           </folding>
@@ -483,8 +493,10 @@
     <entry file="file://$PROJECT_DIR$/replace.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
-          <caret line="6" column="20" lean-forward="true" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
-          <folding />
+          <caret line="4" column="10" lean-forward="false" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="10" />
+          <folding>
+            <element signature="e#43#57#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
