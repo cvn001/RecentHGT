@@ -16,6 +16,11 @@ from collections import defaultdict
 
 
 def load_strains_label(strain_file):
+    """
+    This function is used to load strains information.
+    :param strain_file: the path of the file contains the ids and names of strains.
+    :return: a python dict
+    """
     strain_dict = defaultdict()
     strain_list = []
     with open(strain_file, 'r') as f:
@@ -29,6 +34,14 @@ def load_strains_label(strain_file):
 
 
 def each_gene_needle_run(pair_gene_dir, tmp_gene_converted_dir, pair_gene_alignment_dir, gene, strain_dict):
+    """
+    :param pair_gene_dir:
+    :param tmp_gene_converted_dir:
+    :param pair_gene_alignment_dir:
+    :param gene:
+    :param strain_dict:
+    :return:
+    """
     tmp_gene_fasta = os.path.join(pair_gene_dir, gene + '.fasta')
     converted_records = []
     re_pattern = re.compile(r'fig\|(\d+\.\d+)\.peg\.\d+\s(.*)')
