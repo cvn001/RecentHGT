@@ -1,6 +1,7 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
-# Introduction: 本程序用于批量提取两两strain之间的core基因,聚类参数需要选择选择
+# Introduction: This script is used to fetch pairwise core genomes between each strain pair.
+#               It is better to put this script in ITEP directory.
 # Created by galaxy on 2016/10/21 15:11
 
 
