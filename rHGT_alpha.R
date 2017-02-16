@@ -62,11 +62,12 @@ em_implementation <- function(data_file, trim_min, trim_max, last_bin) {
   hgt_num <- length(last_bin_data) - best_fit_num
   return(list(all_gofs[best_fit], best_fit_num, hgt_num))
 }
-infer_HGT <- function(work_dir = getwd(), collections_dir_name = 'all_strain_pairs', 
-                      p_min = 50.0, p_max = 98.5, p_last_bin = c(p_max, 100.0)) {
+infer_HGT <- function(work_dir = getwd(), collections_dir_name = 'all_strain_pairs_results_collection',
+                      p_min = 50.0, p_max = 98.5) {
   setwd(work_dir)
   collections_dir <- file.path(work_dir, collections_dir_name)
   all_files <- list.files(collections_dir)
+  p_last_bin = c(p_max, 100.0)
   # run each file
   strain_pairs <- c()
   em_results <- c()
@@ -86,3 +87,9 @@ infer_HGT <- function(work_dir = getwd(), collections_dir_name = 'all_strain_pai
   result_file <- file.path(work_dir, 'all_strain_pairs_em_results.txt')
   write.table(all_results, file = result_file, row.names = F, quote = F, col.names = T, sep = "\t")
 }
+args <- commandArgs(trailingOnly = TRUE)
+workspace <- args[1]
+files_dir <- args[2]
+param_min <- as.numeric(args[3])
+param_max <- as.numeric(args[4])
+infer_HGT(workspace, files_dir, param_min, param_max)

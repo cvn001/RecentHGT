@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="08feb3a7-eff9-4e07-a141-440ecffdc126" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rHGT_alpha.R" afterPath="$PROJECT_DIR$/rHGT_alpha.R" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -20,8 +21,8 @@
       <file leaf-file-name="main_process.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main_process.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-70">
-              <caret line="153" column="4" lean-forward="false" selection-start-line="153" selection-start-column="4" selection-end-line="153" selection-end-column="4" />
+            <state relative-caret-position="646">
+              <caret line="123" column="103" lean-forward="false" selection-start-line="123" selection-start-column="68" selection-end-line="123" selection-end-column="103" />
               <folding>
                 <element signature="e#167#176#0" expanded="true" />
               </folding>
@@ -55,6 +56,7 @@
         <option value="$PROJECT_DIR$/main_process.py" />
         <option value="$PROJECT_DIR$/replace.py" />
         <option value="$PROJECT_DIR$/fetch_pairwise_genome.py" />
+        <option value="$PROJECT_DIR$/rHGT_alpha.R" />
       </list>
     </option>
   </component>
@@ -82,6 +84,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -97,7 +100,6 @@
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -386,7 +388,14 @@
       <option name="project" value="LOCAL" />
       <updated>1487255290527</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="add an R script to draw histograms.">
+      <created>1487255296383</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1487255296383</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -432,6 +441,26 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/main_process.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#167#176#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/replace.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="10" column="24" lean-forward="false" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
+          <folding>
+            <element signature="e#43#57#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/main_process.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -513,13 +542,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/rHGT_alpha.R">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="8" column="9" lean-forward="false" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/replace.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
@@ -537,10 +559,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main_process.py">
+    <entry file="file://$PROJECT_DIR$/rHGT_alpha.R">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-70">
-          <caret line="153" column="4" lean-forward="false" selection-start-line="153" selection-start-column="4" selection-end-line="153" selection-end-column="4" />
+          <caret line="22" column="102" lean-forward="true" selection-start-line="22" selection-start-column="102" selection-end-line="22" selection-end-column="102" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main_process.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="123" column="103" lean-forward="false" selection-start-line="123" selection-start-column="68" selection-end-line="123" selection-end-column="103" />
           <folding>
             <element signature="e#167#176#0" expanded="true" />
           </folding>
