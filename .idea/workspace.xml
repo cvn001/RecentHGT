@@ -379,7 +379,14 @@
       <option name="project" value="LOCAL" />
       <updated>1487234399401</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="add an R script to draw histograms.">
+      <created>1487255290527</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1487255290527</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -417,7 +424,8 @@
     <MESSAGE value="add some descriptions.&#10;add fetch pairwise genome script." />
     <MESSAGE value="add replace script." />
     <MESSAGE value="add some descriptions." />
-    <option name="LAST_COMMIT_MESSAGE" value="add some descriptions." />
+    <MESSAGE value="add an R script to draw histograms." />
+    <option name="LAST_COMMIT_MESSAGE" value="add an R script to draw histograms." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
