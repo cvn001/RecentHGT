@@ -66,4 +66,3 @@ for each_pair in fetch_strain_pair:
         os.system('rm {0}'.format(tmp_replace_file))
         os.chdir(my_path)
         os.remove(tmp_organisms)
-
