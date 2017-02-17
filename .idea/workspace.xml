@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="08feb3a7-eff9-4e07-a141-440ecffdc126" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rHGT_alpha.R" afterPath="$PROJECT_DIR$/rHGT_alpha.R" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -17,11 +18,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="main_process.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main_process.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main_process.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="469">
-              <caret line="165" column="6" lean-forward="false" selection-start-line="165" selection-start-column="6" selection-end-line="165" selection-end-column="6" />
+            <state relative-caret-position="420">
+              <caret line="189" column="16" lean-forward="true" selection-start-line="189" selection-start-column="16" selection-end-line="189" selection-end-column="16" />
               <folding>
                 <element signature="e#167#176#0" expanded="true" />
               </folding>
@@ -29,11 +30,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="rHGT_alpha.R" pinned="false" current-in-tab="false">
+      <file leaf-file-name="rHGT_alpha.R" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/rHGT_alpha.R">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="679">
-              <caret line="95" column="0" lean-forward="false" selection-start-line="95" selection-start-column="0" selection-end-line="95" selection-end-column="0" />
+            <state relative-caret-position="385">
+              <caret line="11" column="43" lean-forward="false" selection-start-line="11" selection-start-column="43" selection-end-line="11" selection-end-column="43" />
               <folding />
             </state>
           </provider>
@@ -64,8 +65,8 @@
         <option value="$PROJECT_DIR$/readme.txt" />
         <option value="$PROJECT_DIR$/replace.py" />
         <option value="$PROJECT_DIR$/fetch_pairwise_genome.py" />
-        <option value="$PROJECT_DIR$/rHGT_alpha.R" />
         <option value="$PROJECT_DIR$/main_process.py" />
+        <option value="$PROJECT_DIR$/rHGT_alpha.R" />
       </list>
     </option>
   </component>
@@ -432,7 +433,14 @@
       <option name="project" value="LOCAL" />
       <updated>1487319688437</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Upload example data set">
+      <created>1487319741462</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1487319741462</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -473,7 +481,8 @@
     <MESSAGE value="add an R script to draw histograms." />
     <MESSAGE value="some modifications to rHGT script" />
     <MESSAGE value="Overall structure has been completed preliminarily." />
-    <option name="LAST_COMMIT_MESSAGE" value="Overall structure has been completed preliminarily." />
+    <MESSAGE value="Upload example data set" />
+    <option name="LAST_COMMIT_MESSAGE" value="Upload example data set" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -666,21 +675,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/rHGT_alpha.R">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="679">
-          <caret line="95" column="0" lean-forward="false" selection-start-line="95" selection-start-column="0" selection-end-line="95" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/main_process.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="469">
-          <caret line="165" column="6" lean-forward="false" selection-start-line="165" selection-start-column="6" selection-end-line="165" selection-end-column="6" />
+        <state relative-caret-position="420">
+          <caret line="189" column="16" lean-forward="true" selection-start-line="189" selection-start-column="16" selection-end-line="189" selection-end-column="16" />
           <folding>
             <element signature="e#167#176#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rHGT_alpha.R">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="385">
+          <caret line="11" column="43" lean-forward="false" selection-start-line="11" selection-start-column="43" selection-end-line="11" selection-end-column="43" />
+          <folding />
         </state>
       </provider>
     </entry>

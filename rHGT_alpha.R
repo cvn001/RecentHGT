@@ -1,10 +1,11 @@
-#' This script is used to detect rHGT
-#' @param file,should be a file address str
-#' @param sheet_name,if the sheetname be one column of the result
-#' @export
+#' This script is used to detect recent horizontal gene transfers.
+#' @param workspace, should be the address of workspace, string.
+#' @param files_dir, should be the name of data directory.
+#' @param param_min, should be a value of lower limit of the distribuiton.
+#' @param param_max, should be a value of upper limit of the distribuiton.
+#' @export a text file with the number of rHGTs between every strain pair.
 
 library(fitdistrplus)
-
 
 # fit function use fitdist method
 fit_distribution <- function(data, fit_method, fit_gof) {
