@@ -35,12 +35,13 @@ def load_strains_label(strain_file):
 
 def each_gene_needle_run(pair_gene_dir, tmp_gene_converted_dir, pair_gene_alignment_dir, gene, strain_dict):
     """
-    :param pair_gene_dir:
-    :param tmp_gene_converted_dir:
-    :param pair_gene_alignment_dir:
-    :param gene:
-    :param strain_dict:
-    :return:
+    This function is used to call needle program to do pair-wised sequence alignment
+    :param pair_gene_dir: each homologous gene directory
+    :param tmp_gene_converted_dir: used to put some temporary files and will be deleted in the end
+    :param pair_gene_alignment_dir: each homologous gene pair-wised alignment directory
+    :param gene: each gene id
+    :param strain_dict: inherit from load_strains_label function with strain information
+    :return: the alignment result of each gene
     """
     tmp_gene_fasta = os.path.join(pair_gene_dir, gene + '.fasta')
     converted_records = []
@@ -79,6 +80,15 @@ def each_gene_needle_run(pair_gene_dir, tmp_gene_converted_dir, pair_gene_alignm
 
 
 def each_strain_pair_run(strain_pair, all_genes_dir, result_dir, strain_dict, strain_results_dir):
+    """
+    This function is used to call the functions above to do each strain pair genes alignment.
+    :param strain_pair: each strain pair name, such as A_B or B_A
+    :param all_genes_dir: a directory with all genes of each strain pair
+    :param result_dir: result directory
+    :param strain_dict: inherit from load_strains_label function with strain information
+    :param strain_results_dir: a directory with all strain results
+    :return: ......
+    """
     gene_list = []
     strain_pair_genes_dir = os.path.join(all_genes_dir, strain_pair)
     for rs, ds, fs in os.walk(strain_pair_genes_dir):
@@ -133,7 +143,7 @@ if __name__ == '__main__':
                                                       all_strain_dict, strain_results_collection_dir))
         p.close()
         p.join()
-    else:
+    elif part == 2:
         strain_ANI_matrix = os.path.join(program_path, 'ANI_matrix.txt')
         ani_matrix = np.loadtxt(strain_ANI_matrix, delimiter='\t')
         matrix_strain_id_file = os.path.join(program_path, 'matrix_strain_id.txt')
@@ -167,7 +177,7 @@ if __name__ == '__main__':
                         for line in f0.readlines()[1:]:
                             result_line = '{0} ({1})\t{2}'.format(pair_name, pair_ANI, line)
                             result_dict[pairs[0]].append(result_line)
-        R_script = os.path.join(program_path, 'draw_identity_histograms.R')
+        R_script_1 = os.path.join(program_path, 'draw_identity_histograms.R')
         header_line = 'Pair\tGene\tIdentity\tAnnotation\n'
         for each_strain, results in result_dict.items():
             strain_result_file = os.path.join(all_result_dir, each_strain + '.txt')
@@ -176,6 +186,16 @@ if __name__ == '__main__':
                 for each_result in results:
                     f1.write(each_result)
             each_result_picture = os.path.join(strain_pair_pictures_dir, '{0}_results.pdf'.format(each_strain))
-            R_cmd = "Rscript {0} {1} {2}".format(R_script, strain_result_file, each_result_picture)
-            os.system(R_cmd)
+            R_cmd_1 = "Rscript {0} {1} {2}".format(R_script_1, strain_result_file, each_result_picture)
+            os.popen(R_cmd_1)
+    elif part == 3:
+        print('Processing HGT detection...')
+        results_collection_dir_name = 'all_strain_pairs_results_collection'
+        R_script_2 = os.path.join(program_path, 'rHGT_alpha.R')
+        param_min = 50.0
+        param_max = 98.5
+        R_cmd_2 = "Rscript {0} {1} {2} {3} {4}".format(R_script_2, program_path,
+                                                       results_collection_dir_name,
+                                                       str(param_min), str(param_max))
+        os.popen(R_cmd_2)
     print('----------------------Finish----------------------')
