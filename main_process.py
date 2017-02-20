@@ -114,88 +114,140 @@ def each_strain_pair_run(strain_pair, all_genes_dir, result_dir, strain_dict, st
         f.write(pair_results)
 
 
+def first_part(base_path):
+    gbk_folder = os.path.join(base_path, 'gbk')
+    fasta_folder = os.path.join(base_path, 'genome_fasta')
+    if not os.path.exists(fasta_folder):
+        os.makedirs(fasta_folder)
+    i = 0
+    for root, dirs, files in os.walk(gbk_folder):
+        for each_file in files:
+            strain_id = os.path.splitext(each_file)[0]
+            gbk = os.path.join(gbk_folder, each_file)
+            fasta = os.path.join(fasta_folder, strain_id + '.fasta')
+            SeqIO.convert(gbk, 'genbank', fasta, 'fasta')
+            i += 1
+    print('{0} genomes fasta format files have been converted.'.format(str(i)))
+    ani_folder = os.path.join(base_path, 'ANI_out')
+    cmd = "average_nucleotide_identity.py -i {0} -o {1} -m ANIm -g".format(fasta_folder, ani_folder)
+    os.popen(cmd)
+    return
+
+
+def second_part(base_path, processes):
+    strain_pair_dir = os.path.join(base_path, 'all_strain_pairs')
+    output_dir = os.path.join(base_path, 'all_strain_pairs_genes_alignment')
+    if not os.path.exists(output_dir):
+        os.makedirs(output_dir)
+    strain_label_file = os.path.join(base_path, 'strains.txt')
+    p = Pool(processes)
+    all_strain_dict = load_strains_label(strain_label_file)
+    strain_results_collection_dir = os.path.join(base_path, 'all_strain_pairs_results_collection')
+    if not os.path.exists(strain_results_collection_dir):
+        os.makedirs(strain_results_collection_dir)
+    pairs = []
+    for root, dirs, files in os.walk(strain_pair_dir):
+        for each_dir in dirs:
+            pairs.append(each_dir)
+    for each_pair in pairs:
+        p.apply_async(each_strain_pair_run, args=(each_pair, strain_pair_dir, output_dir,
+                                                  all_strain_dict, strain_results_collection_dir))
+    p.close()
+    p.join()
+    message = 'All alignments have been finished.'
+    return message
+
+
+def third_part(base_path, ani_out_dir):
+    strain_ani_matrix_file = os.path.join(ani_out_dir, 'ANIm_percentage_identity.tab')
+    matrix_strain_dict = defaultdict()
+    tmp_matrix_lines = ''
+    with open(strain_ani_matrix_file, 'r') as f1:
+        strain_list = f1.readlines()[0].strip().split('\t')[1:]
+        for each_strain in strain_list:
+            strain_index = strain_list.index(each_strain)
+            matrix_strain_dict[each_strain] = int(strain_index)
+        for each_line in f1.readlines()[1:]:
+            tmp_list = each_line.strip().split('\t')
+            tmp_line = ''
+            for i in tmp_list[1:]:
+                i = float('%.3f' % i) * 100
+                tmp_line += '{0}\t'.format(str(i))
+            tmp_matrix_lines += tmp_line.strip('\t') + '\n'
+    tmp_matrix_file = os.path.join(base_path, 'tmp.txt')
+    with open(tmp_matrix_file, 'w') as f2:
+        f2.write(tmp_matrix_lines)
+    ani_matrix = np.loadtxt(tmp_matrix_file, delimiter='\t')
+    strain_results_collection_dir = os.path.join(base_path, 'all_strain_pairs_results_collection')
+    all_result_dir = os.path.join(base_path, 'all_strain_pairs_results')
+    if not os.path.exists(all_result_dir):
+        os.makedirs(all_result_dir)
+    strain_pair_pictures_dir = os.path.join(base_path, 'all_strain_pairs_pictures')
+    if not os.path.exists(strain_pair_pictures_dir):
+        os.makedirs(strain_pair_pictures_dir)
+    result_dict = defaultdict(list)
+    for root, dirs, files in os.walk(strain_results_collection_dir):
+        for each_file in files:
+            file_name = os.path.splitext(each_file)[0]
+            file_path = os.path.join(strain_results_collection_dir, each_file)
+            pairs = file_name.split('_')
+            if pairs[0] not in result_dict:
+                result_dict[pairs[0]] = []
+            pair_name = str(pairs[0]) + '~' + str(pairs[1])
+            pair_ani = ani_matrix[matrix_strain_dict[pairs[0]]][matrix_strain_dict[pairs[1]]]
+            if pair_ani < 95:
+                with open(file_path) as f2:
+                    for line in f2.readlines()[1:]:
+                        result_line = '{0} ({1})\t{2}'.format(pair_name, pair_ani, line)
+                        result_dict[pairs[0]].append(result_line)
+    r_script_1 = os.path.join(base_path, 'draw_identity_histograms.R')
+    header_line = 'Pair\tGene\tIdentity\tAnnotation\n'
+    for each_strain, results in result_dict.items():
+        strain_result_file = os.path.join(all_result_dir, each_strain + '.txt')
+        with open(strain_result_file, 'w') as f3:
+            f3.write(header_line)
+            for each_result in results:
+                f3.write(each_result)
+        each_result_picture = os.path.join(strain_pair_pictures_dir, '{0}_results.pdf'.format(each_strain))
+        r_cmd_1 = "Rscript {0} {1} {2}".format(r_script_1, strain_result_file, each_result_picture)
+        os.popen(r_cmd_1)
+    os.remove(tmp_matrix_file)
+    message = 'All alignments pictures have been drew and placed in {0}'.format(strain_pair_pictures_dir)
+    return message
+
+
+def fourth_part(base_path):
+    print('Processing HGT detection...')
+    results_collection_dir_name = 'all_strain_pairs_results_collection'
+    r_script_2 = os.path.join(base_path, 'rHGT_alpha.R')
+    param_min = 50.0
+    param_max = 98.5
+    r_cmd_2 = "Rscript {0} {1} {2} {3} {4}".format(r_script_2, base_path, results_collection_dir_name,
+                                                   str(param_min), str(param_max))
+    os.popen(r_cmd_2)
+
+
+def auto_run():
+    return
+
+
+def main_process(part):
+    if part == 1:
+        pass
+    elif part == 2:
+        pass
+    elif part == 3:
+        pass
+    print('----------------------Finish----------------------')
+
+
 if __name__ == '__main__':
     newParser = argparse.ArgumentParser()
-    newParser.add_argument("-n", "--threads", type=int, dest="threads", help="How many threads will be used?")
-    newParser.add_argument("-p", "--part", type=int, dest="part", help="Which part?")
+    newParser.add_argument("-n", type=int, dest="threads", help="How many threads will be used?")
+    newParser.add_argument("-p", type=int, dest="part", help="Which part will be run?")
     print('----------------------Start----------------------')
     program_path = os.getcwd()
     args = newParser.parse_args()
-    part = args.part
-    if part == 1:
-        strain_pair_dir = os.path.join(program_path, 'all_strain_pairs')
-        output_dir = os.path.join(program_path, 'all_strain_pairs_genes_alignment')
-        if not os.path.exists(output_dir):
-            os.makedirs(output_dir)
-        strain_label_file = os.path.join(program_path, 'strains.txt')
-        processes = args.threads
-        p = Pool(processes)
-        all_strain_dict = load_strains_label(strain_label_file)
-        strain_results_collection_dir = os.path.join(program_path, 'all_strain_pairs_results_collection')
-        if not os.path.exists(strain_results_collection_dir):
-            os.makedirs(strain_results_collection_dir)
-        pairs = []
-        for root, dirs, files in os.walk(strain_pair_dir):
-            for each_dir in dirs:
-                pairs.append(each_dir)
-        for each_pair in pairs:
-            p.apply_async(each_strain_pair_run, args=(each_pair, strain_pair_dir, output_dir,
-                                                      all_strain_dict, strain_results_collection_dir))
-        p.close()
-        p.join()
-    elif part == 2:
-        strain_ANI_matrix = os.path.join(program_path, 'ANI_matrix.txt')
-        ani_matrix = np.loadtxt(strain_ANI_matrix, delimiter='\t')
-        matrix_strain_id_file = os.path.join(program_path, 'matrix_strain_id.txt')
-        matrix_strain_dict = defaultdict()
-        strain_name_dict = defaultdict()
-        with open(matrix_strain_id_file, 'r') as mx:
-            for each_line in mx.readlines():
-                mx_list = each_line.strip().split('\t')
-                s_list = mx_list[1].split('_')
-                matrix_strain_dict[s_list[1]] = int(mx_list[0])
-                strain_name_dict[s_list[1]] = mx_list[1]
-        strain_results_collection_dir = os.path.join(program_path, 'all_strain_pairs_results_collection')
-        all_result_dir = os.path.join(program_path, 'all_strain_pairs_results')
-        if not os.path.exists(all_result_dir):
-            os.makedirs(all_result_dir)
-        strain_pair_pictures_dir = os.path.join(program_path, 'all_strain_pairs_pictures')
-        if not os.path.exists(strain_pair_pictures_dir):
-            os.makedirs(strain_pair_pictures_dir)
-        result_dict = defaultdict(list)
-        for root, dirs, files in os.walk(strain_results_collection_dir):
-            for each_file in files:
-                file_name = os.path.splitext(each_file)[0]
-                file_path = os.path.join(strain_results_collection_dir, each_file)
-                pairs = file_name.split('_')
-                if pairs[0] not in result_dict:
-                    result_dict[pairs[0]] = []
-                pair_name = strain_name_dict[str(pairs[0])] + '~' + strain_name_dict[str(pairs[1])]
-                pair_ANI = ani_matrix[matrix_strain_dict[pairs[0]]][matrix_strain_dict[pairs[1]]]
-                if pair_ANI < 85:
-                    with open(file_path) as f0:
-                        for line in f0.readlines()[1:]:
-                            result_line = '{0} ({1})\t{2}'.format(pair_name, pair_ANI, line)
-                            result_dict[pairs[0]].append(result_line)
-        R_script_1 = os.path.join(program_path, 'draw_identity_histograms.R')
-        header_line = 'Pair\tGene\tIdentity\tAnnotation\n'
-        for each_strain, results in result_dict.items():
-            strain_result_file = os.path.join(all_result_dir, each_strain + '.txt')
-            with open(strain_result_file, 'w') as f1:
-                f1.write(header_line)
-                for each_result in results:
-                    f1.write(each_result)
-            each_result_picture = os.path.join(strain_pair_pictures_dir, '{0}_results.pdf'.format(each_strain))
-            R_cmd_1 = "Rscript {0} {1} {2}".format(R_script_1, strain_result_file, each_result_picture)
-            os.popen(R_cmd_1)
-    elif part == 3:
-        print('Processing HGT detection...')
-        results_collection_dir_name = 'all_strain_pairs_results_collection'
-        R_script_2 = os.path.join(program_path, 'rHGT_alpha.R')
-        param_min = 50.0
-        param_max = 98.5
-        R_cmd_2 = "Rscript {0} {1} {2} {3} {4}".format(R_script_2, program_path,
-                                                       results_collection_dir_name,
-                                                       str(param_min), str(param_max))
-        os.popen(R_cmd_2)
-    print('----------------------Finish----------------------')
+    run_part = args.part
+
+

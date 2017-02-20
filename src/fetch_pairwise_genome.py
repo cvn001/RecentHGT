@@ -13,7 +13,7 @@ from collections import defaultdict
 
 
 my_path = os.getcwd()
-maxbit = sys.argv[1]
+maxbit = 0.4
 source_file = os.path.join(my_path, 'SourceMe.sh')
 os.system('source {0}'.format(source_file))
 strain_information_file = os.path.join(my_path, 'strains.txt')
@@ -67,3 +67,4 @@ for each_pair in fetch_strain_pair:
         os.system('rm {0}'.format(tmp_replace_file))
         os.chdir(my_path)
         os.remove(tmp_organisms)
+        os.system('mv all_strain_pairs_{0} all_strain_pairs'.format(maxbit))
