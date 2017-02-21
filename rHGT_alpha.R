@@ -19,13 +19,13 @@ fit_distribution <- function(data, fit_method, fit_gof) {
 }
 em_implementation <- function(data_file, trim_min, trim_max, last_bin) {
   # load and trim data
-  my_data <- read.csv(data_file, sep = '\t', header = TRUE)
+  my_data <- read.csv(data_file, sep = '\t', header = T)
   trim_data <- my_data$Identity[my_data$Identity >= trim_min & my_data$Identity < trim_max]
   last_bin_data <- my_data$Identity[my_data$Identity >= last_bin[1] & my_data$Identity <= last_bin[2]]
   # EM implementation
   m <- c(0)
   fit_method <- 'mge'
-  all_gofs <- c('ADR', 'AD2R', 'CvM')
+  all_gofs <- c('ADR', 'AD2R')
   max_steps <- 100
   estimate_data <- trim_data
   all_aics <- c()
@@ -88,7 +88,7 @@ infer_HGT <- function(work_dir = getwd(), collections_dir_name = 'all_strain_pai
   result_file <- file.path(work_dir, 'all_strain_pairs_em_results.txt')
   write.table(all_results, file = result_file, row.names = F, quote = F, col.names = T, sep = "\t")
 }
-args <- commandArgs(trailingOnly = TRUE)
+args <- commandArgs(trailingOnly = T)
 workspace <- args[1]
 files_dir <- args[2]
 param_min <- as.numeric(args[3])

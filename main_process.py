@@ -5,14 +5,65 @@
 
 import os
 import re
+import sys
+import time
 import shutil
-import argparse
+import subprocess
+import logging.handlers
+import traceback
+import tarfile
 import numpy as np
+from argparse import ArgumentParser
 from Bio.Emboss.Applications import NeedleCommandline
 from Bio import SeqIO
 from Bio.SeqRecord import SeqRecord
-from multiprocessing import Pool
+from multiprocessing import Pool, cpu_count
 from collections import defaultdict
+
+
+# Report last exception as string
+def last_exception():
+    """ Returns last exception as a string, or use in logging.
+    """
+    exc_type, exc_value, exc_traceback = sys.exc_info()
+    return ''.join(traceback.format_exception(exc_type, exc_value, exc_traceback))
+
+
+def make_outdir():
+    """Make the output directory, if required.
+
+    This is a little involved.  If the output directory already exists,
+    we take the safe option by default, and stop with an error.  We can,
+    however, choose to force the program to go on, in which case we can
+    either clobber the existing directory, or not.  The options turn out
+    as the following, if the directory exists:
+
+    DEFAULT: stop and report the collision
+    FORCE: continue, and remove the existing output directory
+    NOCLOBBER+FORCE: continue, but do not remove the existing output
+    """
+    if os.path.exists(args.outdirname):
+        if not args.force:
+            logger.error("Output directory %s would overwrite existing " +
+                         "files (exiting)", args.outdirname)
+            sys.exit(1)
+        else:
+            logger.info("Removing directory %s and everything below it",
+                        args.outdirname)
+            shutil.rmtree(args.outdirname)
+    logger.info("Creating directory %s", args.outdirname)
+    try:
+        os.makedirs(args.outdirname)   # We make the directory recursively
+        # Depending on the choice of method, a subdirectory will be made for
+        # alignment output files
+    except OSError:
+        # This gets thrown if the directory exists. If we've forced overwrite/
+        # delete and we're not clobbering, we let things slide
+        if args.noclobber and args.force:
+            logger.info("NOCLOBBER+FORCE: not creating directory")
+        else:
+            logger.error(last_exception)
+            sys.exit(1)
 
 
 def load_strains_label(strain_file):
@@ -21,16 +72,34 @@ def load_strains_label(strain_file):
     :param strain_file: the path of the file contains the ids and names of strains.
     :return: a python dict
     """
+    logger.info('Loading strains information')
     strain_dict = defaultdict()
     strain_list = []
-    with open(strain_file, 'r') as f:
-        for a_line in f.readlines():
-            a_list = a_line.strip().split('\t')
-            strain_name = a_list[1].split(' ')[2]
-            strain_id = a_list[2]
-            strain_dict[strain_id] = strain_name
-            strain_list.append(strain_name)
+    try:
+        with open(strain_file, 'r') as f:
+            for a_line in f.readlines():
+                a_list = a_line.strip().split('\t')
+                strain_name = a_list[1].split(' ')[2]
+                strain_id = a_list[2]
+                strain_dict[strain_id] = strain_name
+                strain_list.append(strain_name)
+    except IOError:
+        logger.error("There is no file contained strains information or the file being locked, please check.")
+        logger.error(last_exception())
+        sys.exit(1)
     return strain_dict
+
+
+# Compress output directory and delete it
+def compress_delete_outdir(outdir):
+    """Compress the contents of the passed directory to .tar.gz and delete."""
+    # Compress output in .tar.gz file and remove raw output
+    tar_fname = outdir + '.tar.gz'
+    logger.info("\tCompressing output from %s to %s", outdir, tar_fname)
+    with tarfile.open(tar_fname, "w:gz") as fh:
+        fh.add(outdir)
+    logger.info("\tRemoving output directory %s", outdir)
+    shutil.rmtree(outdir)
 
 
 def each_gene_needle_run(pair_gene_dir, tmp_gene_converted_dir, pair_gene_alignment_dir, gene, strain_dict):
@@ -43,6 +112,11 @@ def each_gene_needle_run(pair_gene_dir, tmp_gene_converted_dir, pair_gene_alignm
     :param strain_dict: inherit from load_strains_label function with strain information
     :return: the alignment result of each gene
     """
+    logger.info('Processing needle pair-wised sequence alignment')
+    if not os.path.exists(pair_gene_dir):
+        logger.error("There is no dir contained with gene file, please check.")
+        logger.error(last_exception())
+        sys.exit(1)
     tmp_gene_fasta = os.path.join(pair_gene_dir, gene + '.fasta')
     converted_records = []
     re_pattern = re.compile(r'fig\|(\d+\.\d+)\.peg\.\d+\s(.*)')
@@ -66,7 +140,12 @@ def each_gene_needle_run(pair_gene_dir, tmp_gene_converted_dir, pair_gene_alignm
     needle_cline.gapopen = 10
     needle_cline.gapextend = 0.5
     needle_cline.outfile = result_file
-    os.popen(str(needle_cline))
+    try:
+        subprocess.call(str(needle_cline), shell=True)
+    except OSError:
+        logger.info('Needle process failed, please check if Needle has been installed successfully.')
+        logger.error(last_exception())
+        sys.exit(1)
     os.remove(the_strain_fasta)
     os.remove(other_strain_fasta)
     gene_alignment_result = ''
@@ -114,7 +193,8 @@ def each_strain_pair_run(strain_pair, all_genes_dir, result_dir, strain_dict, st
         f.write(pair_results)
 
 
-def first_part(base_path):
+def first_part():
+    print('Part 1: Calculating average nucleotide identity (ANI) of every strain pair...')
     gbk_folder = os.path.join(base_path, 'gbk')
     fasta_folder = os.path.join(base_path, 'genome_fasta')
     if not os.path.exists(fasta_folder):
@@ -130,11 +210,13 @@ def first_part(base_path):
     print('{0} genomes fasta format files have been converted.'.format(str(i)))
     ani_folder = os.path.join(base_path, 'ANI_out')
     cmd = "average_nucleotide_identity.py -i {0} -o {1} -m ANIm -g".format(fasta_folder, ani_folder)
-    os.popen(cmd)
-    return
+    subprocess.call(cmd, shell=True)
+    message = 'Average nucleotide identity analyses have been done.'
+    return message
 
 
-def second_part(base_path, processes):
+def second_part(processes):
+    logger.info('Part 2: Doing pair-wised sequence alignment...')
     strain_pair_dir = os.path.join(base_path, 'all_strain_pairs')
     output_dir = os.path.join(base_path, 'all_strain_pairs_genes_alignment')
     if not os.path.exists(output_dir):
@@ -155,10 +237,18 @@ def second_part(base_path, processes):
     p.close()
     p.join()
     message = 'All alignments have been finished.'
+    logger.info("Compressing/deleting %s", output_dir)
+    compress_delete_outdir(output_dir)
     return message
 
 
-def third_part(base_path, ani_out_dir):
+def third_part():
+    logger.info('Part 3: Drawing alignment distribution pictures of all strain pairs...')
+    ani_out_dir = os.path.join(base_path, 'ANI_out')
+    if not os.path.exists(ani_out_dir):
+        logger.info('IOError: try to open ANI_out dir but failed, please check if it exists or renamed.')
+        logger.error(last_exception())
+        sys.exit(1)
     strain_ani_matrix_file = os.path.join(ani_out_dir, 'ANIm_percentage_identity.tab')
     matrix_strain_dict = defaultdict()
     tmp_matrix_lines = ''
@@ -200,7 +290,7 @@ def third_part(base_path, ani_out_dir):
                     for line in f2.readlines()[1:]:
                         result_line = '{0} ({1})\t{2}'.format(pair_name, pair_ani, line)
                         result_dict[pairs[0]].append(result_line)
-    r_script_1 = os.path.join(base_path, 'draw_identity_histograms.R')
+    r_script = os.path.join(base_path, 'draw_identity_histograms.R')
     header_line = 'Pair\tGene\tIdentity\tAnnotation\n'
     for each_strain, results in result_dict.items():
         strain_result_file = os.path.join(all_result_dir, each_strain + '.txt')
@@ -209,45 +299,129 @@ def third_part(base_path, ani_out_dir):
             for each_result in results:
                 f3.write(each_result)
         each_result_picture = os.path.join(strain_pair_pictures_dir, '{0}_results.pdf'.format(each_strain))
-        r_cmd_1 = "Rscript {0} {1} {2}".format(r_script_1, strain_result_file, each_result_picture)
-        os.popen(r_cmd_1)
+        try:
+            subprocess.call(['Rscript', r_script, strain_result_file, each_result_picture])
+        except OSError:
+            logger.info('Try to run {0} but failed, please check.'.format(r_script))
+            logger.error(last_exception())
+            sys.exit(1)
     os.remove(tmp_matrix_file)
-    message = 'All alignments pictures have been drew and placed in {0}'.format(strain_pair_pictures_dir)
+    message = 'All alignment distribution pictures have been drew and placed in {0}'.format(strain_pair_pictures_dir)
     return message
 
 
-def fourth_part(base_path):
-    print('Processing HGT detection...')
+def fourth_part():
+    logger.info('Part 4: Processing recent HGT detection...')
     results_collection_dir_name = 'all_strain_pairs_results_collection'
-    r_script_2 = os.path.join(base_path, 'rHGT_alpha.R')
+    r_script = os.path.join(base_path, 'rHGT_alpha.R')
     param_min = 50.0
     param_max = 98.5
-    r_cmd_2 = "Rscript {0} {1} {2} {3} {4}".format(r_script_2, base_path, results_collection_dir_name,
-                                                   str(param_min), str(param_max))
-    os.popen(r_cmd_2)
+    try:
+        subprocess.call(['Rscript', r_script, base_path, results_collection_dir_name, str(param_min), str(param_max)])
+    except OSError:
+        logger.info('Try to run {0} but failed, please check.'.format(r_script))
+        logger.error(last_exception())
+        sys.exit(1)
+    message = 'Recent HGT detections have been finished.'
+    return message
 
 
-def auto_run():
-    return
+def auto_run(processes):
+    logger.info('Automatically run all processes...')
+    message_1 = first_part()
+    logger.info(message_1)
+    message_2 = second_part(processes)
+    logger.info(message_2)
+    message_3 = third_part()
+    logger.info(message_3)
+    message_4 = fourth_part()
+    logger.info(message_4)
+    done_message = 'All processes have been done.'
+    return done_message
 
 
-def main_process(part):
+def separate_run(part, processes):
     if part == 1:
-        pass
+        message_1 = first_part()
+        logger.info(message_1)
     elif part == 2:
-        pass
+        message_2 = second_part(processes)
+        logger.info(message_2)
     elif part == 3:
-        pass
-    print('----------------------Finish----------------------')
+        message_3 = third_part()
+        logger.info(message_3)
+    elif part == 4:
+        message_4 = fourth_part()
+        logger.info(message_4)
 
 
+# Process command-line arguments
+def parse_cmdline():
+    """
+    Parse command-line arguments for script.
+    :return:
+    """
+    parser = ArgumentParser(prog="main_process.py")
+    parser.add_argument("-t", "--threads", type=int, dest="threads", default=cpu_count(),
+                        help="How many threads will be used?")
+    parser.add_argument("-p", "--part", type=int, dest="part", default=0,
+                        help="Which part will be run?")
+    parser.add_argument("-v", "--verbose", dest="verbose", action="store_true", default=False,
+                        help="Give verbose output")
+    parser.add_argument("-l", "--logfile", dest="logfile", action="store", default=None,
+                        help="Logfile location")
+    parser.add_argument("-f", "--force", dest="force", action="store_true", default=False,
+                        help="Force file overwriting")
+    parser.add_argument("-o", "--outdir", dest="outdirname", action="store", default=None,
+                        help="Output directory")
+    return parser.parse_args()
+
+
+# Run as script
 if __name__ == '__main__':
-    newParser = argparse.ArgumentParser()
-    newParser.add_argument("-n", type=int, dest="threads", help="How many threads will be used?")
-    newParser.add_argument("-p", type=int, dest="part", help="Which part will be run?")
-    print('----------------------Start----------------------')
-    program_path = os.getcwd()
-    args = newParser.parse_args()
-    run_part = args.part
-
-
+    # Parse command-line
+    args = parse_cmdline()
+    # Set up logging
+    logger = logging.getLogger('average_nucleotide_identity.py: %s' % time.asctime())
+    t0 = time.time()
+    base_path = os.getcwd()
+    logger.setLevel(logging.DEBUG)
+    err_handler = logging.StreamHandler(sys.stderr)
+    err_formatter = logging.Formatter('%(levelname)s: %(message)s')
+    err_handler.setFormatter(err_formatter)
+    # Was a logfile specified? If so, use it
+    if args.logfile is not None:
+        try:
+            log_stream = open(args.logfile, 'w')
+            err_handler_file = logging.StreamHandler(log_stream)
+            err_handler_file.setFormatter(err_formatter)
+            err_handler_file.setLevel(logging.INFO)
+            logger.addHandler(err_handler_file)
+        except IOError:
+            logger.error("Could not open %s for logging", args.logfile)
+            sys.exit(1)
+    # Do we need verbosity?
+    if args.verbose:
+        err_handler.setLevel(logging.INFO)
+    else:
+        err_handler.setLevel(logging.WARNING)
+    logger.addHandler(err_handler)
+    # Report arguments, if verbose
+    # logger.info("pyani version: %s", VERSION)
+    logger.info(args)
+    logger.info("command-line: %s", ' '.join(sys.argv))
+    if args.part == 0:
+        try:
+            auto_run(args.threads)
+        except OSError:
+            logger.info('Try to run all 4 parts automatically but failed, please check.')
+    elif 1 <= args.part <= 4:
+        try:
+            separate_run(args.part, args.threads)
+        except OSError:
+            logger.info('Try to run part {0} but failed, please check.'.format(args.part))
+            logger.error(last_exception())
+            sys.exit(1)
+    # Report that we've finished
+    logger.info("Done: %s.", time.asctime())
+    logger.info("Time taken: %.2fs", (time.time() - t0))
