@@ -3,6 +3,9 @@
     <words>
       <w>dirnames</w>
       <w>filenames</w>
+      <w>indir</w>
+      <w>indirname</w>
+      <w>outdirname</w>
     </words>
   </dictionary>
 </component>

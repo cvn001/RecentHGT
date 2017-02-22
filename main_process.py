@@ -21,6 +21,32 @@ from multiprocessing import Pool, cpu_count
 from collections import defaultdict
 
 
+# Process command-line arguments
+def parse_cmdline():
+    """
+    Parse command-line arguments for script.
+    :return:
+    """
+    parser = ArgumentParser(prog="main_process.py")
+    parser.add_argument("-i", "--indir", dest="indirname", action="store", default=None,
+                        help="Input directory name")
+    parser.add_argument("-o", "--outdir", dest="outdirname", action="store", default=None,
+                        help="Output directory")
+    parser.add_argument("-t", "--threads", type=int, dest="threads", default=cpu_count(),
+                        help="How many threads will be used? [default all]")
+    parser.add_argument("-p", "--part", type=int, dest="part", default=0,
+                        help="Which part will be run? [0|1|2|3|4]")
+    parser.add_argument("-v", "--verbose", dest="verbose", action="store_true", default=False,
+                        help="Give verbose output")
+    parser.add_argument("-l", "--logfile", dest="logfile", action="store", default=None,
+                        help="Logfile location")
+    parser.add_argument("-f", "--force", dest="force", action="store_true", default=False,
+                        help="Force file overwriting")
+    parser.add_argument("--g", dest="gformat", action="store", default="pdf",
+                        help="Graphics output format(s) [pdf|png|jpg|svg]")
+    return parser.parse_args()
+
+
 # Report last exception as string
 def last_exception():
     """ Returns last exception as a string, or use in logging.
@@ -50,7 +76,10 @@ def make_outdir():
         else:
             logger.info("Removing directory %s and everything below it",
                         args.outdirname)
-            shutil.rmtree(args.outdirname)
+            if args.noclobber:
+                logger.warning("NOCLOBBER: not actually deleting directory")
+            else:
+                shutil.rmtree(args.outdirname)
     logger.info("Creating directory %s", args.outdirname)
     try:
         os.makedirs(args.outdirname)   # We make the directory recursively
@@ -104,7 +133,7 @@ def compress_delete_outdir(outdir):
 
 def each_gene_needle_run(pair_gene_dir, tmp_gene_converted_dir, pair_gene_alignment_dir, gene, strain_dict):
     """
-    This function is used to call needle program to do pair-wised sequence alignment
+    This function is used to call Needle program to do pairwise sequence alignment
     :param pair_gene_dir: each homologous gene directory
     :param tmp_gene_converted_dir: used to put some temporary files and will be deleted in the end
     :param pair_gene_alignment_dir: each homologous gene pair-wised alignment directory
@@ -112,7 +141,6 @@ def each_gene_needle_run(pair_gene_dir, tmp_gene_converted_dir, pair_gene_alignm
     :param strain_dict: inherit from load_strains_label function with strain information
     :return: the alignment result of each gene
     """
-    logger.info('Processing needle pair-wised sequence alignment')
     if not os.path.exists(pair_gene_dir):
         logger.error("There is no dir contained with gene file, please check.")
         logger.error(last_exception())
@@ -194,9 +222,9 @@ def each_strain_pair_run(strain_pair, all_genes_dir, result_dir, strain_dict, st
 
 
 def first_part():
-    print('Part 1: Calculating average nucleotide identity (ANI) of every strain pair...')
-    gbk_folder = os.path.join(base_path, 'gbk')
-    fasta_folder = os.path.join(base_path, 'genome_fasta')
+    logger.info('Part 1: Calculating average nucleotide identity (ANI) of every strain pair...')
+    gbk_folder = os.path.join(args.indirname, 'gbk')
+    fasta_folder = os.path.join(args.outdirname, 'fasta')
     if not os.path.exists(fasta_folder):
         os.makedirs(fasta_folder)
     i = 0
@@ -207,24 +235,24 @@ def first_part():
             fasta = os.path.join(fasta_folder, strain_id + '.fasta')
             SeqIO.convert(gbk, 'genbank', fasta, 'fasta')
             i += 1
-    print('{0} genomes fasta format files have been converted.'.format(str(i)))
-    ani_folder = os.path.join(base_path, 'ANI_out')
-    cmd = "average_nucleotide_identity.py -i {0} -o {1} -m ANIm -g".format(fasta_folder, ani_folder)
-    subprocess.call(cmd, shell=True)
+    logger.info('{0} genomes fasta format files have been converted.'.format(str(i)))
+    ani_folder = os.path.join(args.outdirname, 'ANIm')
+    subprocess.call(['average_nucleotide_identity.py', '-i', fasta_folder,
+                     '-o', ani_folder, '-m', 'ANIm', '-g'])
     message = 'Average nucleotide identity analyses have been done.'
     return message
 
 
 def second_part(processes):
-    logger.info('Part 2: Doing pair-wised sequence alignment...')
-    strain_pair_dir = os.path.join(base_path, 'all_strain_pairs')
-    output_dir = os.path.join(base_path, 'all_strain_pairs_genes_alignment')
+    logger.info('Part 2: Processing pairwise sequence alignment...')
+    strain_pair_dir = os.path.join(args.indirname, 'strain_pair_OG')
+    output_dir = os.path.join(args.outdirname, 'strain_pair_OG_alignment')
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
-    strain_label_file = os.path.join(base_path, 'strains.txt')
+    strain_label_file = os.path.join(args.indirname, 'strain_info.txt')
     p = Pool(processes)
     all_strain_dict = load_strains_label(strain_label_file)
-    strain_results_collection_dir = os.path.join(base_path, 'all_strain_pairs_results_collection')
+    strain_results_collection_dir = os.path.join(args.indirname, 'strain_pair_result')
     if not os.path.exists(strain_results_collection_dir):
         os.makedirs(strain_results_collection_dir)
     pairs = []
@@ -244,9 +272,9 @@ def second_part(processes):
 
 def third_part():
     logger.info('Part 3: Drawing alignment distribution pictures of all strain pairs...')
-    ani_out_dir = os.path.join(base_path, 'ANI_out')
+    ani_out_dir = os.path.join(args.outdirname, 'ANIm')
     if not os.path.exists(ani_out_dir):
-        logger.info('IOError: try to open ANI_out dir but failed, please check if it exists or renamed.')
+        logger.info('IOError: try to open ANIm dir but failed, please check if it exists or renamed.')
         logger.error(last_exception())
         sys.exit(1)
     strain_ani_matrix_file = os.path.join(ani_out_dir, 'ANIm_percentage_identity.tab')
@@ -264,15 +292,15 @@ def third_part():
                 i = float('%.3f' % i) * 100
                 tmp_line += '{0}\t'.format(str(i))
             tmp_matrix_lines += tmp_line.strip('\t') + '\n'
-    tmp_matrix_file = os.path.join(base_path, 'tmp.txt')
+    tmp_matrix_file = os.path.join(args.outdirname, 'tmp.txt')
     with open(tmp_matrix_file, 'w') as f2:
         f2.write(tmp_matrix_lines)
     ani_matrix = np.loadtxt(tmp_matrix_file, delimiter='\t')
-    strain_results_collection_dir = os.path.join(base_path, 'all_strain_pairs_results_collection')
-    all_result_dir = os.path.join(base_path, 'all_strain_pairs_results')
+    strain_results_collection_dir = os.path.join(args.outdirname, 'strain_pair_result')
+    all_result_dir = os.path.join(args.outdirname, 'strain_result')
     if not os.path.exists(all_result_dir):
         os.makedirs(all_result_dir)
-    strain_pair_pictures_dir = os.path.join(base_path, 'all_strain_pairs_pictures')
+    strain_pair_pictures_dir = os.path.join(args.outdirname, 'strain_distribution')
     if not os.path.exists(strain_pair_pictures_dir):
         os.makedirs(strain_pair_pictures_dir)
     result_dict = defaultdict(list)
@@ -298,7 +326,7 @@ def third_part():
             f3.write(header_line)
             for each_result in results:
                 f3.write(each_result)
-        each_result_picture = os.path.join(strain_pair_pictures_dir, '{0}_results.pdf'.format(each_strain))
+        each_result_picture = os.path.join(strain_pair_pictures_dir, '{0}.{1}'.format(each_strain, args.gformat))
         try:
             subprocess.call(['Rscript', r_script, strain_result_file, each_result_picture])
         except OSError:
@@ -355,28 +383,6 @@ def separate_run(part, processes):
         logger.info(message_4)
 
 
-# Process command-line arguments
-def parse_cmdline():
-    """
-    Parse command-line arguments for script.
-    :return:
-    """
-    parser = ArgumentParser(prog="main_process.py")
-    parser.add_argument("-t", "--threads", type=int, dest="threads", default=cpu_count(),
-                        help="How many threads will be used?")
-    parser.add_argument("-p", "--part", type=int, dest="part", default=0,
-                        help="Which part will be run?")
-    parser.add_argument("-v", "--verbose", dest="verbose", action="store_true", default=False,
-                        help="Give verbose output")
-    parser.add_argument("-l", "--logfile", dest="logfile", action="store", default=None,
-                        help="Logfile location")
-    parser.add_argument("-f", "--force", dest="force", action="store_true", default=False,
-                        help="Force file overwriting")
-    parser.add_argument("-o", "--outdir", dest="outdirname", action="store", default=None,
-                        help="Output directory")
-    return parser.parse_args()
-
-
 # Run as script
 if __name__ == '__main__':
     # Parse command-line
@@ -410,6 +416,18 @@ if __name__ == '__main__':
     # logger.info("pyani version: %s", VERSION)
     logger.info(args)
     logger.info("command-line: %s", ' '.join(sys.argv))
+    # Have we got an input and output directory? If not, exit.
+    if args.indirname is None:
+        logger.error("No input directory name (exiting)")
+        sys.exit(1)
+    logger.info("Input directory: %s", args.indirname)
+    if args.outdirname is None:
+        logger.error("No output directory name (exiting)")
+        sys.exit(1)
+    if args.rerender:  # Rerendering, we want to overwrite graphics
+        args.force, args.noclobber = True, True
+    make_outdir()
+    logger.info("Output directory: %s", args.outdirname)
     if args.part == 0:
         try:
             auto_run(args.threads)
@@ -422,6 +440,8 @@ if __name__ == '__main__':
             logger.info('Try to run part {0} but failed, please check.'.format(args.part))
             logger.error(last_exception())
             sys.exit(1)
+    else:
+        logger.error('Part {0} is not valid, please choose one of [0|1|2|3|4].'.format(args.part))
     # Report that we've finished
-    logger.info("Done: %s.", time.asctime())
+    logger.info("All jobs have been done: %s.", time.asctime())
     logger.info("Time taken: %.2fs", (time.time() - t0))
