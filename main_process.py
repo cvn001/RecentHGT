@@ -1,7 +1,26 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
-# Introduction: This script is used to prepare and run rHGT detection automatically
+# Introduction: This script is used to prepare and run recent HGT detection automatically.
 # Created by galaxy on 2016/10/19 11:19
+
+# USAGE
+# =====
+#
+# calculate_ani.py [options]
+#
+# Options:
+#   -h, --help            show this help message and exit
+#   -o OUTDIRNAME, --outdir=OUTDIRNAME
+#                         Output directory
+#   -i INDIRNAME, --indir=INDIRNAME
+#                         Input directory name
+#   -v, --verbose         Give verbose output
+#   -f, --force           Force file overwriting
+#   --noclobber           Don't nuke existing files
+#   -p, --part            Which part will be run? [0|1|2|3|4]
+#   -t, --threads         How many threads will be used? [default all]
+#   -g GFORMAT            Graphics output format(s) [pdf|png|jpg|svg]
+#   -l, --logfile         Logfile location
 
 import os
 import re
@@ -42,6 +61,8 @@ def parse_cmdline():
                         help="Logfile location")
     parser.add_argument("-f", "--force", dest="force", action="store_true", default=False,
                         help="Force file overwriting")
+    parser.add_argument("--noclobber", dest="noclobber", action="store_true", default=False,
+                        help="Don't nuke existing files")
     parser.add_argument("--g", dest="gformat", action="store", default="pdf",
                         help="Graphics output format(s) [pdf|png|jpg|svg]")
     return parser.parse_args()
@@ -101,7 +122,7 @@ def load_strains_label(strain_file):
     :param strain_file: the path of the file contains the ids and names of strains.
     :return: a python dict
     """
-    logger.info('Loading strains information')
+    logger.info('Loading strain information')
     strain_dict = defaultdict()
     strain_list = []
     try:
@@ -113,7 +134,7 @@ def load_strains_label(strain_file):
                 strain_dict[strain_id] = strain_name
                 strain_list.append(strain_name)
     except IOError:
-        logger.error("There is no file contained strains information or the file being locked, please check.")
+        logger.error("There is no file contains strain information or the file is locked, please check.")
         logger.error(last_exception())
         sys.exit(1)
     return strain_dict
@@ -142,7 +163,7 @@ def each_gene_needle_run(pair_gene_dir, tmp_gene_converted_dir, pair_gene_alignm
     :return: the alignment result of each gene
     """
     if not os.path.exists(pair_gene_dir):
-        logger.error("There is no dir contained with gene file, please check.")
+        logger.error("There is no directory contains gene file, please check.")
         logger.error(last_exception())
         sys.exit(1)
     tmp_gene_fasta = os.path.join(pair_gene_dir, gene + '.fasta')
@@ -222,7 +243,11 @@ def each_strain_pair_run(strain_pair, all_genes_dir, result_dir, strain_dict, st
 
 
 def first_part():
-    logger.info('Part 1: Calculating average nucleotide identity (ANI) of every strain pair...')
+    """
+    It is the first part. It is used to call pyani program to calculate ANI of each strain pair.
+    :return: success message
+    """
+    logger.info('Part 1: Calculating average nucleotide identity (ANI) of each strain pair...')
     gbk_folder = os.path.join(args.indirname, 'gbk')
     fasta_folder = os.path.join(args.outdirname, 'fasta')
     if not os.path.exists(fasta_folder):
@@ -235,7 +260,7 @@ def first_part():
             fasta = os.path.join(fasta_folder, strain_id + '.fasta')
             SeqIO.convert(gbk, 'genbank', fasta, 'fasta')
             i += 1
-    logger.info('{0} genomes fasta format files have been converted.'.format(str(i)))
+    logger.info('{0} genbank files have been converted to fasta.'.format(str(i)))
     ani_folder = os.path.join(args.outdirname, 'ANIm')
     subprocess.call(['average_nucleotide_identity.py', '-i', fasta_folder,
                      '-o', ani_folder, '-m', 'ANIm', '-g'])
@@ -244,6 +269,11 @@ def first_part():
 
 
 def second_part(processes):
+    """
+    It is the second part. It is used to call Needle program to do pairwise sequence alignment.
+    :param processes: Number of threads will be used. (default is all CPUs)
+    :return: success message
+    """
     logger.info('Part 2: Processing pairwise sequence alignment...')
     strain_pair_dir = os.path.join(args.indirname, 'strain_pair_OG')
     output_dir = os.path.join(args.outdirname, 'strain_pair_OG_alignment')
@@ -271,10 +301,14 @@ def second_part(processes):
 
 
 def third_part():
-    logger.info('Part 3: Drawing alignment distribution pictures of all strain pairs...')
+    """
+    It is the third part. It is used to call R script to draw identity distribution pictures.
+    :return: success message
+    """
+    logger.info('Part 3: Drawing alignment distribution pictures...')
     ani_out_dir = os.path.join(args.outdirname, 'ANIm')
     if not os.path.exists(ani_out_dir):
-        logger.info('IOError: try to open ANIm dir but failed, please check if it exists or renamed.')
+        logger.info('IOError: try to open ANIm directory but failed, please check if it exists or renamed.')
         logger.error(last_exception())
         sys.exit(1)
     strain_ani_matrix_file = os.path.join(ani_out_dir, 'ANIm_percentage_identity.tab')
@@ -296,7 +330,7 @@ def third_part():
     with open(tmp_matrix_file, 'w') as f2:
         f2.write(tmp_matrix_lines)
     ani_matrix = np.loadtxt(tmp_matrix_file, delimiter='\t')
-    strain_results_collection_dir = os.path.join(args.outdirname, 'strain_pair_result')
+    strain_result_dir = os.path.join(args.outdirname, 'strain_pair_result')
     all_result_dir = os.path.join(args.outdirname, 'strain_result')
     if not os.path.exists(all_result_dir):
         os.makedirs(all_result_dir)
@@ -304,10 +338,10 @@ def third_part():
     if not os.path.exists(strain_pair_pictures_dir):
         os.makedirs(strain_pair_pictures_dir)
     result_dict = defaultdict(list)
-    for root, dirs, files in os.walk(strain_results_collection_dir):
+    for root, dirs, files in os.walk(strain_result_dir):
         for each_file in files:
             file_name = os.path.splitext(each_file)[0]
-            file_path = os.path.join(strain_results_collection_dir, each_file)
+            file_path = os.path.join(strain_result_dir, each_file)
             pairs = file_name.split('_')
             if pairs[0] not in result_dict:
                 result_dict[pairs[0]] = []
@@ -334,18 +368,23 @@ def third_part():
             logger.error(last_exception())
             sys.exit(1)
     os.remove(tmp_matrix_file)
-    message = 'All alignment distribution pictures have been drew and placed in {0}'.format(strain_pair_pictures_dir)
+    message = 'All pictures have been drew and placed in {0}'.format(strain_pair_pictures_dir)
     return message
 
 
 def fourth_part():
+    """
+    It is the fourth part. It is used to call R script to infer the number of recent HGT genes.
+    :return: success message
+    """
     logger.info('Part 4: Processing recent HGT detection...')
-    results_collection_dir_name = 'all_strain_pairs_results_collection'
+    strain_result_dir_name = 'strain_pair_result'
     r_script = os.path.join(base_path, 'rHGT_alpha.R')
     param_min = 50.0
     param_max = 98.5
     try:
-        subprocess.call(['Rscript', r_script, base_path, results_collection_dir_name, str(param_min), str(param_max)])
+        subprocess.call(['Rscript', r_script, args.outdirname,
+                         strain_result_dir_name, str(param_min), str(param_max)])
     except OSError:
         logger.info('Try to run {0} but failed, please check.'.format(r_script))
         logger.error(last_exception())
@@ -355,6 +394,11 @@ def fourth_part():
 
 
 def auto_run(processes):
+    """
+    This function is used to run all parts automatically.
+    :param processes: The number of threads will be used, default is all.
+    :return: success message
+    """
     logger.info('Automatically run all processes...')
     message_1 = first_part()
     logger.info(message_1)
@@ -364,23 +408,27 @@ def auto_run(processes):
     logger.info(message_3)
     message_4 = fourth_part()
     logger.info(message_4)
-    done_message = 'All processes have been done.'
+    done_message = 'Part 1, 2, 3, 4 have been done.'
     return done_message
 
 
 def separate_run(part, processes):
+    """
+    This function is used to choose one of four part to run by user.
+    :param part: The part will be run.
+    :param processes: The number of threads will be used, default is all.
+    :return: success message
+    """
+    message = ''
     if part == 1:
-        message_1 = first_part()
-        logger.info(message_1)
+        message = first_part()
     elif part == 2:
-        message_2 = second_part(processes)
-        logger.info(message_2)
+        message = second_part(processes)
     elif part == 3:
-        message_3 = third_part()
-        logger.info(message_3)
+        message = third_part()
     elif part == 4:
-        message_4 = fourth_part()
-        logger.info(message_4)
+        message = fourth_part()
+    return message
 
 
 # Run as script
@@ -388,7 +436,7 @@ if __name__ == '__main__':
     # Parse command-line
     args = parse_cmdline()
     # Set up logging
-    logger = logging.getLogger('average_nucleotide_identity.py: %s' % time.asctime())
+    logger = logging.getLogger('main_process.py: %s' % time.asctime())
     t0 = time.time()
     base_path = os.getcwd()
     logger.setLevel(logging.DEBUG)
@@ -424,24 +472,25 @@ if __name__ == '__main__':
     if args.outdirname is None:
         logger.error("No output directory name (exiting)")
         sys.exit(1)
-    if args.rerender:  # Rerendering, we want to overwrite graphics
-        args.force, args.noclobber = True, True
     make_outdir()
     logger.info("Output directory: %s", args.outdirname)
+    run_message = ''
     if args.part == 0:
         try:
-            auto_run(args.threads)
+            run_message = auto_run(args.threads)
         except OSError:
             logger.info('Try to run all 4 parts automatically but failed, please check.')
     elif 1 <= args.part <= 4:
         try:
-            separate_run(args.part, args.threads)
+            run_message = separate_run(args.part, args.threads)
         except OSError:
             logger.info('Try to run part {0} but failed, please check.'.format(args.part))
             logger.error(last_exception())
             sys.exit(1)
     else:
         logger.error('Part {0} is not valid, please choose one of [0|1|2|3|4].'.format(args.part))
+        sys.exit(1)
+    logger.info(run_message)
     # Report that we've finished
     logger.info("All jobs have been done: %s.", time.asctime())
     logger.info("Time taken: %.2fs", (time.time() - t0))

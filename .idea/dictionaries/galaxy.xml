@@ -3,9 +3,14 @@
     <words>
       <w>dirnames</w>
       <w>filenames</w>
+      <w>gformat</w>
       <w>indir</w>
       <w>indirname</w>
+      <w>levelname</w>
+      <w>noclobber</w>
       <w>outdirname</w>
+      <w>pyani</w>
+      <w>rerendering</w>
     </words>
   </dictionary>
 </component>
