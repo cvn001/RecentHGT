@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="08feb3a7-eff9-4e07-a141-440ecffdc126" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rHGT_alpha.R" afterPath="$PROJECT_DIR$/rHGT_alpha.R" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -467,7 +466,14 @@
       <option name="project" value="LOCAL" />
       <updated>1487841860915</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Modify rHGT_alpha.R">
+      <created>1487841921893</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1487841921893</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -513,7 +519,8 @@
     <MESSAGE value="Add some R scripts to src directory. These scripts are used to draw some pictures." />
     <MESSAGE value="add and modify some files." />
     <MESSAGE value="A lot of changes to main_process.py script." />
-    <option name="LAST_COMMIT_MESSAGE" value="A lot of changes to main_process.py script." />
+    <MESSAGE value="Modify rHGT_alpha.R" />
+    <option name="LAST_COMMIT_MESSAGE" value="Modify rHGT_alpha.R" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
