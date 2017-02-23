@@ -1,13 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="08feb3a7-eff9-4e07-a141-440ecffdc126" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/example_data/all_strain_pairs.zip" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/example_data/strains.txt" afterPath="" />
+    <list default="true" id="08feb3a7-eff9-4e07-a141-440ecffdc126" name="Default" comment="A lot of changes. Finally, the program can successfully run to completion.">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main_process.py" afterPath="$PROJECT_DIR$/main_process.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rHGT_alpha.R" afterPath="$PROJECT_DIR$/rHGT_alpha.R" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/draw_histograms.R" afterPath="$PROJECT_DIR$/draw_distribution.R" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -485,7 +480,14 @@
       <option name="project" value="LOCAL" />
       <updated>1487841950419</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="A lot of changes. Finally, the program can successfully run to completion.">
+      <created>1487864776252</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1487864776252</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -516,6 +518,7 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <MESSAGE value="add some descriptions" />
     <MESSAGE value="revised readme file" />
     <MESSAGE value="rename R script" />
@@ -533,7 +536,8 @@
     <MESSAGE value="A lot of changes to main_process.py script." />
     <MESSAGE value="Modify rHGT_alpha.R" />
     <MESSAGE value="Few changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Few changes" />
+    <MESSAGE value="A lot of changes. Finally, the program can successfully run to completion." />
+    <option name="LAST_COMMIT_MESSAGE" value="A lot of changes. Finally, the program can successfully run to completion." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
