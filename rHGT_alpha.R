@@ -63,10 +63,7 @@ em_implementation <- function(data_file, trim_min, trim_max, last_bin) {
   hgt_num <- length(last_bin_data) - best_fit_num
   return(list(all_gofs[best_fit], best_fit_num, hgt_num))
 }
-infer_HGT <- function(work_dir = getwd(), collections_dir_name = 'strain_pair_result',
-                      p_min = 50.0, p_max = 98.5) {
-  setwd(work_dir)
-  collections_dir <- file.path(work_dir, collections_dir_name)
+infer_HGT <- function(collections_dir, result_file, p_min = 50.0, p_max = 98.5) {
   all_files <- list.files(collections_dir)
   p_last_bin = c(p_max, 100.0)
   # run each file
@@ -85,12 +82,11 @@ infer_HGT <- function(work_dir = getwd(), collections_dir_name = 'strain_pair_re
   all_results <- data.frame(strain_pairs, hgt_results)
   colnames(all_results) <- c('Strain Pair', 'Recent HGT Number')
   # output
-  result_file <- file.path(work_dir, 'recent_HGT_results.txt')
   write.table(all_results, file = result_file, row.names = F, quote = F, col.names = T, sep = "\t")
 }
 args <- commandArgs(trailingOnly = T)
-workspace <- args[1]
-files_dir <- args[2]
+collections_dir <- args[1]
+result_file <- args[2]
 param_min <- as.numeric(args[3])
 param_max <- as.numeric(args[4])
-infer_HGT(workspace, files_dir, param_min, param_max)
+infer_HGT(collections_dir, result_file, param_min, param_max)

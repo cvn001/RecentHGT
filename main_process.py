@@ -63,7 +63,7 @@ def parse_cmdline():
                         help="Force file overwriting")
     parser.add_argument("--noclobber", dest="noclobber", action="store_true", default=False,
                         help="Don't nuke existing files")
-    parser.add_argument("--g", dest="gformat", action="store", default="pdf",
+    parser.add_argument("-g", dest="gformat", action="store", default="pdf",
                         help="Graphics output format(s) [pdf|png|jpg|svg]")
     return parser.parse_args()
 
@@ -116,7 +116,7 @@ def make_outdir():
             sys.exit(1)
 
 
-def load_strains_label(strain_file):
+def load_strains_info(strain_file):
     """
     This function is used to load strains information.
     :param strain_file: the path of the file contains the ids and names of strains.
@@ -124,15 +124,13 @@ def load_strains_label(strain_file):
     """
     logger.info('Loading strain information')
     strain_dict = defaultdict()
-    strain_list = []
     try:
         with open(strain_file, 'r') as f:
             for a_line in f.readlines():
                 a_list = a_line.strip().split('\t')
-                strain_name = a_list[1].split(' ')[2]
+                strain_name = a_list[1].split(' ')[-1]
                 strain_id = a_list[2]
                 strain_dict[strain_id] = strain_name
-                strain_list.append(strain_name)
     except IOError:
         logger.error("There is no file contains strain information or the file is locked, please check.")
         logger.error(last_exception())
@@ -189,8 +187,9 @@ def each_gene_needle_run(pair_gene_dir, tmp_gene_converted_dir, pair_gene_alignm
     needle_cline.gapopen = 10
     needle_cline.gapextend = 0.5
     needle_cline.outfile = result_file
+    devnull = open(os.devnull, 'w')
     try:
-        subprocess.call(str(needle_cline), shell=True)
+        subprocess.call(str(needle_cline), shell=True, stdout=devnull, stderr=devnull)
     except OSError:
         logger.info('Needle process failed, please check if Needle has been installed successfully.')
         logger.error(last_exception())
@@ -268,10 +267,9 @@ def first_part():
     return message
 
 
-def second_part(processes):
+def second_part():
     """
     It is the second part. It is used to call Needle program to do pairwise sequence alignment.
-    :param processes: Number of threads will be used. (default is all CPUs)
     :return: success message
     """
     logger.info('Part 2: Processing pairwise sequence alignment...')
@@ -280,15 +278,16 @@ def second_part(processes):
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
     strain_label_file = os.path.join(args.indirname, 'strain_info.txt')
-    p = Pool(processes)
-    all_strain_dict = load_strains_label(strain_label_file)
-    strain_results_collection_dir = os.path.join(args.indirname, 'strain_pair_result')
+    p = Pool(args.threads)
+    all_strain_dict = load_strains_info(strain_label_file)
+    strain_results_collection_dir = os.path.join(args.outdirname, 'strain_pair_result')
     if not os.path.exists(strain_results_collection_dir):
         os.makedirs(strain_results_collection_dir)
     pairs = []
     for root, dirs, files in os.walk(strain_pair_dir):
         for each_dir in dirs:
             pairs.append(each_dir)
+    logger.info('Running Needle sequence alignment in {0} threads, please wait...'.format(str(args.threads)))
     for each_pair in pairs:
         p.apply_async(each_strain_pair_run, args=(each_pair, strain_pair_dir, output_dir,
                                                   all_strain_dict, strain_results_collection_dir))
@@ -313,18 +312,22 @@ def third_part():
         sys.exit(1)
     strain_ani_matrix_file = os.path.join(ani_out_dir, 'ANIm_percentage_identity.tab')
     matrix_strain_dict = defaultdict()
+    strain_label_file = os.path.join(args.indirname, 'strain_info.txt')
+    all_strain_dict = load_strains_info(strain_label_file)
     tmp_matrix_lines = ''
     with open(strain_ani_matrix_file, 'r') as f1:
-        strain_list = f1.readlines()[0].strip().split('\t')[1:]
-        for each_strain in strain_list:
-            strain_index = strain_list.index(each_strain)
-            matrix_strain_dict[each_strain] = int(strain_index)
-        for each_line in f1.readlines()[1:]:
+        all_lines = f1.readlines()
+        strain_list = all_lines[0].strip().split('\t')
+        for strain_id in strain_list:
+            strain_name = all_strain_dict[strain_id]
+            strain_index = strain_list.index(strain_id)
+            matrix_strain_dict[strain_name] = int(strain_index)
+        for each_line in all_lines[1:]:
             tmp_list = each_line.strip().split('\t')
             tmp_line = ''
             for i in tmp_list[1:]:
-                i = float('%.3f' % i) * 100
-                tmp_line += '{0}\t'.format(str(i))
+                ani = float('%.3f' % float(i)) * 100
+                tmp_line += '{0}\t'.format(str(ani))
             tmp_matrix_lines += tmp_line.strip('\t') + '\n'
     tmp_matrix_file = os.path.join(args.outdirname, 'tmp.txt')
     with open(tmp_matrix_file, 'w') as f2:
@@ -348,18 +351,18 @@ def third_part():
             pair_name = str(pairs[0]) + '~' + str(pairs[1])
             pair_ani = ani_matrix[matrix_strain_dict[pairs[0]]][matrix_strain_dict[pairs[1]]]
             if pair_ani < 95:
-                with open(file_path) as f2:
-                    for line in f2.readlines()[1:]:
-                        result_line = '{0} ({1})\t{2}'.format(pair_name, pair_ani, line)
+                with open(file_path) as f3:
+                    for line in f3.readlines()[1:]:
+                        result_line = '{0} ({1}%)\t{2}'.format(pair_name, str(pair_ani), line)
                         result_dict[pairs[0]].append(result_line)
-    r_script = os.path.join(base_path, 'draw_identity_histograms.R')
+    r_script = os.path.join(base_path, 'draw_distribution.R')
     header_line = 'Pair\tGene\tIdentity\tAnnotation\n'
     for each_strain, results in result_dict.items():
         strain_result_file = os.path.join(all_result_dir, each_strain + '.txt')
-        with open(strain_result_file, 'w') as f3:
-            f3.write(header_line)
+        with open(strain_result_file, 'w') as f4:
+            f4.write(header_line)
             for each_result in results:
-                f3.write(each_result)
+                f4.write(each_result)
         each_result_picture = os.path.join(strain_pair_pictures_dir, '{0}.{1}'.format(each_strain, args.gformat))
         try:
             subprocess.call(['Rscript', r_script, strain_result_file, each_result_picture])
@@ -377,14 +380,17 @@ def fourth_part():
     It is the fourth part. It is used to call R script to infer the number of recent HGT genes.
     :return: success message
     """
+    result_dir = os.path.join(base_path, args.outdirname)
     logger.info('Part 4: Processing recent HGT detection...')
-    strain_result_dir_name = 'strain_pair_result'
+    strain_result_dir = os.path.join(result_dir, 'strain_pair_result')
     r_script = os.path.join(base_path, 'rHGT_alpha.R')
     param_min = 50.0
     param_max = 98.5
+    devnull = open(os.devnull, 'w')
+    result_file = os.path.join(result_dir, 'recent_HGT_results.txt')
     try:
-        subprocess.call(['Rscript', r_script, args.outdirname,
-                         strain_result_dir_name, str(param_min), str(param_max)])
+        subprocess.call(['Rscript', r_script, strain_result_dir, result_file,
+                         str(param_min), str(param_max)], stdout=devnull, stderr=devnull)
     except OSError:
         logger.info('Try to run {0} but failed, please check.'.format(r_script))
         logger.error(last_exception())
@@ -393,16 +399,15 @@ def fourth_part():
     return message
 
 
-def auto_run(processes):
+def auto_run():
     """
     This function is used to run all parts automatically.
-    :param processes: The number of threads will be used, default is all.
     :return: success message
     """
     logger.info('Automatically run all processes...')
     message_1 = first_part()
     logger.info(message_1)
-    message_2 = second_part(processes)
+    message_2 = second_part()
     logger.info(message_2)
     message_3 = third_part()
     logger.info(message_3)
@@ -412,18 +417,17 @@ def auto_run(processes):
     return done_message
 
 
-def separate_run(part, processes):
+def separate_run(part):
     """
     This function is used to choose one of four part to run by user.
     :param part: The part will be run.
-    :param processes: The number of threads will be used, default is all.
     :return: success message
     """
     message = ''
     if part == 1:
         message = first_part()
     elif part == 2:
-        message = second_part(processes)
+        message = second_part()
     elif part == 3:
         message = third_part()
     elif part == 4:
@@ -477,12 +481,12 @@ if __name__ == '__main__':
     run_message = ''
     if args.part == 0:
         try:
-            run_message = auto_run(args.threads)
+            run_message = auto_run()
         except OSError:
             logger.info('Try to run all 4 parts automatically but failed, please check.')
     elif 1 <= args.part <= 4:
         try:
-            run_message = separate_run(args.part, args.threads)
+            run_message = separate_run(args.part)
         except OSError:
             logger.info('Try to run part {0} but failed, please check.'.format(args.part))
             logger.error(last_exception())
