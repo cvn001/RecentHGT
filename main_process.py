@@ -2,10 +2,21 @@
 # -*- coding: UTF-8 -*-
 # Introduction: This script is used to prepare and run recent HGT detection automatically.
 # Created by galaxy on 2016/10/19 11:19
-
-# USAGE
-# ==========================================================================
 #
+# DEPENDENCIES
+# =============================================================================
+# Python (>=2.7):
+# o Biopython (http://www.biopython.org)
+# o Pyani (https://github.com/widdowquinn/pyani)
+# R (>=3.0.1):
+# o fitdistplus, ggplot2
+# Software:
+# o EMBOSS Needle (http://emboss.sourceforge.net/download/)
+# o MUMmer (http://mummer.sourceforge.net/)
+# =============================================================================
+#
+# USAGE
+# =============================================================================
 # calculate_ani.py [options]
 #
 # Options:
@@ -21,8 +32,31 @@
 #   -t, --threads         How many threads will be used? [default all]
 #   -g GFORMAT            Graphics output format(s) [pdf|png|jpg|svg]
 #   -l, --logfile         Logfile location
+# ==============================================================================
 #
-# ===========================================================================
+# The MIT License
+#
+# Copyright (c) 2010-2014 The James Hutton Institute
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in
+# all copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+# THE SOFTWARE.
+# ===============================================================================
+
 
 import os
 import re
