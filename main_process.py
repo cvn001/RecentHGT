@@ -4,7 +4,7 @@
 # Created by galaxy on 2016/10/19 11:19
 
 # USAGE
-# =====
+# ==========================================================================
 #
 # calculate_ani.py [options]
 #
@@ -21,6 +21,8 @@
 #   -t, --threads         How many threads will be used? [default all]
 #   -g GFORMAT            Graphics output format(s) [pdf|png|jpg|svg]
 #   -l, --logfile         Logfile location
+#
+# ===========================================================================
 
 import os
 import re
@@ -44,7 +46,7 @@ from collections import defaultdict
 def parse_cmdline():
     """
     Parse command-line arguments for script.
-    :return:
+    :return: Input command-line arguments
     """
     parser = ArgumentParser(prog="main_process.py")
     parser.add_argument("-i", "--indir", dest="indirname", action="store", default=None,
@@ -122,7 +124,7 @@ def load_strains_info(strain_file):
     :param strain_file: the path of the file contains the ids and names of strains.
     :return: a python dict
     """
-    logger.info('Loading strain information')
+    logger.info('Loading strain information...')
     strain_dict = defaultdict()
     try:
         with open(strain_file, 'r') as f:
@@ -239,6 +241,7 @@ def each_strain_pair_run(strain_pair, all_genes_dir, result_dir, strain_dict, st
     pair_result_collection_file = os.path.join(strain_results_dir, '{0}.txt'.format(strain_pair))
     with open(pair_result_collection_file, 'w') as f:
         f.write(pair_results)
+    logger.info('{0} is over.'.format(strain_pair))
 
 
 def first_part():
@@ -357,6 +360,8 @@ def third_part():
                         result_dict[pairs[0]].append(result_line)
     r_script = os.path.join(base_path, 'draw_distribution.R')
     header_line = 'Pair\tGene\tIdentity\tAnnotation\n'
+    devnull = open(os.devnull, 'w')
+    logger.info('Saving {0} pictures to {1} format.'.format(str(len(result_dict)), args.gformat))
     for each_strain, results in result_dict.items():
         strain_result_file = os.path.join(all_result_dir, each_strain + '.txt')
         with open(strain_result_file, 'w') as f4:
@@ -365,13 +370,14 @@ def third_part():
                 f4.write(each_result)
         each_result_picture = os.path.join(strain_pair_pictures_dir, '{0}.{1}'.format(each_strain, args.gformat))
         try:
-            subprocess.call(['Rscript', r_script, strain_result_file, each_result_picture])
+            subprocess.call(['Rscript', r_script, strain_result_file, each_result_picture],
+                            stdout=devnull, stderr=devnull)
         except OSError:
             logger.info('Try to run {0} but failed, please check.'.format(r_script))
             logger.error(last_exception())
             sys.exit(1)
     os.remove(tmp_matrix_file)
-    message = 'All pictures have been drew and placed in {0}'.format(strain_pair_pictures_dir)
+    message = 'All pictures have been saved in {0}'.format(strain_pair_pictures_dir)
     return message
 
 
@@ -497,4 +503,4 @@ if __name__ == '__main__':
     logger.info(run_message)
     # Report that we've finished
     logger.info("All jobs have been done: %s.", time.asctime())
-    logger.info("Time taken: %.2fs", (time.time() - t0))
+    logger.info("Total time taken: %.2fs", (time.time() - t0))
