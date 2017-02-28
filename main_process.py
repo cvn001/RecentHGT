@@ -76,7 +76,6 @@ from multiprocessing import Pool, cpu_count
 from collections import defaultdict
 
 
-# Process command-line arguments
 def parse_cmdline():
     """
     Parse command-line arguments for script.
@@ -104,7 +103,6 @@ def parse_cmdline():
     return parser.parse_args()
 
 
-# Report last exception as string
 def last_exception():
     """ Returns last exception as a string, or use in logging.
     """
@@ -179,7 +177,6 @@ def load_strains_info(strain_file, form=1):
     return strain_dict
 
 
-# Compress output directory and delete it
 def compress_delete_outdir(outdir):
     """Compress the contents of the passed directory to .tar.gz and delete."""
     # Compress output in .tar.gz file and remove raw output
@@ -425,9 +422,6 @@ def third_part():
     all_result_dir = os.path.join(args.outdirname, 'strain_result')
     if not os.path.exists(all_result_dir):
         os.makedirs(all_result_dir)
-    strain_pair_pictures_dir = os.path.join(args.outdirname, 'strain_distribution')
-    if not os.path.exists(strain_pair_pictures_dir):
-        os.makedirs(strain_pair_pictures_dir)
     (ani_matrix, matrix_strain_dict) = load_ani()
     result_dict = defaultdict(list)
     for root, dirs, files in os.walk(strain_result_dir):
@@ -444,7 +438,7 @@ def third_part():
                     for line in f3.readlines()[1:]:
                         result_line = '{0} ({1}%)\t{2}'.format(pair_name, str(pair_ani), line)
                         result_dict[pairs[0]].append(result_line)
-    r_script = os.path.join(base_path, 'draw_distribution.R')
+    r_script = os.path.join(src_dir_name, 'draw_distribution.R')
     header_line = 'Pair\tOrthologous\tIdentity\tAnnotation\n'
     devnull = open(os.devnull, 'w')
     logger.info('Saving {0} pictures to {1} format.'.format(str(len(result_dict)), args.gformat))
@@ -454,7 +448,7 @@ def third_part():
             f4.write(header_line)
             for each_result in results:
                 f4.write(each_result)
-        each_result_picture = os.path.join(strain_pair_pictures_dir, '{0}.{1}'.format(each_strain, args.gformat))
+        each_result_picture = os.path.join(all_result_dir, '{0}.{1}'.format(each_strain, args.gformat))
         try:
             subprocess.call(['Rscript', r_script, strain_result_file, each_result_picture],
                             stdout=devnull, stderr=devnull)
@@ -462,7 +456,7 @@ def third_part():
             logger.info('Try to run {0} but failed, please check.'.format(r_script))
             logger.error(last_exception())
             sys.exit(1)
-    message = 'All pictures have been saved in {0}'.format(strain_pair_pictures_dir)
+    message = 'All pictures have been saved in {0}'.format(all_result_dir)
     return message
 
 
@@ -474,7 +468,7 @@ def fourth_part():
     result_dir = args.outdirname
     logger.info('Part 4: Processing recent HGT detection...')
     strain_result_dir = os.path.join(result_dir, 'strain_pair_result')
-    r_script = os.path.join(base_path, 'rHGT_alpha.R')
+    r_script = os.path.join(src_dir_name, 'rHGT_alpha.R')
     param_min = 50.0
     param_max = 98.5
     devnull = open(os.devnull, 'w')
@@ -491,6 +485,12 @@ def fourth_part():
 
 
 def fifth_part():
+    """
+    It is the fifth part. It is used to call R script to draw the comparison between the number
+    of rHGTs and specific location genes (chromosome and plasmid genes) to show the accuracy.
+    :return: success message
+    """
+    logger.info('Part 5: Drawing the comparison pictures...')
     logger.info('Loading recent HGT results.')
     genome_dir = os.path.join(args.indirname, 'genbank')
     if not os.path.exists(genome_dir):
@@ -531,7 +531,7 @@ def fifth_part():
             with open(result_file, 'r') as f2:
                 for each_line in f2.readlines()[1:]:
                     b_list = each_line.strip().split('\t')
-                    identity = float(b_list[1])
+                    identity = float(b_list[2])
                     if identity >= 98.5:
                         og_id = b_list[0]
                         og_loc_value = og_location(og_id, all_gene_dict, pair_gene_dir)
@@ -554,7 +554,7 @@ def fifth_part():
             tmp_result_dict[each_pair] = [detect_num, loc_list[0], loc_list[1], loc_list[2]]
         f3.write(header_line + result_lines)
     tmp_order_list = ['rHGT', 'Chromosome', 'Plasmid', 'Ambiguity']
-    logger.info('Drawing the picture to show detection accuracy.')
+    logger.info('Drawing comparison pictures to show detection accuracy.')
     (ani_matrix, matrix_strain_dict) = load_ani()
     combine_result_dir = os.path.join(args.outdirname, 'combined_results')
     if not os.path.exists(combine_result_dir):
@@ -563,20 +563,31 @@ def fifth_part():
     for each_strain_id in strain_dict.keys():
         each_strain_name = strain_dict[each_strain_id][0]
         strain_list.append(each_strain_name)
+    r_script = os.path.join(src_dir_name, 'draw_rHGT_loc_genes.R')
+    devnull = open(os.devnull, 'w')
     for query_strain in strain_list:
         query_strain_result_file = os.path.join(combine_result_dir, query_strain + '.txt')
         with open(query_strain_result_file, 'w') as f4:
+            h = 'query.strain\ttype\tnumber\tani\n'
+            l = ''
             for other_strain in strain_list:
                 if other_strain != query_strain:
                     tmp_result_list = tmp_result_dict['{0}_{1}'.format(query_strain, other_strain)]
                     pair_ani = ani_matrix[matrix_strain_dict[query_strain]][matrix_strain_dict[other_strain]]
-                    h = 'strain.pair\ttype\tnumber\tani\n'
-                    l = ''
                     for i in tmp_result_list:
-                        index = tmp_result_list.index(i)
-                        l += '{0}\t{1}\t{2}\t{3}\n'.format(other_strain, tmp_order_list[index], i, pair_ani)
-                    f4.write(h + l)
-    message = '...'
+                        if i != '0':
+                            index = tmp_result_list.index(i)
+                            l += '{0} ({3})\t{1}\t{2}\t{3}\n'.format(other_strain, tmp_order_list[index], i, pair_ani)
+            f4.write(h + l)
+        comparison_pictures = os.path.join(combine_result_dir, '{0}.{1}'.format(query_strain, args.gformat))
+        try:
+            subprocess.call(['Rscript', r_script, query_strain_result_file, comparison_pictures],
+                            stdout=devnull, stderr=devnull)
+        except OSError:
+            logger.info('Try to run {0} but failed, please check.'.format(r_script))
+            logger.error(last_exception())
+            sys.exit(1)
+    message = 'All pictures have been saved in {0}'.format(combine_result_dir)
     return message
 
 
@@ -594,7 +605,9 @@ def auto_run():
     logger.info(message_3)
     message_4 = fourth_part()
     logger.info(message_4)
-    done_message = 'Part 1, 2, 3, 4 have been done.'
+    message_5 = fifth_part()
+    logger.info(message_5)
+    done_message = 'All 5 parts have been done.'
     return done_message
 
 
@@ -618,14 +631,14 @@ def separate_run(part):
     return message
 
 
-# Run as script
 if __name__ == '__main__':
+    # Run as script
     # Parse command-line
     args = parse_cmdline()
     # Set up logging
     logger = logging.getLogger('main_process.py: %s' % time.asctime())
     t0 = time.time()
-    base_path = os.getcwd()
+    src_dir_name = 'src'
     logger.setLevel(logging.DEBUG)
     err_handler = logging.StreamHandler(sys.stderr)
     err_formatter = logging.Formatter('%(levelname)s: %(message)s')
