@@ -1,5 +1,5 @@
-1	undefined undefined IE4803	379.112	CP007643.1
-2	undefined undefined CIAT652	379.114	CP001076.1
-3	undefined undefined CFN42	379.140	Rhizobium_etli_CFN_42_plasmid_symbiotic_plasmid_p42d
-4	undefined undefined N324	379.155	NZ_CP013633.1
-5	undefined undefined N741	379.159	NZ_CP013598.1
+1	undefined undefined IE4803	379.112	CP007641.1
+2	undefined undefined CIAT652	379.114	CP001074.1
+3	undefined undefined CFN42	379.140	Rhizobium_etli_CFN_42
+4	undefined undefined N324	379.155	NZ_CP013630.1
+5	undefined undefined N741	379.159	NZ_CP013595.1

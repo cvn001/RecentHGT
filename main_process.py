@@ -90,7 +90,7 @@ def parse_cmdline():
     parser.add_argument("-t", "--threads", type=int, dest="threads", default=cpu_count(),
                         help="How many threads will be used? [default all]")
     parser.add_argument("-p", "--part", type=int, dest="part", default=0,
-                        help="Which part will be run? [0|1|2|3|4]")
+                        help="Which part will be run? [0|1|2|3|4|5]")
     parser.add_argument("-v", "--verbose", dest="verbose", action="store_true", default=False,
                         help="Give verbose output")
     parser.add_argument("-l", "--logfile", dest="logfile", action="store", default=None,
@@ -110,11 +110,6 @@ def last_exception():
     """
     exc_type, exc_value, exc_traceback = sys.exc_info()
     return ''.join(traceback.format_exception(exc_type, exc_value, exc_traceback))
-
-
-def combine_dict(d1, d2):
-    d1.update(d2)
-    return d1
 
 
 def make_outdir():
@@ -199,22 +194,22 @@ def compress_delete_outdir(outdir):
 def load_genome(genbank, strain_chr_id):
     pattern_1 = re.compile(r'LOCUS\s+(.*?)\s+')
     pattern_2 = re.compile(r'/db_xref="SEED:fig\|(.*)"')
-    gene_dict = defaultdict()
-    locus = ''
+    genome_dict = defaultdict()
+    locus_value = 0
     with open(genbank, 'r') as f1:
         for each_line in f1.readlines():
             if 'LOCUS' in each_line:
                 m = re.search(pattern_1, each_line.strip())
                 locus = m.group(1)
-            if locus == strain_chr_id:
-                locus_value = 0
-            else:
-                locus_value = 1
-            if '/db_xref="SEED:' in each_line:
+                if locus == strain_chr_id:
+                    locus_value = 0
+                else:
+                    locus_value = 1
+            elif '/db_xref="SEED:' in each_line:
                 n = re.search(pattern_2, each_line.strip())
                 gene_id = n.group(1)
-                gene_dict[gene_id] = locus_value  # key: *.peg.*, value: 0,1
-    return gene_dict
+                genome_dict[gene_id] = locus_value  # key: *.peg.*, value: 0,1
+    return genome_dict
 
 
 def og_location(og_id, all_gene_dict, pair_gene_dir):
@@ -498,22 +493,22 @@ def fourth_part():
 def fifth_part():
     logger.info('Loading recent HGT results.')
     genome_dir = os.path.join(args.indirname, 'genbank')
+    if not os.path.exists(genome_dir):
+        logger.error('These is no directory contains genbank files, please check here.')
+        sys.exit(1)
     strain_id_list = []
-    for root, dirs, files in os.walk(genome_dir):
-        for each_file in files:
-            fname = os.path.splitext(each_file)     # The fname[0] is a strain id, e.g. 379.140.
-            strain_id_list.append(fname[0])
     strain_label_file = os.path.join(args.indirname, 'strain_info.txt')
     strain_dict = load_strains_info(strain_label_file, form=1)
-    strain_genome_dict = defaultdict()
     all_gene_dict = defaultdict()
-    for strain_id in strain_id_list:
-        genbank = os.path.join(genome_dir, strain_id + '.gbk')
-        strain_name = strain_dict[strain_id][0]
-        strain_chr_id = strain_dict[strain_id][1]
-        each_gene_dict = load_genome(genbank, strain_chr_id)
-        strain_genome_dict[strain_name] = each_gene_dict
-        all_gene_dict = combine_dict(all_gene_dict, each_gene_dict)
+    for root, dirs, files in os.walk(genome_dir):
+        for each_file in files:
+            fname = os.path.splitext(each_file)
+            strain_id = fname[0]                # The fname[0] is a strain id, e.g. 379.140.
+            strain_id_list.append(fname[0])
+            genbank = os.path.join(genome_dir, each_file)
+            strain_chr_id = strain_dict[strain_id][1]
+            each_genome_dict = load_genome(genbank, strain_chr_id)
+            all_gene_dict.update(each_genome_dict)
     result_dir = args.outdirname
     strain_result_dir = os.path.join(result_dir, 'strain_pair_result')
     hgt_result_file = os.path.join(args.outdirname, 'recent_HGT_results.txt')
@@ -536,9 +531,9 @@ def fifth_part():
             with open(result_file, 'r') as f2:
                 for each_line in f2.readlines()[1:]:
                     b_list = each_line.strip().split('\t')
-                    identity = float(b_list[2])
+                    identity = float(b_list[1])
                     if identity >= 98.5:
-                        og_id = b_list[1]
+                        og_id = b_list[0]
                         og_loc_value = og_location(og_id, all_gene_dict, pair_gene_dir)
                         if og_loc_value == 0:
                             chr_gene += 1
@@ -546,8 +541,8 @@ def fifth_part():
                             ambiguity_gene += 1
                         elif og_loc_value == 2:
                             plasmid_gene += 1
-            pair_gene_location_dict[strain_pair] = '{0}|{1}|{2}'.format(str(plasmid_gene),
-                                                                        str(chr_gene), str(ambiguity_gene))
+            pair_gene_location_dict[strain_pair] = '{0}|{1}|{2}'.format(str(chr_gene), str(plasmid_gene),
+                                                                        str(ambiguity_gene))
     tmp_result_dict = defaultdict()
     with open(hgt_result_file, 'w') as f3:
         header_line = 'strain.pair\trHGT.number\tgene.number\n'
@@ -561,7 +556,7 @@ def fifth_part():
     tmp_order_list = ['rHGT', 'Chromosome', 'Plasmid', 'Ambiguity']
     logger.info('Drawing the picture to show detection accuracy.')
     (ani_matrix, matrix_strain_dict) = load_ani()
-    combine_result_dir = os.path.join(args.indirname, 'combined_results')
+    combine_result_dir = os.path.join(args.outdirname, 'combined_results')
     if not os.path.exists(combine_result_dir):
         os.makedirs(combine_result_dir)
     strain_list = []
@@ -672,7 +667,7 @@ if __name__ == '__main__':
             run_message = auto_run()
         except OSError:
             logger.info('Try to run all 4 parts automatically but failed, please check.')
-    elif 1 <= args.part <= 4:
+    elif 1 <= args.part <= 5:
         try:
             run_message = separate_run(args.part)
         except OSError:
@@ -680,7 +675,7 @@ if __name__ == '__main__':
             logger.error(last_exception())
             sys.exit(1)
     else:
-        logger.error('Part {0} is not valid, please choose one of [0|1|2|3|4].'.format(args.part))
+        logger.error('Part {0} is not valid, please choose one of [0|1|2|3|4|5].'.format(args.part))
         sys.exit(1)
     logger.info(run_message)
     # Report that we've finished
