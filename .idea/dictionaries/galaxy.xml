@@ -10,7 +10,10 @@
       <w>indir</w>
       <w>indirname</w>
       <w>levelname</w>
+      <w>mmer</w>
       <w>noclobber</w>
+      <w>noninfringement</w>
+      <w>orthologous</w>
       <w>outdirname</w>
       <w>pyani</w>
       <w>rerendering</w>
