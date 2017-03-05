@@ -5,6 +5,8 @@
       <w>dirnames</w>
       <w>filenames</w>
       <w>fitdistplus</w>
+      <w>fname</w>
+      <w>genbank</w>
       <w>gformat</w>
       <w>ggplot</w>
       <w>indir</w>
@@ -14,6 +16,7 @@
       <w>noclobber</w>
       <w>noninfringement</w>
       <w>orthologous</w>
+      <w>outdir</w>
       <w>outdirname</w>
       <w>pyani</w>
       <w>rerendering</w>
