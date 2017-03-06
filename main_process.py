@@ -439,7 +439,7 @@ def third_part():
                         result_line = '{0} ({1}%)\t{2}'.format(pair_name, str(pair_ani), line)
                         result_dict[pairs[0]].append(result_line)
     r_script = os.path.join(src_dir_name, 'draw_distribution.R')
-    header_line = 'Pair\tOrthologous\tIdentity\tAnnotation\n'
+    header_line = 'Pair\tOrthologous\tGenes\tIdentity\tAnnotation\n'
     devnull = open(os.devnull, 'w')
     logger.info('Saving {0} pictures to {1} format.'.format(str(len(result_dict)), args.gformat))
     for each_strain, results in result_dict.items():

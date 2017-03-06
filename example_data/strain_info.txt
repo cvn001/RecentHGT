@@ -3,3 +3,4 @@
 3	undefined undefined CFN42	379.140	Rhizobium_etli_CFN_42
 4	undefined undefined N324	379.155	NZ_CP013630.1
 5	undefined undefined N741	379.159	NZ_CP013595.1
+6	undefined undefined Mim1	379.125	NC_021905.1
