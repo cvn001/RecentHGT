@@ -20,8 +20,8 @@ fit_distribution <- function(data, fit_method, fit_gof) {
 em_implementation <- function(data_file, trim_min, trim_max, last_bin) {
   # load and trim data
   my_data <- read.csv(data_file, sep = '\t', header = T)
-  trim_data <- my_data$Identity[my_data$Identity >= trim_min & my_data$Identity < trim_max]
-  last_bin_data <- my_data$Identity[my_data$Identity >= last_bin[1] & my_data$Identity <= last_bin[2]]
+  trim_data <- my_data$Similarity[my_data$Similarity >= trim_min & my_data$Similarity < trim_max]
+  last_bin_data <- my_data$Similarity[my_data$Similarity >= last_bin[1] & my_data$Similarity <= last_bin[2]]
   # EM implementation
   m <- c(0)
   fit_method <- 'mge'
@@ -63,7 +63,7 @@ em_implementation <- function(data_file, trim_min, trim_max, last_bin) {
   hgt_num <- length(last_bin_data) - best_fit_num
   return(list(all_gofs[best_fit], best_fit_num, hgt_num))
 }
-infer_HGT <- function(collections_dir, result_file, p_min = 50.0, p_max = 98.5) {
+infer_HGT <- function(collections_dir, result_file, p_min = 40.0, p_max = 98.5) {
   all_files <- list.files(collections_dir)
   p_last_bin = c(p_max, 100.0)
   # run each file

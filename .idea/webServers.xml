@@ -2,8 +2,8 @@
 <project version="4">
   <component name="WebServers">
     <option name="servers">
-      <webServer id="529e281b-5ee2-4116-b23d-b001d5c20ce7" name="bio_sever" url="http://120.95.131.222">
-        <fileTransfer host="120.95.131.222" port="22" rootFolder="/home/bioinfo" accessType="SFTP">
+      <webServer id="529e281b-5ee2-4116-b23d-b001d5c20ce7" name="bio_sever" url="http://120.95.131.94">
+        <fileTransfer host="120.95.131.94" port="22" rootFolder="/home/bioinfo" accessType="SFTP">
           <advancedOptions>
             <advancedOptions controlEncoding="UTF-8" dataProtectionLevel="Private" />
           </advancedOptions>

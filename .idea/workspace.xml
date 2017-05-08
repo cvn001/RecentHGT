@@ -2,12 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="08feb3a7-eff9-4e07-a141-440ecffdc126" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/rHGT_EM.iml" afterPath="$PROJECT_DIR$/.idea/rHGT_EM.iml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/example_data/genbank/379.112.gbk" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/example_data/genbank/379.114.gbk" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/example_data/genbank/379.140.gbk" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/example_data/genbank/379.155.gbk" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/example_data/genbank/379.159.gbk" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/deployment.xml" afterPath="$PROJECT_DIR$/.idea/deployment.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dictionaries/galaxy.xml" afterPath="$PROJECT_DIR$/.idea/dictionaries/galaxy.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/webServers.xml" afterPath="$PROJECT_DIR$/.idea/webServers.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/example_data/strain_info.txt" afterPath="$PROJECT_DIR$/example_data/strain_info.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main_process.py" afterPath="$PROJECT_DIR$/main_process.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/draw_distribution.R" afterPath="$PROJECT_DIR$/src/draw_distribution.R" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/fetch_pairwise_genome.py" afterPath="$PROJECT_DIR$/src/fetch_pairwise_genome.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/rHGT_alpha.R" afterPath="$PROJECT_DIR$/src/rHGT_alpha.R" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/run_ITEP.sh" afterPath="$PROJECT_DIR$/src/run_ITEP.sh" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/rHGT_EM.iml" afterPath="$PROJECT_DIR$/.idea/RecentHGT.iml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -17,10 +28,34 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/rHGT_EM$fetch_high_similarity_gene_loc.coverage" NAME="fetch_high_similarity_gene_loc Coverage Results" MODIFIED="1490682667359" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test_out" />
+    <SUITE FILE_PATH="coverage/rHGT_EM$fetch_gene_annotations.coverage" NAME="fetch_gene_annotations Coverage Results" MODIFIED="1492363533513" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test_out_pSym" />
+    <SUITE FILE_PATH="coverage/rHGT_EM$combine_strain_pair_results__2_.coverage" NAME="combine_strain_pair_results (2) Coverage Results" MODIFIED="1493235933646" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test_out_rhizobia" />
+    <SUITE FILE_PATH="coverage/rHGT_EM$prepare_circos_data.coverage" NAME="prepare_circos_data Coverage Results" MODIFIED="1491157884078" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test_out" />
+    <SUITE FILE_PATH="coverage/rHGT_EM$fetch_all_combined_results.coverage" NAME="fetch_all_combined_results Coverage Results" MODIFIED="1494115289774" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test_out_pha_mim_tri" />
+    <SUITE FILE_PATH="coverage/rHGT_EM$combine_strain_pair_results__1_.coverage" NAME="combine_strain_pair_results (1) Coverage Results" MODIFIED="1493451363306" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test_out_pSym" />
+    <SUITE FILE_PATH="coverage/rHGT_EM$fetch_hgt_core_gene_gc_content.coverage" NAME="fetch_hgt_core_gene_gc_content Coverage Results" MODIFIED="1493825054027" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test_out_pha_mim_tri/HGT_Core_Gene_GC_Content" />
+    <SUITE FILE_PATH="coverage/rHGT_EM$fetch_strain_pair_high_similarity_gene_loc.coverage" NAME="fetch_strain_pair_high_similarity_gene_loc Coverage Results" MODIFIED="1490878725133" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test_out" />
+    <SUITE FILE_PATH="coverage/rHGT_EM$fetch_hgt_genes.coverage" NAME="fetch_hgt_genes Coverage Results" MODIFIED="1494116978433" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test_out_pha_mim_tri" />
+    <SUITE FILE_PATH="coverage/rHGT_EM$fetch_weibull_discription__1_.coverage" NAME="fetch_weibull_discription (1) Coverage Results" MODIFIED="1493236769172" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test_out_rhizobia" />
+    <SUITE FILE_PATH="coverage/rHGT_EM$fetch_weibull_discription.coverage" NAME="fetch_weibull_discription Coverage Results" MODIFIED="1493232176225" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test_out_no_pSym" />
     <SUITE FILE_PATH="coverage/rHGT_EM$1.coverage" NAME="1 Coverage Results" MODIFIED="1488122389527" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/rHGT_EM$prepare_circos_data__1_.coverage" NAME="prepare_circos_data (1) Coverage Results" MODIFIED="1491221805166" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test_out_pha_mim_tri" />
+    <SUITE FILE_PATH="coverage/rHGT_EM$fetch_hgt_proportion_pSym.coverage" NAME="fetch_hgt_proportion_pSym Coverage Results" MODIFIED="1492370105069" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test_out_pSym" />
+    <SUITE FILE_PATH="coverage/rHGT_EM$fetch_pSym_ogs.coverage" NAME="fetch_pSym_ogs Coverage Results" MODIFIED="1492361444119" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test_out_pSym" />
+    <SUITE FILE_PATH="coverage/rHGT_EM$combine_strain_pair_results.coverage" NAME="combine_strain_pair_results Coverage Results" MODIFIED="1493231881860" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test_out_no_pSym" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_TABLE_DETAILS" value="true" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
@@ -28,39 +63,41 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="main_process.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/main_process.py">
+      <file leaf-file-name="fetch_hgt_genes.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/test_out_pha_mim_tri/fetch_hgt_genes.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2100">
-              <caret line="454" column="23" lean-forward="false" selection-start-line="454" selection-start-column="23" selection-end-line="454" selection-end-column="23" />
-              <folding>
-                <element signature="n#!!doc" expanded="false" />
-                <element signature="e#3062#4571#0" expanded="false" />
-                <element signature="e#4600#4805#0" expanded="false" />
-                <element signature="e#4831#6523#0" expanded="false" />
-                <element signature="e#6574#7625#0" expanded="false" />
-                <element signature="e#7668#8065#0" expanded="false" />
-                <element signature="e#8113#8858#0" expanded="false" />
-                <element signature="e#8919#9585#0" expanded="false" />
-                <element signature="e#9608#11155#0" expanded="false" />
-                <element signature="e#11267#14113#0" expanded="false" />
-                <element signature="e#14219#15919#0" expanded="false" />
-                <element signature="e#15944#17086#0" expanded="false" />
-                <element signature="e#20986#21907#0" expanded="false" />
-                <element signature="e#21932#27593#0" expanded="false" />
-                <element signature="e#27616#28123#0" expanded="false" />
-                <element signature="e#28154#28593#0" expanded="false" />
-                <element signature="e#28627#31073#0" expanded="false" />
-              </folding>
+            <state relative-caret-position="637">
+              <caret line="34" column="0" lean-forward="true" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="fetch_pairwise_genome.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/fetch_pairwise_genome.py">
+      <file leaf-file-name="N771.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test_out_pha_mim_tri/N771.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1360">
-              <caret line="66" column="22" lean-forward="false" selection-start-line="66" selection-start-column="22" selection-end-line="66" selection-end-column="22" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="all_strain_pair_combined_results.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test_out_pha_mim_tri/all_strain_pair_combined_results.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="30" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="recent_HGT_results.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test_out_pha_mim_tri/recent_HGT_results.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="35">
+              <caret line="1" column="20" lean-forward="false" selection-start-line="1" selection-start-column="20" selection-end-line="1" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -82,11 +119,15 @@
       <find>strain_dict</find>
       <find>base</find>
       <find>strain_pair_O</find>
+      <find>1689</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="ROOT_SYNC" value="DONT_SYNC" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="PUSH_TAGS">
+      <GitPushTagMode />
+    </option>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -101,8 +142,34 @@
         <option value="$PROJECT_DIR$/1.tex" />
         <option value="$PROJECT_DIR$/example_data/strain_info.txt" />
         <option value="$PROJECT_DIR$/1.py" />
+        <option value="$PROJECT_DIR$/test_out/fetch_high_similarity_gene_loc.py" />
+        <option value="$PROJECT_DIR$/test_out/strain_info.txt" />
+        <option value="$PROJECT_DIR$/src/draw_distribution.R" />
+        <option value="$PROJECT_DIR$/src/rHGT_alpha.R" />
+        <option value="$PROJECT_DIR$/test_out/fetch_strain_pair_high_similarity_gene_loc.py" />
+        <option value="$PROJECT_DIR$/test_out/prepare_circos_data.py" />
+        <option value="$PROJECT_DIR$/test_out_pha_mim_tri/combined_results/CFN42.txt" />
+        <option value="$PROJECT_DIR$/test_out_pha_mim_tri/combined_results/N771.txt" />
+        <option value="$PROJECT_DIR$/test_out_pha_mim_tri/prepare_circos_data.py" />
+        <option value="$PROJECT_DIR$/test_out_pha_mim_tri/correlation_analysis.py" />
+        <option value="$PROJECT_DIR$/test_out_pha_mim_tri/correlation_analysis_hgt_ani.py" />
+        <option value="$PROJECT_DIR$/test_out_pha_mim_tri/fetch_hgt_core_gene_gc_content.py" />
+        <option value="$PROJECT_DIR$/test_out_pSym/fetch_pSym_ogs.py" />
+        <option value="$PROJECT_DIR$/test_out_pSym/fetch_gene_annotations.py" />
+        <option value="$PROJECT_DIR$/test_out_pSym/all_strain_pair_hgt_result.txt" />
+        <option value="$PROJECT_DIR$/test_out_pSym/fetch_hgt_proportion_pSym.py" />
         <option value="$PROJECT_DIR$/src/fetch_pairwise_genome.py" />
+        <option value="$PROJECT_DIR$/src/rename_dir.py" />
+        <option value="$PROJECT_DIR$/test_out_pha_mim_tri/fetch_weibull_discription.py" />
+        <option value="$PROJECT_DIR$/test_out_no_pSym/combine_strain_pair_results.py" />
+        <option value="$PROJECT_DIR$/test_out_no_pSym/fetch_weibull_discription.py" />
+        <option value="$PROJECT_DIR$/test_out_rhizobia/combine_strain_pair_results.py" />
+        <option value="$PROJECT_DIR$/test_out_rhizobia/fetch_weibull_discription.py" />
+        <option value="$PROJECT_DIR$/test_out_pSym/combine_strain_pair_results.py" />
+        <option value="$PROJECT_DIR$/test_out_pha_mim_tri/HGT_Core_Gene_GC_Content/fetch_hgt_core_gene_gc_content.py" />
         <option value="$PROJECT_DIR$/main_process.py" />
+        <option value="$PROJECT_DIR$/test_out_pha_mim_tri/fetch_all_combined_results.py" />
+        <option value="$PROJECT_DIR$/test_out_pha_mim_tri/fetch_hgt_genes.py" />
       </list>
     </option>
   </component>
@@ -130,45 +197,17 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="rHGT_EM" />
+              <option name="myItemId" value="RecentHGT" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="rHGT_EM" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="rHGT_EM" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="rHGT_EM" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="rHGT_EM" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="rHGT_EM" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="example_data" />
+              <option name="myItemId" value="RecentHGT" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -179,25 +218,95 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
-  <component name="RunManager" selected="Python.1">
-    <configuration default="false" name="1" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Python.fetch_hgt_genes">
+    <configuration default="false" name="fetch_all_combined_results" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test_out_pha_mim_tri" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="rHGT_EM" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/1.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test_out_pha_mim_tri/fetch_all_combined_results.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="combine_strain_pair_results (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test_out_pSym" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="rHGT_EM" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test_out_pSym/combine_strain_pair_results.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="combine_strain_pair_results (2)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test_out_rhizobia" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="rHGT_EM" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test_out_rhizobia/combine_strain_pair_results.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="fetch_weibull_discription (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test_out_rhizobia" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="rHGT_EM" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test_out_rhizobia/fetch_weibull_discription.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
       <method />
     </configuration>
     <configuration default="true" type="DjangoTestsConfigurationType" factoryName="Django tests">
@@ -264,6 +373,7 @@
       <option name="SCRIPT_NAME" value="" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
       <method />
     </configuration>
     <configuration default="true" type="Tox" factoryName="Tox">
@@ -277,26 +387,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <module name="rHGT_EM" />
-      <method />
-    </configuration>
-    <configuration default="true" type="tests" factoryName="Attests">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="rHGT_EM" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="FOLDER_NAME" value="" />
-      <option name="TEST_TYPE" value="TEST_SCRIPT" />
-      <option name="PATTERN" value="" />
-      <option name="USE_PATTERN" value="false" />
       <method />
     </configuration>
     <configuration default="true" type="tests" factoryName="Doctests">
@@ -330,15 +420,10 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="rHGT_EM" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="FOLDER_NAME" value="" />
-      <option name="TEST_TYPE" value="TEST_SCRIPT" />
-      <option name="PATTERN" value="" />
-      <option name="USE_PATTERN" value="false" />
-      <option name="PARAMS" value="" />
-      <option name="USE_PARAM" value="false" />
+      <option name="_new_regexPattern" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;.&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method />
     </configuration>
     <configuration default="true" type="tests" factoryName="Unittests">
@@ -352,19 +437,103 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="rHGT_EM" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="FOLDER_NAME" value="" />
-      <option name="TEST_TYPE" value="TEST_SCRIPT" />
-      <option name="PATTERN" value="" />
-      <option name="USE_PATTERN" value="false" />
-      <option name="PUREUNITTEST" value="true" />
-      <option name="PARAMS" value="" />
-      <option name="USE_PARAM" value="false" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;.&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method />
     </configuration>
     <configuration default="true" type="tests" factoryName="py.test">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="rHGT_EM" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;.&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method />
+    </configuration>
+    <configuration default="false" name="fetch_hgt_genes" type="PythonConfigurationType" factoryName="Python">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test_out_pha_mim_tri" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="rHGT_EM" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test_out_pha_mim_tri/fetch_hgt_genes.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="fetch_hgt_core_gene_gc_content" type="PythonConfigurationType" factoryName="Python">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test_out_pha_mim_tri/HGT_Core_Gene_GC_Content" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="rHGT_EM" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test_out_pha_mim_tri/HGT_Core_Gene_GC_Content/fetch_hgt_core_gene_gc_content.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="prepare_circos_data" type="PythonConfigurationType" factoryName="Python">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test_out" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="rHGT_EM" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test_out/prepare_circos_data.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <method />
+    </configuration>
+    <list size="7">
+      <item index="0" class="java.lang.String" itemvalue="Python.fetch_hgt_genes" />
+      <item index="1" class="java.lang.String" itemvalue="Python.fetch_hgt_core_gene_gc_content" />
+      <item index="2" class="java.lang.String" itemvalue="Python.prepare_circos_data" />
+      <item index="3" class="java.lang.String" itemvalue="Python.fetch_all_combined_results" />
+      <item index="4" class="java.lang.String" itemvalue="Python.combine_strain_pair_results (1)" />
+      <item index="5" class="java.lang.String" itemvalue="Python.combine_strain_pair_results (2)" />
+      <item index="6" class="java.lang.String" itemvalue="Python.fetch_weibull_discription (1)" />
+    </list>
+    <recent_temporary>
+      <list size="4">
+        <item index="0" class="java.lang.String" itemvalue="Python.fetch_all_combined_results" />
+        <item index="1" class="java.lang.String" itemvalue="Python.combine_strain_pair_results (1)" />
+        <item index="2" class="java.lang.String" itemvalue="Python.fetch_weibull_discription (1)" />
+        <item index="3" class="java.lang.String" itemvalue="Python.combine_strain_pair_results (2)" />
+      </list>
+    </recent_temporary>
+    <configuration default="true" type="tests" factoryName="Attests">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs />
@@ -382,21 +551,8 @@
       <option name="TEST_TYPE" value="TEST_SCRIPT" />
       <option name="PATTERN" value="" />
       <option name="USE_PATTERN" value="false" />
-      <option name="testToRun" value="" />
-      <option name="keywords" value="" />
-      <option name="params" value="" />
-      <option name="USE_PARAM" value="false" />
-      <option name="USE_KEYWORD" value="false" />
       <method />
     </configuration>
-    <list size="1">
-      <item index="0" class="java.lang.String" itemvalue="Python.1" />
-    </list>
-    <recent_temporary>
-      <list size="1">
-        <item index="0" class="java.lang.String" itemvalue="Python.1" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
@@ -664,7 +820,14 @@
       <option name="project" value="LOCAL" />
       <updated>1488298501504</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="Some bugs repair.">
+      <created>1488789160917</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1488789160917</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TodoView">
@@ -678,34 +841,36 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20729166" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17246835" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Regex Tester" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32814237" sideWeight="0.5021075" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32717392" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32586786" sideWeight="0.49789253" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.66852057" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3243968" sideWeight="0.5021075" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6681319" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32527474" sideWeight="0.49789253" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.9231806" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297587" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.32969153" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32527474" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="R Packages" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="R Graphics" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add some descriptions" />
     <MESSAGE value="revised readme file" />
     <MESSAGE value="rename R script" />
     <MESSAGE value="rename Python script" />
@@ -730,723 +895,272 @@
     <MESSAGE value="some modifies to the part 5 in main_process." />
     <MESSAGE value="Complete the part 5 in main_process." />
     <MESSAGE value="Upload some scripts and data files." />
-    <option name="LAST_COMMIT_MESSAGE" value="Upload some scripts and data files." />
+    <MESSAGE value="Some bugs repair." />
+    <option name="LAST_COMMIT_MESSAGE" value="Some bugs repair." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="6" />
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/main_process.py</url>
+          <line>78</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="7" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/main_process.py">
+    <entry file="file://$PROJECT_DIR$/test_out_pha_mim_tri/combined_results/IE4771.txt" />
+    <entry file="file://$PROJECT_DIR$/test_out_pha_mim_tri/circos_data.txt" />
+    <entry file="file://$PROJECT_DIR$/test_out_pha_mim_tri/prepare_circos_data.py" />
+    <entry file="file://$PROJECT_DIR$/test_out_pha_mim_tri/combined_results/WSM1325.txt" />
+    <entry file="file://$PROJECT_DIR$/test_out_pha_mim_tri/correlation_analysis_hgt_ani.py" />
+    <entry file="file://$PROJECT_DIR$/test_out_pha_mim_tri/strain_pair_result/CFN42_N771.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-            <element signature="e#3062#4571#0" expanded="false" />
-            <element signature="e#4600#4805#0" expanded="false" />
-            <element signature="e#4831#6523#0" expanded="false" />
-            <element signature="e#6574#7625#0" expanded="false" />
-            <element signature="e#7668#8065#0" expanded="false" />
-            <element signature="e#8113#8858#0" expanded="false" />
-            <element signature="e#8919#9585#0" expanded="false" />
-            <element signature="e#9608#11155#0" expanded="false" />
-            <element signature="e#11267#14113#0" expanded="false" />
-            <element signature="e#14219#15919#0" expanded="false" />
-            <element signature="e#15944#17086#0" expanded="false" />
-            <element signature="e#20986#21907#0" expanded="false" />
-            <element signature="e#21932#27593#0" expanded="false" />
-            <element signature="e#27616#28123#0" expanded="false" />
-            <element signature="e#28154#28593#0" expanded="false" />
-            <element signature="e#28627#31073#0" expanded="false" />
-          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_out_pha_mim_tri/strain_result/CFN42.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_out/fetch_high_similarity_gene_loc.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="421">
+          <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_out/CFN42_N771_high_similarity_gene_locus.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_out_pha_mim_tri/fetch_hgt_core_gene_gc_content.py" />
+    <entry file="file://$PROJECT_DIR$/test_out_pha_mim_tri/HGT_Core_Gene_GC_Content/fna/CFN42.fna" />
+    <entry file="file://$PROJECT_DIR$/test_out_pha_mim_tri/HGT_Core_Gene_GC_Content/GC_out/CFN42/Plasmid.txt" />
+    <entry file="file://$PROJECT_DIR$/test_out_pha_mim_tri/HGT_Core_Gene_GC_Content/GC_out/CFN42/Chromosome.txt" />
+    <entry file="file://$PROJECT_DIR$/test_out_pSym/strain_pair_result/CFN42_IE4771.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="35">
+          <caret line="1" column="4" lean-forward="false" selection-start-line="1" selection-start-column="2" selection-end-line="1" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_out_pSym/fetch_gene_annotations.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="37" column="52" lean-forward="true" selection-start-line="37" selection-start-column="52" selection-end-line="37" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_out_pSym/recent_HGT_results.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_out_pSym/all_genes_annotations/all_pSym_core_gene_annotation.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="53">
+          <caret line="9" column="34" lean-forward="true" selection-start-line="9" selection-start-column="34" selection-end-line="9" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/rHGT_alpha.R">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="5" column="14" lean-forward="true" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_out_pSym/fetch_hgt_proportion_pSym.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="812">
+          <caret line="32" column="40" lean-forward="false" selection-start-line="32" selection-start-column="40" selection-end-line="32" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_out_pSym/all_strain_pair_core_genes.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_out_pSym/all_strain_pair_hgt_result.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="12" column="24" lean-forward="false" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_out_pSym/pSym_genes_num.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_out_pSym/all_strain_pair_hgt_pSym_num_pre.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="10" column="38" lean-forward="false" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/rename_dir.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="427">
+          <caret line="20" column="41" lean-forward="false" selection-start-line="20" selection-start-column="41" selection-end-line="20" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/strain_info.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_out_no_pSym/strain_pair_result/CFN42_IE4771.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_out_no_pSym/strain_info.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_out_no_pSym/strain_result/CFN42.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="35">
+          <caret line="1" column="12" lean-forward="false" selection-start-line="1" selection-start-column="12" selection-end-line="1" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/fetch_pairwise_genome.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="20" column="16" lean-forward="false" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
+        <state relative-caret-position="610">
+          <caret line="42" column="31" lean-forward="false" selection-start-line="42" selection-start-column="4" selection-end-line="42" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_out_pha_mim_tri/fetch_weibull_discription.py" />
+    <entry file="file://$PROJECT_DIR$/test_out_no_pSym/all_strain_pair_result.txt" />
+    <entry file="file://$PROJECT_DIR$/test_out_no_pSym/combine_strain_pair_results.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-105">
+          <caret line="23" column="27" lean-forward="false" selection-start-line="23" selection-start-column="27" selection-end-line="23" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_out_no_pSym/fetch_weibull_discription.py" />
+    <entry file="file://$PROJECT_DIR$/test_out_no_pSym/all_strain_pair_weibull_description.txt" />
+    <entry file="file://$PROJECT_DIR$/test_out_rhizobia/all_strain_pair_result.txt" />
+    <entry file="file://$PROJECT_DIR$/test_out_rhizobia/strain_pair_result/1021_CFN42.txt" />
+    <entry file="file://$PROJECT_DIR$/test_out_rhizobia/combine_strain_pair_results.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_out_rhizobia/fetch_weibull_discription.py" />
+    <entry file="file://$PROJECT_DIR$/test_out_rhizobia/all_strain_pair_weibull_description.txt" />
+    <entry file="file://$PROJECT_DIR$/test_out_pSym/fetch_pSym_ogs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="735">
+          <caret line="22" column="46" lean-forward="false" selection-start-line="22" selection-start-column="46" selection-end-line="22" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_out_pSym/strain_result/CFN42.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_out_pSym/all_strain_pair_result.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-23792">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_out_pSym/combine_strain_pair_results.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="637">
+          <caret line="46" column="0" lean-forward="false" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_out_pha_mim_tri/HGT_Core_Gene_GC_Content/fetch_hgt_core_gene_gc_content.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="52" column="0" lean-forward="true" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_out_pha_mim_tri/combined_results/CFN42.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_out_pha_mim_tri/fetch_all_combined_results.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="19" column="31" lean-forward="true" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main_process.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="754">
+          <caret line="593" column="46" lean-forward="false" selection-start-line="593" selection-start-column="46" selection-end-line="593" selection-end-column="46" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+            <element signature="e#3062#4571#0" expanded="false" />
+            <element signature="e#4600#4805#0" expanded="false" />
+            <element signature="e#4831#6523#0" expanded="false" />
+            <element signature="e#6574#7770#0" expanded="false" />
+            <element signature="e#9858#11405#0" expanded="false" />
+            <element signature="e#11517#14439#0" expanded="false" />
+            <element signature="e#14545#16254#0" expanded="false" />
+            <element signature="e#16279#17421#0" expanded="false" />
+            <element signature="e#17447#18875#0" expanded="false" />
+            <element signature="e#18900#21299#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_out_pha_mim_tri/all_strain_pair_combined_results.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="30" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="30" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main_process.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="12300">
-          <caret line="410" column="42" lean-forward="true" selection-start-line="410" selection-start-column="42" selection-end-line="410" selection-end-column="42" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-            <element signature="e#3062#4571#0" expanded="false" />
-            <element signature="e#4600#4805#0" expanded="false" />
-            <element signature="e#4831#6523#0" expanded="false" />
-            <element signature="e#6574#7625#0" expanded="false" />
-            <element signature="e#7668#8065#0" expanded="false" />
-            <element signature="e#8113#8858#0" expanded="false" />
-            <element signature="e#8919#9585#0" expanded="false" />
-            <element signature="e#9608#11155#0" expanded="false" />
-            <element signature="e#11267#14113#0" expanded="false" />
-            <element signature="e#14219#15919#0" expanded="false" />
-            <element signature="e#15944#17086#0" expanded="false" />
-            <element signature="e#20986#21907#0" expanded="false" />
-            <element signature="e#21932#27593#0" expanded="false" />
-            <element signature="e#27616#28123#0" expanded="false" />
-            <element signature="e#28154#28593#0" expanded="false" />
-            <element signature="e#28627#31073#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="0">
-            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main_process.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-            <element signature="e#3062#4571#0" expanded="false" />
-            <element signature="e#4600#4805#0" expanded="false" />
-            <element signature="e#4831#6523#0" expanded="false" />
-            <element signature="e#6574#7625#0" expanded="false" />
-            <element signature="e#7668#8065#0" expanded="false" />
-            <element signature="e#8113#8858#0" expanded="false" />
-            <element signature="e#8919#9585#0" expanded="false" />
-            <element signature="e#9608#11155#0" expanded="false" />
-            <element signature="e#11267#14113#0" expanded="false" />
-            <element signature="e#14219#15919#0" expanded="false" />
-            <element signature="e#15944#17086#0" expanded="false" />
-            <element signature="e#20986#21907#0" expanded="false" />
-            <element signature="e#21932#27593#0" expanded="false" />
-            <element signature="e#27616#28123#0" expanded="false" />
-            <element signature="e#28154#28593#0" expanded="false" />
-            <element signature="e#28627#31073#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main_process.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-            <element signature="e#3062#4571#0" expanded="false" />
-            <element signature="e#4600#4805#0" expanded="false" />
-            <element signature="e#4831#6523#0" expanded="false" />
-            <element signature="e#6574#7625#0" expanded="false" />
-            <element signature="e#7668#8065#0" expanded="false" />
-            <element signature="e#8113#8858#0" expanded="false" />
-            <element signature="e#8919#9585#0" expanded="false" />
-            <element signature="e#9608#11155#0" expanded="false" />
-            <element signature="e#11267#14113#0" expanded="false" />
-            <element signature="e#14219#15919#0" expanded="false" />
-            <element signature="e#15944#17086#0" expanded="false" />
-            <element signature="e#20986#21907#0" expanded="false" />
-            <element signature="e#21932#27593#0" expanded="false" />
-            <element signature="e#27616#28123#0" expanded="false" />
-            <element signature="e#28154#28593#0" expanded="false" />
-            <element signature="e#28627#31073#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main_process.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1140">
-          <caret line="38" column="50" lean-forward="false" selection-start-line="38" selection-start-column="50" selection-end-line="38" selection-end-column="50" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-            <element signature="e#3062#4571#0" expanded="false" />
-            <element signature="e#4600#4805#0" expanded="false" />
-            <element signature="e#4831#6523#0" expanded="false" />
-            <element signature="e#6574#7625#0" expanded="false" />
-            <element signature="e#7668#8065#0" expanded="false" />
-            <element signature="e#8113#8858#0" expanded="false" />
-            <element signature="e#8919#9585#0" expanded="false" />
-            <element signature="e#9608#11155#0" expanded="false" />
-            <element signature="e#11267#14113#0" expanded="false" />
-            <element signature="e#14219#15919#0" expanded="false" />
-            <element signature="e#15944#17086#0" expanded="false" />
-            <element signature="e#20986#21907#0" expanded="false" />
-            <element signature="e#21932#27593#0" expanded="false" />
-            <element signature="e#27616#28123#0" expanded="false" />
-            <element signature="e#28154#28593#0" expanded="false" />
-            <element signature="e#28627#31073#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="0">
-            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main_process.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-            <element signature="e#3062#4571#0" expanded="false" />
-            <element signature="e#4600#4805#0" expanded="false" />
-            <element signature="e#4831#6523#0" expanded="false" />
-            <element signature="e#6574#7625#0" expanded="false" />
-            <element signature="e#7668#8065#0" expanded="false" />
-            <element signature="e#8113#8858#0" expanded="false" />
-            <element signature="e#8919#9585#0" expanded="false" />
-            <element signature="e#9608#11155#0" expanded="false" />
-            <element signature="e#11267#14113#0" expanded="false" />
-            <element signature="e#14219#15919#0" expanded="false" />
-            <element signature="e#15944#17086#0" expanded="false" />
-            <element signature="e#20986#21907#0" expanded="false" />
-            <element signature="e#21932#27593#0" expanded="false" />
-            <element signature="e#27616#28123#0" expanded="false" />
-            <element signature="e#28154#28593#0" expanded="false" />
-            <element signature="e#28627#31073#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main_process.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-            <element signature="e#3062#4571#0" expanded="false" />
-            <element signature="e#4600#4805#0" expanded="false" />
-            <element signature="e#4831#6523#0" expanded="false" />
-            <element signature="e#6574#7625#0" expanded="false" />
-            <element signature="e#7668#8065#0" expanded="false" />
-            <element signature="e#8113#8858#0" expanded="false" />
-            <element signature="e#8919#9585#0" expanded="false" />
-            <element signature="e#9608#11155#0" expanded="false" />
-            <element signature="e#11267#14113#0" expanded="false" />
-            <element signature="e#14219#15919#0" expanded="false" />
-            <element signature="e#15944#17086#0" expanded="false" />
-            <element signature="e#20986#21907#0" expanded="false" />
-            <element signature="e#21932#27593#0" expanded="false" />
-            <element signature="e#27616#28123#0" expanded="false" />
-            <element signature="e#28154#28593#0" expanded="false" />
-            <element signature="e#28627#31073#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main_process.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-            <element signature="e#3062#4571#0" expanded="false" />
-            <element signature="e#4600#4805#0" expanded="false" />
-            <element signature="e#4831#6523#0" expanded="false" />
-            <element signature="e#6574#7625#0" expanded="false" />
-            <element signature="e#7668#8065#0" expanded="false" />
-            <element signature="e#8113#8858#0" expanded="false" />
-            <element signature="e#8919#9585#0" expanded="false" />
-            <element signature="e#9608#11155#0" expanded="false" />
-            <element signature="e#11267#14113#0" expanded="false" />
-            <element signature="e#14219#15919#0" expanded="false" />
-            <element signature="e#15944#17086#0" expanded="false" />
-            <element signature="e#20986#21907#0" expanded="false" />
-            <element signature="e#21932#27593#0" expanded="false" />
-            <element signature="e#27616#28123#0" expanded="false" />
-            <element signature="e#28154#28593#0" expanded="false" />
-            <element signature="e#28627#31073#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main_process.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-            <element signature="e#3062#4571#0" expanded="false" />
-            <element signature="e#4600#4805#0" expanded="false" />
-            <element signature="e#4831#6523#0" expanded="false" />
-            <element signature="e#6574#7625#0" expanded="false" />
-            <element signature="e#7668#8065#0" expanded="false" />
-            <element signature="e#8113#8858#0" expanded="false" />
-            <element signature="e#8919#9585#0" expanded="false" />
-            <element signature="e#9608#11155#0" expanded="false" />
-            <element signature="e#11267#14113#0" expanded="false" />
-            <element signature="e#14219#15919#0" expanded="false" />
-            <element signature="e#15944#17086#0" expanded="false" />
-            <element signature="e#20986#21907#0" expanded="false" />
-            <element signature="e#21932#27593#0" expanded="false" />
-            <element signature="e#27616#28123#0" expanded="false" />
-            <element signature="e#28154#28593#0" expanded="false" />
-            <element signature="e#28627#31073#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main_process.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-            <element signature="e#3062#4571#0" expanded="false" />
-            <element signature="e#4600#4805#0" expanded="false" />
-            <element signature="e#4831#6523#0" expanded="false" />
-            <element signature="e#6574#7625#0" expanded="false" />
-            <element signature="e#7668#8065#0" expanded="false" />
-            <element signature="e#8113#8858#0" expanded="false" />
-            <element signature="e#8919#9585#0" expanded="false" />
-            <element signature="e#9608#11155#0" expanded="false" />
-            <element signature="e#11267#14113#0" expanded="false" />
-            <element signature="e#14219#15919#0" expanded="false" />
-            <element signature="e#15944#17086#0" expanded="false" />
-            <element signature="e#20986#21907#0" expanded="false" />
-            <element signature="e#21932#27593#0" expanded="false" />
-            <element signature="e#27616#28123#0" expanded="false" />
-            <element signature="e#28154#28593#0" expanded="false" />
-            <element signature="e#28627#31073#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main_process.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-            <element signature="e#3062#4571#0" expanded="false" />
-            <element signature="e#4600#4805#0" expanded="false" />
-            <element signature="e#4831#6523#0" expanded="false" />
-            <element signature="e#6574#7625#0" expanded="false" />
-            <element signature="e#7668#8065#0" expanded="false" />
-            <element signature="e#8113#8858#0" expanded="false" />
-            <element signature="e#8919#9585#0" expanded="false" />
-            <element signature="e#9608#11155#0" expanded="false" />
-            <element signature="e#11267#14113#0" expanded="false" />
-            <element signature="e#14219#15919#0" expanded="false" />
-            <element signature="e#15944#17086#0" expanded="false" />
-            <element signature="e#20986#21907#0" expanded="false" />
-            <element signature="e#21932#27593#0" expanded="false" />
-            <element signature="e#27616#28123#0" expanded="false" />
-            <element signature="e#28154#28593#0" expanded="false" />
-            <element signature="e#28627#31073#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/fetch_pairwise_genome.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="700">
-          <caret line="20" column="16" lean-forward="true" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main_process.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-            <element signature="e#3062#4571#0" expanded="false" />
-            <element signature="e#4600#4805#0" expanded="false" />
-            <element signature="e#4831#6523#0" expanded="false" />
-            <element signature="e#6574#7625#0" expanded="false" />
-            <element signature="e#7668#8065#0" expanded="false" />
-            <element signature="e#8113#8858#0" expanded="false" />
-            <element signature="e#8919#9585#0" expanded="false" />
-            <element signature="e#9608#11155#0" expanded="false" />
-            <element signature="e#11267#14113#0" expanded="false" />
-            <element signature="e#14219#15919#0" expanded="false" />
-            <element signature="e#15944#17086#0" expanded="false" />
-            <element signature="e#20986#21907#0" expanded="false" />
-            <element signature="e#21932#27593#0" expanded="false" />
-            <element signature="e#27616#28123#0" expanded="false" />
-            <element signature="e#28154#28593#0" expanded="false" />
-            <element signature="e#28627#31073#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main_process.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-            <element signature="e#3062#4571#0" expanded="false" />
-            <element signature="e#4600#4805#0" expanded="false" />
-            <element signature="e#4831#6523#0" expanded="false" />
-            <element signature="e#6574#7625#0" expanded="false" />
-            <element signature="e#7668#8065#0" expanded="false" />
-            <element signature="e#8113#8858#0" expanded="false" />
-            <element signature="e#8919#9585#0" expanded="false" />
-            <element signature="e#9608#11155#0" expanded="false" />
-            <element signature="e#11267#14113#0" expanded="false" />
-            <element signature="e#14219#15919#0" expanded="false" />
-            <element signature="e#15944#17086#0" expanded="false" />
-            <element signature="e#20986#21907#0" expanded="false" />
-            <element signature="e#21932#27593#0" expanded="false" />
-            <element signature="e#27616#28123#0" expanded="false" />
-            <element signature="e#28154#28593#0" expanded="false" />
-            <element signature="e#28627#31073#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/replace.py" />
-    <entry file="file://$PROJECT_DIR$/main_process.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-            <element signature="e#3062#4571#0" expanded="false" />
-            <element signature="e#4600#4805#0" expanded="false" />
-            <element signature="e#4831#6523#0" expanded="false" />
-            <element signature="e#6574#7625#0" expanded="false" />
-            <element signature="e#7668#8065#0" expanded="false" />
-            <element signature="e#8113#8858#0" expanded="false" />
-            <element signature="e#8919#9585#0" expanded="false" />
-            <element signature="e#9608#11155#0" expanded="false" />
-            <element signature="e#11267#14113#0" expanded="false" />
-            <element signature="e#14219#15919#0" expanded="false" />
-            <element signature="e#15944#17086#0" expanded="false" />
-            <element signature="e#20986#21907#0" expanded="false" />
-            <element signature="e#21932#27593#0" expanded="false" />
-            <element signature="e#27616#28123#0" expanded="false" />
-            <element signature="e#28154#28593#0" expanded="false" />
-            <element signature="e#28627#31073#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/replace.py" />
-    <entry file="file://$PROJECT_DIR$/main_process.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-            <element signature="e#3062#4571#0" expanded="false" />
-            <element signature="e#4600#4805#0" expanded="false" />
-            <element signature="e#4831#6523#0" expanded="false" />
-            <element signature="e#6574#7625#0" expanded="false" />
-            <element signature="e#7668#8065#0" expanded="false" />
-            <element signature="e#8113#8858#0" expanded="false" />
-            <element signature="e#8919#9585#0" expanded="false" />
-            <element signature="e#9608#11155#0" expanded="false" />
-            <element signature="e#11267#14113#0" expanded="false" />
-            <element signature="e#14219#15919#0" expanded="false" />
-            <element signature="e#15944#17086#0" expanded="false" />
-            <element signature="e#20986#21907#0" expanded="false" />
-            <element signature="e#21932#27593#0" expanded="false" />
-            <element signature="e#27616#28123#0" expanded="false" />
-            <element signature="e#28154#28593#0" expanded="false" />
-            <element signature="e#28627#31073#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/replace.py" />
-    <entry file="file://$PROJECT_DIR$/main_process.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-            <element signature="e#3062#4571#0" expanded="false" />
-            <element signature="e#4600#4805#0" expanded="false" />
-            <element signature="e#4831#6523#0" expanded="false" />
-            <element signature="e#6574#7625#0" expanded="false" />
-            <element signature="e#7668#8065#0" expanded="false" />
-            <element signature="e#8113#8858#0" expanded="false" />
-            <element signature="e#8919#9585#0" expanded="false" />
-            <element signature="e#9608#11155#0" expanded="false" />
-            <element signature="e#11267#14113#0" expanded="false" />
-            <element signature="e#14219#15919#0" expanded="false" />
-            <element signature="e#15944#17086#0" expanded="false" />
-            <element signature="e#20986#21907#0" expanded="false" />
-            <element signature="e#21932#27593#0" expanded="false" />
-            <element signature="e#27616#28123#0" expanded="false" />
-            <element signature="e#28154#28593#0" expanded="false" />
-            <element signature="e#28627#31073#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rHGT_alpha.R" />
-    <entry file="file://$PROJECT_DIR$/replace.py" />
-    <entry file="file://$PROJECT_DIR$/main_process.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-            <element signature="e#3062#4571#0" expanded="false" />
-            <element signature="e#4600#4805#0" expanded="false" />
-            <element signature="e#4831#6523#0" expanded="false" />
-            <element signature="e#6574#7625#0" expanded="false" />
-            <element signature="e#7668#8065#0" expanded="false" />
-            <element signature="e#8113#8858#0" expanded="false" />
-            <element signature="e#8919#9585#0" expanded="false" />
-            <element signature="e#9608#11155#0" expanded="false" />
-            <element signature="e#11267#14113#0" expanded="false" />
-            <element signature="e#14219#15919#0" expanded="false" />
-            <element signature="e#15944#17086#0" expanded="false" />
-            <element signature="e#20986#21907#0" expanded="false" />
-            <element signature="e#21932#27593#0" expanded="false" />
-            <element signature="e#27616#28123#0" expanded="false" />
-            <element signature="e#28154#28593#0" expanded="false" />
-            <element signature="e#28627#31073#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/replace.py" />
-    <entry file="file://$PROJECT_DIR$/main_process.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-            <element signature="e#3062#4571#0" expanded="false" />
-            <element signature="e#4600#4805#0" expanded="false" />
-            <element signature="e#4831#6523#0" expanded="false" />
-            <element signature="e#6574#7625#0" expanded="false" />
-            <element signature="e#7668#8065#0" expanded="false" />
-            <element signature="e#8113#8858#0" expanded="false" />
-            <element signature="e#8919#9585#0" expanded="false" />
-            <element signature="e#9608#11155#0" expanded="false" />
-            <element signature="e#11267#14113#0" expanded="false" />
-            <element signature="e#14219#15919#0" expanded="false" />
-            <element signature="e#15944#17086#0" expanded="false" />
-            <element signature="e#20986#21907#0" expanded="false" />
-            <element signature="e#21932#27593#0" expanded="false" />
-            <element signature="e#27616#28123#0" expanded="false" />
-            <element signature="e#28154#28593#0" expanded="false" />
-            <element signature="e#28627#31073#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/replace.py" />
-    <entry file="file://$PROJECT_DIR$/main_process.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-            <element signature="e#3062#4571#0" expanded="false" />
-            <element signature="e#4600#4805#0" expanded="false" />
-            <element signature="e#4831#6523#0" expanded="false" />
-            <element signature="e#6574#7625#0" expanded="false" />
-            <element signature="e#7668#8065#0" expanded="false" />
-            <element signature="e#8113#8858#0" expanded="false" />
-            <element signature="e#8919#9585#0" expanded="false" />
-            <element signature="e#9608#11155#0" expanded="false" />
-            <element signature="e#11267#14113#0" expanded="false" />
-            <element signature="e#14219#15919#0" expanded="false" />
-            <element signature="e#15944#17086#0" expanded="false" />
-            <element signature="e#20986#21907#0" expanded="false" />
-            <element signature="e#21932#27593#0" expanded="false" />
-            <element signature="e#27616#28123#0" expanded="false" />
-            <element signature="e#28154#28593#0" expanded="false" />
-            <element signature="e#28627#31073#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/replace.py" />
-    <entry file="file://$PROJECT_DIR$/main_process.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-            <element signature="e#3062#4571#0" expanded="false" />
-            <element signature="e#4600#4805#0" expanded="false" />
-            <element signature="e#4831#6523#0" expanded="false" />
-            <element signature="e#6574#7625#0" expanded="false" />
-            <element signature="e#7668#8065#0" expanded="false" />
-            <element signature="e#8113#8858#0" expanded="false" />
-            <element signature="e#8919#9585#0" expanded="false" />
-            <element signature="e#9608#11155#0" expanded="false" />
-            <element signature="e#11267#14113#0" expanded="false" />
-            <element signature="e#14219#15919#0" expanded="false" />
-            <element signature="e#15944#17086#0" expanded="false" />
-            <element signature="e#20986#21907#0" expanded="false" />
-            <element signature="e#21932#27593#0" expanded="false" />
-            <element signature="e#27616#28123#0" expanded="false" />
-            <element signature="e#28154#28593#0" expanded="false" />
-            <element signature="e#28627#31073#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/replace.py" />
-    <entry file="file://$PROJECT_DIR$/main_process.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-            <element signature="e#3062#4571#0" expanded="false" />
-            <element signature="e#4600#4805#0" expanded="false" />
-            <element signature="e#4831#6523#0" expanded="false" />
-            <element signature="e#6574#7625#0" expanded="false" />
-            <element signature="e#7668#8065#0" expanded="false" />
-            <element signature="e#8113#8858#0" expanded="false" />
-            <element signature="e#8919#9585#0" expanded="false" />
-            <element signature="e#9608#11155#0" expanded="false" />
-            <element signature="e#11267#14113#0" expanded="false" />
-            <element signature="e#14219#15919#0" expanded="false" />
-            <element signature="e#15944#17086#0" expanded="false" />
-            <element signature="e#20986#21907#0" expanded="false" />
-            <element signature="e#21932#27593#0" expanded="false" />
-            <element signature="e#27616#28123#0" expanded="false" />
-            <element signature="e#28154#28593#0" expanded="false" />
-            <element signature="e#28627#31073#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/replace.py" />
-    <entry file="file://$PROJECT_DIR$/main_process.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="70">
-          <caret line="2" column="83" lean-forward="false" selection-start-line="2" selection-start-column="83" selection-end-line="2" selection-end-column="83" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-            <element signature="e#3062#4571#0" expanded="false" />
-            <element signature="e#4600#4805#0" expanded="false" />
-            <element signature="e#4831#6523#0" expanded="false" />
-            <element signature="e#6574#7625#0" expanded="false" />
-            <element signature="e#7668#8065#0" expanded="false" />
-            <element signature="e#8113#8858#0" expanded="false" />
-            <element signature="e#8919#9585#0" expanded="false" />
-            <element signature="e#9608#11155#0" expanded="false" />
-            <element signature="e#11267#14113#0" expanded="false" />
-            <element signature="e#14219#15919#0" expanded="false" />
-            <element signature="e#15944#17086#0" expanded="false" />
-            <element signature="e#20986#21907#0" expanded="false" />
-            <element signature="e#21932#27593#0" expanded="false" />
-            <element signature="e#27616#28123#0" expanded="false" />
-            <element signature="e#28154#28593#0" expanded="false" />
-            <element signature="e#28627#31073#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main_process.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-            <element signature="e#3062#4571#0" expanded="false" />
-            <element signature="e#4600#4805#0" expanded="false" />
-            <element signature="e#4831#6523#0" expanded="false" />
-            <element signature="e#6574#7625#0" expanded="false" />
-            <element signature="e#7668#8065#0" expanded="false" />
-            <element signature="e#8113#8858#0" expanded="false" />
-            <element signature="e#8919#9585#0" expanded="false" />
-            <element signature="e#9608#11155#0" expanded="false" />
-            <element signature="e#11267#14113#0" expanded="false" />
-            <element signature="e#14219#15919#0" expanded="false" />
-            <element signature="e#15944#17086#0" expanded="false" />
-            <element signature="e#20986#21907#0" expanded="false" />
-            <element signature="e#21932#27593#0" expanded="false" />
-            <element signature="e#27616#28123#0" expanded="false" />
-            <element signature="e#28154#28593#0" expanded="false" />
-            <element signature="e#28627#31073#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rHGT_alpha.R" />
-    <entry file="file://$PROJECT_DIR$/fetch_pairwise_genome.py" />
-    <entry file="file://$PROJECT_DIR$/rHGT_alpha.R" />
-    <entry file="file://$PROJECT_DIR$/replace.py" />
-    <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/numpy/lib/npyio.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="296">
-          <caret line="681" column="46" lean-forward="false" selection-start-line="681" selection-start-column="46" selection-end-line="681" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="420">
-            <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="23" column="51" lean-forward="false" selection-start-line="23" selection-start-column="51" selection-end-line="23" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/1.tex" />
-    <entry file="file://$PROJECT_DIR$/1.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="784">
-          <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/example_data/strain_info.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="4" column="39" lean-forward="false" selection-start-line="4" selection-start-column="39" selection-end-line="4" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LICENSE">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/fetch_pairwise_genome.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1360">
-          <caret line="66" column="22" lean-forward="false" selection-start-line="66" selection-start-column="22" selection-end-line="66" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/draw_distribution.R">
+    <entry file="file://$PROJECT_DIR$/test_out_pha_mim_tri/N771.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1454,29 +1168,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main_process.py">
+    <entry file="file://$PROJECT_DIR$/test_out_pha_mim_tri/recent_HGT_results.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2100">
-          <caret line="454" column="23" lean-forward="false" selection-start-line="454" selection-start-column="23" selection-end-line="454" selection-end-column="23" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-            <element signature="e#3062#4571#0" expanded="false" />
-            <element signature="e#4600#4805#0" expanded="false" />
-            <element signature="e#4831#6523#0" expanded="false" />
-            <element signature="e#6574#7625#0" expanded="false" />
-            <element signature="e#7668#8065#0" expanded="false" />
-            <element signature="e#8113#8858#0" expanded="false" />
-            <element signature="e#8919#9585#0" expanded="false" />
-            <element signature="e#9608#11155#0" expanded="false" />
-            <element signature="e#11267#14113#0" expanded="false" />
-            <element signature="e#14219#15919#0" expanded="false" />
-            <element signature="e#15944#17086#0" expanded="false" />
-            <element signature="e#20986#21907#0" expanded="false" />
-            <element signature="e#21932#27593#0" expanded="false" />
-            <element signature="e#27616#28123#0" expanded="false" />
-            <element signature="e#28154#28593#0" expanded="false" />
-            <element signature="e#28627#31073#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="35">
+          <caret line="1" column="20" lean-forward="false" selection-start-line="1" selection-start-column="20" selection-end-line="1" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_out_pha_mim_tri/fetch_hgt_genes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="637">
+          <caret line="34" column="0" lean-forward="true" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

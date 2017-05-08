@@ -166,10 +166,13 @@ def load_strains_info(strain_file, form=1):
                 strain_name = a_list[1].split(' ')[-1]
                 strain_id = a_list[2]
                 chr_id = a_list[3]
+                psym_id = a_list[4]
                 if form == 1:
-                    strain_dict[strain_id] = [strain_name, chr_id]
+                    strain_dict[strain_id] = [strain_name, chr_id, psym_id]
                 elif form == 2:
-                    strain_dict[strain_name] = [strain_id, chr_id]
+                    strain_dict[strain_name] = [strain_id, chr_id, psym_id]
+                elif form == 3:
+                    strain_dict[strain_id] = [strain_name]
     except IOError:
         logger.error("There is no file contains strain information or the file is locked, please check.")
         logger.error(last_exception())
@@ -188,7 +191,7 @@ def compress_delete_outdir(outdir):
     shutil.rmtree(outdir)
 
 
-def load_genome(genbank, strain_chr_id):
+def load_genome(genbank, strain_chr_id, strain_psym_id):
     pattern_1 = re.compile(r'LOCUS\s+(.*?)\s+')
     pattern_2 = re.compile(r'/db_xref="SEED:fig\|(.*)"')
     genome_dict = defaultdict()
@@ -199,9 +202,11 @@ def load_genome(genbank, strain_chr_id):
                 m = re.search(pattern_1, each_line.strip())
                 locus = m.group(1)
                 if locus == strain_chr_id:
-                    locus_value = 0
+                    locus_value = '*'
+                elif locus == strain_psym_id:
+                    locus_value = '#'
                 else:
-                    locus_value = 1
+                    locus_value = '+'
             elif '/db_xref="SEED:' in each_line:
                 n = re.search(pattern_2, each_line.strip())
                 gene_id = n.group(1)
@@ -216,7 +221,7 @@ def og_location(og_id, all_gene_dict, pair_gene_dir):
         sys.exit(1)
     tmp_gene_fasta = os.path.join(pair_gene_dir, og_id + '.fasta')
     re_pattern = re.compile(r'fig\|(\d+\.\d+\.peg\.\d+)\s.*')
-    og_loc_value = 0  # 0: Both on Chromosome, 1: One on Plasmid, the other on Chromosome, 2: Both on Plasmid.
+    og_loc_value = ''  # 0: Both on Chromosome, 1: One on Plasmid, the other on Chromosome, 2: Both on Plasmid.
     for record in SeqIO.parse(tmp_gene_fasta, 'fasta'):
         m = re.search(re_pattern, record.description)
         gene_id = m.group(1)
@@ -234,7 +239,7 @@ def load_ani():
     strain_ani_matrix_file = os.path.join(ani_out_dir, 'ANIm_percentage_identity.tab')
     matrix_strain_dict = defaultdict()
     strain_label_file = os.path.join(args.indirname, 'strain_info.txt')
-    strain_dict = load_strains_info(strain_label_file, form=1)
+    strain_dict = load_strains_info(strain_label_file, form=3)
     tmp_matrix_lines = ''
     with open(strain_ani_matrix_file, 'r') as f1:
         all_lines = f1.readlines()
@@ -314,7 +319,8 @@ def each_needle_run(pair_gene_dir, tmp_gene_converted_dir, pair_gene_alignment_d
                 m = re.search(in_pattern, a_line.strip())
                 identity = m.group(1)
                 gene_alignment_result = '{0}\t[{1}|{2}]\t{3}\t{4}\n'.format(og_id, og_list[0],
-                                                                            og_list[1], identity, annotation)
+                                                                            og_list[1], identity,
+                                                                            annotation)
     return gene_alignment_result
 
 
@@ -342,7 +348,7 @@ def each_strain_pair_run(strain_pair, all_genes_dir, result_dir, strain_dict, st
     if os.path.exists(tmp_gene_converted_dir):
         shutil.rmtree(tmp_gene_converted_dir)
     os.makedirs(tmp_gene_converted_dir)
-    pair_results = 'Orthologous\tIdentity\tAnnotation\n'
+    pair_results = 'Clusters\tProteins\tSimilarity\tAnnotation\n'
     for gene in gene_list:
         gene_alignment_result = each_needle_run(strain_pair_genes_dir, tmp_gene_converted_dir,
                                                 strain_pair_result_dir, gene, strain_dict)
@@ -392,7 +398,7 @@ def second_part():
         os.makedirs(output_dir)
     strain_label_file = os.path.join(args.indirname, 'strain_info.txt')
     p = Pool(args.threads)
-    strain_dict = load_strains_info(strain_label_file, form=1)
+    strain_dict = load_strains_info(strain_label_file, form=3)
     strain_results_collection_dir = os.path.join(args.outdirname, 'strain_pair_result')
     if not os.path.exists(strain_results_collection_dir):
         os.makedirs(strain_results_collection_dir)
@@ -431,7 +437,7 @@ def third_part():
             pairs = file_name.split('_')
             if pairs[0] not in result_dict:
                 result_dict[pairs[0]] = []
-            pair_name = str(pairs[0]) + '~' + str(pairs[1])
+            pair_name = str(pairs[0]) + ' ~ ' + str(pairs[1])
             pair_ani = ani_matrix[matrix_strain_dict[pairs[0]]][matrix_strain_dict[pairs[1]]]
             if pair_ani < 95:
                 with open(file_path) as f3:
@@ -439,7 +445,7 @@ def third_part():
                         result_line = '{0} ({1}%)\t{2}'.format(pair_name, str(pair_ani), line)
                         result_dict[pairs[0]].append(result_line)
     r_script = os.path.join(src_dir_name, 'draw_distribution.R')
-    header_line = 'Pair\tOrthologous\tGenes\tIdentity\tAnnotation\n'
+    header_line = 'Pair\tClusters\tProteins\tSimilarity\tAnnotation\n'
     devnull = open(os.devnull, 'w')
     logger.info('Saving {0} pictures to {1} format.'.format(str(len(result_dict)), args.gformat))
     for each_strain, results in result_dict.items():
@@ -469,7 +475,7 @@ def fourth_part():
     logger.info('Part 4: Processing recent HGT detection...')
     strain_result_dir = os.path.join(result_dir, 'strain_pair_result')
     r_script = os.path.join(src_dir_name, 'rHGT_alpha.R')
-    param_min = 50.0
+    param_min = 40.0
     param_max = 98.5
     devnull = open(os.devnull, 'w')
     result_file = os.path.join(result_dir, 'recent_HGT_results.txt')
@@ -507,7 +513,8 @@ def fifth_part():
             strain_id_list.append(fname[0])
             genbank = os.path.join(genome_dir, each_file)
             strain_chr_id = strain_dict[strain_id][1]
-            each_genome_dict = load_genome(genbank, strain_chr_id)
+            strain_psym_id = strain_dict[strain_id][2]
+            each_genome_dict = load_genome(genbank, strain_chr_id, strain_psym_id)
             all_gene_dict.update(each_genome_dict)
     result_dir = args.outdirname
     strain_result_dir = os.path.join(result_dir, 'strain_pair_result')
@@ -526,8 +533,9 @@ def fifth_part():
             pair_gene_dir = os.path.join(strain_pair_gene_dir, strain_pair)
             result_file = os.path.join(strain_result_dir, each_file)
             plasmid_gene = 0
-            ambiguity_gene = 0
             chr_gene = 0
+            psym_gene = 0
+            other_gene = 0
             with open(result_file, 'r') as f2:
                 for each_line in f2.readlines()[1:]:
                     b_list = each_line.strip().split('\t')
@@ -535,25 +543,28 @@ def fifth_part():
                     if identity >= 98.5:
                         og_id = b_list[0]
                         og_loc_value = og_location(og_id, all_gene_dict, pair_gene_dir)
-                        if og_loc_value == 0:
+                        if og_loc_value == '**':
                             chr_gene += 1
-                        elif og_loc_value == 1:
-                            ambiguity_gene += 1
-                        elif og_loc_value == 2:
+                        elif og_loc_value == '##':
+                            psym_gene += 1
                             plasmid_gene += 1
-            pair_gene_location_dict[strain_pair] = '{0}|{1}|{2}'.format(str(chr_gene), str(plasmid_gene),
-                                                                        str(ambiguity_gene))
+                        elif og_loc_value == '++':
+                            plasmid_gene += 1
+                        else:
+                            other_gene += 1
+            pair_gene_location_dict[strain_pair] = '{0}|{1}|{2}|{3}'.format(str(chr_gene), str(plasmid_gene),
+                                                                            str(psym_gene), str(other_gene))
     tmp_result_dict = defaultdict()
     with open(hgt_result_file, 'w') as f3:
-        header_line = 'strain.pair\trHGT.number\tgene.number\n'
+        header_line = 'strain.pair\trHGT.number\tgene.number(Chromosome|Plasmids|pSym|Ambiguity)\n'
         result_lines = ''
         for each_pair, loc_result in pair_gene_location_dict.items():
             detect_num = detect_dict[each_pair]
             result_lines += '{0}\t{1}\t{2}\n'.format(each_pair, detect_dict[each_pair], loc_result)
             loc_list = loc_result.split('|')
-            tmp_result_dict[each_pair] = [detect_num, loc_list[0], loc_list[1], loc_list[2]]
+            tmp_result_dict[each_pair] = [detect_num, loc_list[0], loc_list[1]]
         f3.write(header_line + result_lines)
-    tmp_order_list = ['rHGT', 'Chromosome', 'Plasmid', 'Ambiguity']
+    tmp_order_list = ['HGT', 'Chromosome', 'Plasmids', 'pSym', 'Ambiguity']
     logger.info('Drawing comparison pictures to show detection accuracy.')
     (ani_matrix, matrix_strain_dict) = load_ani()
     combine_result_dir = os.path.join(args.outdirname, 'combined_results')
@@ -577,7 +588,8 @@ def fifth_part():
                     for i in tmp_result_list:
                         if i != '0':
                             index = tmp_result_list.index(i)
-                            l += '{0} ({3})\t{1}\t{2}\t{3}\n'.format(other_strain, tmp_order_list[index], i, pair_ani)
+                            l += '{0} ({3})\t{1}\t{2}\t{3}\n'.format(other_strain, tmp_order_list[index],
+                                                                     i, pair_ani)
             f4.write(h + l)
         comparison_pictures = os.path.join(combine_result_dir, '{0}.{1}'.format(query_strain, args.gformat))
         try:

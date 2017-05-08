@@ -9,7 +9,7 @@ import os
 import sys
 import shutil
 from collections import defaultdict
-# from itertools import combinations
+from itertools import combinations
 
 
 my_path = os.getcwd()
@@ -24,12 +24,12 @@ with open(strain_information_file, 'r') as f1:
         a_list = each_line.strip().split('\t')
         strain_dict[a_list[1]] = [a_list[2]]
         strain_list.append(a_list[1])
-fetch_strain_pair = []
-for i in strain_list:
-    for j in strain_list:
-        if i != j:
-            fetch_strain_pair.append((i, j))
-# fetch_strain_pair = list(combinations(strain_list, 2))
+# fetch_strain_pair = []
+# for i in strain_list:
+#     for j in strain_list:
+#         if i != j:
+#             fetch_strain_pair.append((i, j))
+fetch_strain_pair = list(combinations(strain_list, 2))
 strain_pair_dir = os.path.join(my_path, 'all_strain_pairs_{0}'.format(maxbit))
 if not os.path.exists(strain_pair_dir):
     os.makedirs(strain_pair_dir)
@@ -43,10 +43,11 @@ for each_pair in fetch_strain_pair:
     other_strain = each_pair[1]
     # if strain_dict[the_strain][2] != strain_dict[other_strain][2]:
     # if strain_dict[the_strain][1] != strain_dict[other_strain][1]:
-    the_strain_name = the_strain.split(' ')[2]
-    other_strain_name = other_strain.split(' ')[2]
+    the_strain_name = the_strain
+    other_strain_name = other_strain
     strain_gene_dir = os.path.join(
-        strain_pair_dir, '{0}_{1}'.format(the_strain_name, other_strain_name))
+        strain_pair_dir, '{0}_{1}'.format(strain_dict[the_strain_name][0],
+                                          strain_dict[other_strain_name][0]))
     if not os.path.exists(strain_gene_dir):
         the_strain_line = '{0}\t{1}\n'.format(
             the_strain, strain_dict[the_strain][0])

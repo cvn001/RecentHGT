@@ -4,8 +4,8 @@ input_file <- args[1]
 output_file <- args[2]
 data <- read.csv(input_file, header=TRUE, sep = '\t')
 attach(data)
-p <- ggplot(data, aes(x=Identity)) + 
-  geom_histogram(bins=50) + 
+p <- ggplot(data, aes(x=Similarity)) +
+  geom_histogram(bins=30) + 
   facet_wrap(~Pair, scales="free_y") + 
   ylab("Gene Counts") + 
   xlab("Sequence Identity")
