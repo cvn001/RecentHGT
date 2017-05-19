@@ -1,10 +1,15 @@
-## RecentHGT
+# RecentHGT
 
 **Using an Expectation Maximization (EM) algorithm to detect recent horizontal gene transfer (HGT)
 between bacterial species or strains.**
 
-## Usage
-Dependencies:
+## Installation
+
+The easiest way to use RecentHGT is to download the source code and unpack it.
+
+You will also need install the other dependencies before running the script.
+
+### Dependencies:
 * Python 2.7 or 3.6
 * BioPython
 * R > 3.10
@@ -15,16 +20,11 @@ Dependencies:
 * [pyani](https://github.com/widdowquinn/pyani)
 * [ITEP](https://github.com/mattb112885/clusterDbAnalysis)
 
-## Installation
-
-The easiest way to use RecentHGT is to download the source code and unpack it.
-
-You will also need install the other dependencies before running the script.
-
 ## Usage
 
 ### Input
 
+#### Preparing a text file contains the information of all query strains
 As shown in example_data directory, you need give these files before running:
 
 * strain_info.txt
@@ -36,7 +36,12 @@ As shown in example_data directory, you need give these files before running:
 these to other replicons or just delete them.
  
 * [RAST](http://rast.nmpdr.org/) annotated genbank files located in genbank directory
-* Homologous genes derived from ITEP pipeline of every strain pair named `strain_pair_OG` 
+#### Building the pan-genome
+
++ First, please follow the [tutorial](https://github.com/mattb112885/clusterDbAnalysis) of ITEP pipeline to build the pan-genome of your input genomes.
++ Then, you can use `fetch_pairwise_genome.py` located in `src/` directory to fetch all homologous genes of every strain pair. 
+* Putting all homologous genes every strain pair into a directory named `strain_pair_OG`.
+* Putting `strain_info.txt`, `strain_pair_OG` and `genbank` into a input directory.
        
 ### Running recentHGT
 
@@ -91,36 +96,4 @@ in a text file named `recent_HGT_results.txt`.
 > Step 5: A directory named `combined_results` will be output containing the pictures displaying the number of recent HGT genes 
 and Chromosomal and Plasmid genes.
 
-## Licensing
 
-Unless otherwise indicated, all code is subject to the following agreement:
-
-    (c) Northwest A&U University 2017,2018
-    Author: Xiangchen Li
-
-    Contact: lixiangchenxy@outlook.com
-
-    Address:
-    No.3 Taicheng Road, Yangling, Shaanxi, China, 712100
-
-The MIT License
-
-Copyright (c) 2017-2018 Northwest A&U University
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
