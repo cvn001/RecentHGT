@@ -81,7 +81,7 @@ def parse_cmdline():
     Parse command-line arguments for script.
     :return: Input command-line arguments
     """
-    parser = ArgumentParser(prog="main_process.py")
+    parser = ArgumentParser(prog="recentHGT.py")
     parser.add_argument("-i", "--indir", dest="indirname", action="store", default=None,
                         help="Input directory name")
     parser.add_argument("-o", "--outdir", dest="outdirname", action="store", default=None,
@@ -420,7 +420,7 @@ def second_part():
 
 def third_part():
     """
-    It is the third part. It is used to call R script to draw identity distribution pictures.
+    It is the third part. It is used to call R script to draw similarity distribution pictures.
     :return: success message
     """
     logger.info('Part 3: Drawing alignment distribution pictures...')
@@ -648,7 +648,7 @@ if __name__ == '__main__':
     # Parse command-line
     args = parse_cmdline()
     # Set up logging
-    logger = logging.getLogger('main_process.py: %s' % time.asctime())
+    logger = logging.getLogger('recentHGT.py: %s' % time.asctime())
     t0 = time.time()
     src_dir_name = 'src'
     logger.setLevel(logging.DEBUG)
