@@ -1,7 +1,7 @@
 # RecentHGT
 
 **Using an Expectation Maximization (EM) algorithm to detect recent horizontal gene transfer (HGT)
-between bacterial species or strains.**
+between bacterial species and strains.**
 
 ## Installation
 
@@ -40,8 +40,8 @@ these to other replicons or just delete them.
 
 + First, please follow the [tutorial](https://github.com/mattb112885/clusterDbAnalysis) of ITEP pipeline to build the pan-genome of your input genomes.
 + Then, you can use `fetch_pairwise_genome.py` located in `src/` directory to fetch all homologous genes of every strain pair. 
-* Putting all homologous genes every strain pair into a directory named `strain_pair_OG`.
-* Putting `strain_info.txt`, `strain_pair_OG` and `genbank` into a input directory.
++ Putting all homologous genes every strain pair into a directory named `strain_pair_OG`.
++ Putting `strain_info.txt`, `strain_pair_OG` and `genbank` into a input directory.
        
 ### Running recentHGT
 
