@@ -45,6 +45,7 @@ these to other replicons or just delete them.
        
 ### Running recentHGT
 
+#### Pipeline
 ![The pipeline of RecentHGT](src/RecentHGT_pipeline.png "RecentHGT Pipeline")
 
 You can get a summary of available command-line options with `recentHGT.py -h`
