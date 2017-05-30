@@ -31,6 +31,7 @@ As shown in example_data directory, you need give these files before running:
 
         No.   Strain  RastID  Chromosome  pSym
         1   IE4771	379.111	CP006986.1	CP006988.1
+    It worth to note that you'd better use run the example data to get a clear knowledge of this package.
 
 > Chromosome and symbiotic plasmid (pSym) were used in my research. So you can change 
 these to other replicons or just delete them.

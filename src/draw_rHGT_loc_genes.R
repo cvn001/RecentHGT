@@ -8,7 +8,7 @@ mydata <- read.table(input_file, sep='\t', header=T)
 strain <- unique(mydata$query.strain)
 mydata$ani <- factor(mydata$ani, levels=ordered(unique(mydata$ani)))
 p <- ggplot(mydata, aes(x=mydata$ani, y=mydata$number, fill=mydata$type)) +
-  geom_bar(color='grey40', stat='identity', size = 0.5, position='dodge') + labs(fill='CFN42 Replicons') +
+  geom_bar(color='grey40', stat='identity', size = 0.5, position='dodge') + labs(fill='Replicons') +
   xlab('Query Strains') + ylab('Count') +
   theme(plot.title=element_text(face='bold'), 
         axis.title.x=element_blank(), 
@@ -19,6 +19,6 @@ p <- ggplot(mydata, aes(x=mydata$ani, y=mydata$number, fill=mydata$type)) +
         axis.text.y=element_text(face='bold')) +
   guides(fill=guide_legend(reverse=T)) +
   scale_fill_brewer(palette='Pastel1') +
-  ggtitle('Comparing rHGTs and Specific Location Genes') +
+  ggtitle('Comparing recent HGT specific genomic location genes') +
   scale_x_discrete(labels=array(strain))
 ggsave(output_file)

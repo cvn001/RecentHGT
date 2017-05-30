@@ -210,7 +210,7 @@ def load_genome(genbank, strain_chr_id, strain_psym_id):
             elif '/db_xref="SEED:' in each_line:
                 n = re.search(pattern_2, each_line.strip())
                 gene_id = n.group(1)
-                genome_dict[gene_id] = locus_value  # key: *.peg.*, value: 0,1
+                genome_dict[gene_id] = locus_value  # key: *.peg.*, value: +,#,*,
     return genome_dict
 
 
@@ -556,13 +556,13 @@ def fifth_part():
                                                                             str(psym_gene), str(other_gene))
     tmp_result_dict = defaultdict()
     with open(hgt_result_file, 'w') as f3:
-        header_line = 'strain.pair\trHGT.number\tgene.number(Chromosome|Plasmids|pSym|Ambiguity)\n'
+        header_line = 'strain.pair\tHGT.number\tgene.number(Chromosome|Plasmids|pSym|Ambiguity)\n'
         result_lines = ''
         for each_pair, loc_result in pair_gene_location_dict.items():
             detect_num = detect_dict[each_pair]
             result_lines += '{0}\t{1}\t{2}\n'.format(each_pair, detect_dict[each_pair], loc_result)
             loc_list = loc_result.split('|')
-            tmp_result_dict[each_pair] = [detect_num, loc_list[0], loc_list[1]]
+            tmp_result_dict[each_pair] = [detect_num, loc_list[0], loc_list[1], loc_list[2], loc_list[3]]
         f3.write(header_line + result_lines)
     tmp_order_list = ['HGT', 'Chromosome', 'Plasmids', 'pSym', 'Ambiguity']
     logger.info('Drawing comparison pictures to show detection accuracy.')
@@ -585,11 +585,9 @@ def fifth_part():
                 if other_strain != query_strain:
                     tmp_result_list = tmp_result_dict['{0}_{1}'.format(query_strain, other_strain)]
                     pair_ani = ani_matrix[matrix_strain_dict[query_strain]][matrix_strain_dict[other_strain]]
-                    for i in tmp_result_list:
-                        if i != '0':
-                            index = tmp_result_list.index(i)
-                            l += '{0} ({3})\t{1}\t{2}\t{3}\n'.format(other_strain, tmp_order_list[index],
-                                                                     i, pair_ani)
+                    for i in range(len(tmp_result_list)):
+                        l += '{0}\t{1}\t{2}\t{3}\n'.format(other_strain, tmp_order_list[i],
+                                                           tmp_result_list[i], pair_ani)
             f4.write(h + l)
         comparison_pictures = os.path.join(combine_result_dir, '{0}.{1}'.format(query_strain, args.gformat))
         try:
@@ -617,9 +615,9 @@ def auto_run():
     logger.info(message_3)
     message_4 = fourth_part()
     logger.info(message_4)
-    message_5 = fifth_part()
-    logger.info(message_5)
-    done_message = 'All 5 parts have been done.'
+    # message_5 = fifth_part()
+    # logger.info(message_5)
+    done_message = 'All 4 parts have been done.'
     return done_message
 
 
