@@ -7,7 +7,9 @@ between bacterial species and strains.**
 
 The easiest way to use RecentHGT is to download the source code and unpack it.
 
-You will also need install the other dependencies before running the script.
+You will also need to install the other dependencies before running the scripts.
+
+I suggest the users have a knowledge of the command line or bioinformatics. If not, this strategy may not be suitable for you. 
 
 ### Dependencies:
 * Python 2.7 or 3.6
@@ -25,6 +27,10 @@ You will also need install the other dependencies before running the script.
 ### Input
 
 #### Preparing a text file contains the information of all query strains
+Complete genome will be preferred but the draft genome is all OK for HGT detecting. 
+
+Currently, RecentHGT is only suitable for Bacteria and Archaea. Although I has the potential to deal with fungi and other eukaryote.  
+
 As shown in example_data directory, you need give these files before running:
 
 * strain_info.txt
@@ -32,7 +38,7 @@ As shown in example_data directory, you need give these files before running:
         No.   Strain  RastID  Chromosome  pSym
         1   IE4771	379.111	CP006986.1	CP006988.1
     It worth to note that you'd better use run the example data to get a clear knowledge of this package.
-
+    You can change the Chromosome and pSym to your interested genomic replicons or you can just ignore these two columns.
 > Chromosome and symbiotic plasmid (pSym) were used in my research. So you can change 
 these to other replicons or just delete them.
  
@@ -59,7 +65,7 @@ usage: average_nucleotide_identity.py [-h] [-o OUTDIRNAME] [-i INDIRNAME]
                                       [-g DISPLAYFORMAT]
 […]
 ```
-You can simply use this command to finish all steps automatically:
+You can simply use this command to finish all 4 steps automatically:
 ```
 python recentHGT.py -i example_data -o example_out -v -l log.txt -p 0
 ```
@@ -81,7 +87,8 @@ python recentHGT.py -i example_data -o example_out -v -l log.txt -p 3
 python recentHGT.py -i example_data -o example_out -v -l log.txt -p 4
 ```
 > Step 5: Drawing the comparison between the number of recent HGT genes and specific 
-location genes (chromosome and plasmid genes).  
+location genes (chromosome and plasmid genes). Please make sure you have prepared the input strain information file. Else,
+you can just ignore this step.
 ```
 python recentHGT.py -i example_data -o example_out -v -l log.txt -p 5
 ```
@@ -99,5 +106,6 @@ in a text file named `recent_HGT_results.txt`.
 
 > Step 5: A directory named `combined_results` will be output containing the pictures displaying the number of recent HGT genes 
 and Chromosomal and Plasmid genes.
-
-
+### Troubleshooting
++ RecentHGT is still in developing now. So I just finished to implement the core components. 
++ Please, if you have any problem during the installation and use of RecentHGT. Please feel free to leave your questions in Issues. I will try my best to help you.
