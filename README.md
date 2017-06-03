@@ -42,8 +42,9 @@ As shown in example_data directory, you need give these files before running:
         4	CFN42	379.140	NC_007761.1	NC_004041.2
         ......
     
-    It worth to note that you'd better use run the example data to get a clear knowledge of this package.
+    It worth to note that you'd better use run the example data to get a clear understanding of this package.
     You can change the Chromosome and pSym to your interested genomic replicons or you can just ignore these two columns.
+
 > Chromosome and symbiotic plasmid (pSym) were used in my research. So you can change 
 these to other replicons or just delete them.
  
