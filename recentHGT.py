@@ -161,7 +161,7 @@ def load_strains_info(strain_file, form=1):
     strain_dict = defaultdict()
     try:
         with open(strain_file, 'r') as f:
-            for a_line in f.readlines():
+            for a_line in f.readlines()[1:]:
                 a_list = a_line.strip().split('\t')
                 strain_name = a_list[1].split(' ')[-1]
                 strain_id = a_list[2]
