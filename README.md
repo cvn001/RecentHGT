@@ -115,3 +115,4 @@ and Chromosomal and Plasmid genes.
 ### Troubleshooting
 + RecentHGT is still in developing now. So I just finished to implement the core components. 
 + Please, if you have any problem during the installation and use of RecentHGT. Please feel free to leave your questions in Issues. I will try my best to help you.
++ Also, if you have any suggestions or ideas, please tell me in Issues. I will be very grateful.
