@@ -43,8 +43,8 @@ for each_pair in fetch_strain_pair:
     other_strain = each_pair[1]
     # if strain_dict[the_strain][2] != strain_dict[other_strain][2]:
     # if strain_dict[the_strain][1] != strain_dict[other_strain][1]:
-    the_strain_name = the_strain
-    other_strain_name = other_strain
+    the_strain_name = the_strain.split(' ')[-1]
+    other_strain_name = other_strain.split(' ')[-1]
     strain_gene_dir = os.path.join(
         strain_pair_dir, '{0}_{1}'.format(strain_dict[the_strain_name][0],
                                           strain_dict[other_strain_name][0]))
