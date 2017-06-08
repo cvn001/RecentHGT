@@ -56,8 +56,8 @@
       <file leaf-file-name="fetch_pairwise_genome.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/fetch_pairwise_genome.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="691">
-              <caret line="51" column="4" lean-forward="false" selection-start-line="51" selection-start-column="4" selection-end-line="51" selection-end-column="4" />
+            <state relative-caret-position="551">
+              <caret line="47" column="52" lean-forward="true" selection-start-line="47" selection-start-column="52" selection-end-line="47" selection-end-column="52" />
               <folding>
                 <element signature="e#244#253#0" expanded="true" />
               </folding>
@@ -594,13 +594,6 @@
       <option name="presentableId" value="Default" />
       <updated>1487167314598</updated>
     </task>
-    <task id="LOCAL-00005" summary="add some descriptions.&#10;add fetch pairwise genome script.">
-      <created>1487231945954</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1487231945954</updated>
-    </task>
     <task id="LOCAL-00006" summary="add some descriptions.&#10;add fetch pairwise genome script.">
       <created>1487231961865</created>
       <option name="number" value="00006" />
@@ -937,7 +930,14 @@
       <option name="project" value="LOCAL" />
       <updated>1496568441665</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="update">
+      <created>1496902394722</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1496902394722</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1364,8 +1364,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/fetch_pairwise_genome.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="691">
-          <caret line="51" column="4" lean-forward="false" selection-start-line="51" selection-start-column="4" selection-end-line="51" selection-end-column="4" />
+        <state relative-caret-position="551">
+          <caret line="47" column="52" lean-forward="true" selection-start-line="47" selection-start-column="52" selection-end-line="47" selection-end-column="52" />
           <folding>
             <element signature="e#244#253#0" expanded="true" />
           </folding>

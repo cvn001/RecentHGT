@@ -45,9 +45,7 @@ for each_pair in fetch_strain_pair:
     # if strain_dict[the_strain][1] != strain_dict[other_strain][1]:
     the_strain_name = the_strain.split(' ')[-1]
     other_strain_name = other_strain.split(' ')[-1]
-    strain_gene_dir = os.path.join(
-        strain_pair_dir, '{0}_{1}'.format(strain_dict[the_strain_name][0],
-                                          strain_dict[other_strain_name][0]))
+    strain_gene_dir = os.path.join(strain_pair_dir, '{0}_{1}'.format(the_strain_name, other_strain_name))
     if not os.path.exists(strain_gene_dir):
         the_strain_line = '{0}\t{1}\n'.format(
             the_strain, strain_dict[the_strain][0])
