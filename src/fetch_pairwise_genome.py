@@ -12,6 +12,17 @@ from collections import defaultdict
 from itertools import combinations
 
 
+def replace(cur_dir):
+    old_id = "all_I_2.0_c_{0}_m_maxbit_".format(maxbit)
+    new_id = ""
+    for parent, dirnames, filenames in os.walk(cur_dir):
+        for filename in filenames:
+            if filename.find(old_id) != -1:
+                new_name = filename.replace(old_id, new_id)
+                # print(filename, "---->", newName)
+                os.rename(os.path.join(parent, filename), os.path.join(parent, new_name))
+
+
 my_path = os.getcwd()
 maxbit = 0.4
 source_file = os.path.join(my_path, 'SourceMe.sh')
@@ -59,11 +70,6 @@ for each_pair in fetch_strain_pair:
               '{1}/src/getClusterFastas.py -n {2}'.format(
                   tmp_organisms, my_path, strain_gene_dir, maxbit)
         os.system(cmd)
-        tmp_replace_file = os.path.join(strain_gene_dir, 'replace.py')
-        os.system('cp {0} {1}'.format(replace_file, tmp_replace_file))
-        os.chdir(strain_gene_dir)
-        os.system('python replace.py {0}'.format(maxbit))
-        os.system('rm {0}'.format(tmp_replace_file))
-        os.chdir(my_path)
+        replace(strain_gene_dir)
         os.remove(tmp_organisms)
 os.system('mv all_strain_pairs_{0} all_strain_pairs'.format(maxbit))
