@@ -100,6 +100,9 @@ def parse_cmdline():
                         help="Don't nuke existing files")
     parser.add_argument("-g", dest="gformat", action="store", default="pdf",
                         help="Graphics output format(s) [pdf|png|jpg|svg]")
+    parser.add_argument("-d", dest="drawing", action="store", default="f",
+                        help="Do we need to draw some distribution pictures? "
+                             "[default 'f' or 'F', you can set 't' or 'T']")
     return parser.parse_args()
 
 
@@ -448,6 +451,8 @@ def third_part():
     header_line = 'Pair\tClusters\tProteins\tSimilarity\tAnnotation\n'
     devnull = open(os.devnull, 'w')
     logger.info('Saving {0} pictures to {1} format.'.format(str(len(result_dict)), args.gformat))
+    drawing = args.drawing
+    message = 'Do not draw the distributions.'
     for each_strain, results in result_dict.items():
         strain_result_file = os.path.join(all_result_dir, each_strain + '.txt')
         with open(strain_result_file, 'w') as f4:
@@ -455,14 +460,15 @@ def third_part():
             for each_result in results:
                 f4.write(each_result)
         each_result_picture = os.path.join(all_result_dir, '{0}.{1}'.format(each_strain, args.gformat))
-        try:
-            subprocess.call(['Rscript', r_script, strain_result_file, each_result_picture],
-                            stdout=devnull, stderr=devnull)
-        except OSError:
-            logger.info('Try to run {0} but failed, please check.'.format(r_script))
-            logger.error(last_exception())
-            sys.exit(1)
-    message = 'All pictures have been saved in {0}'.format(all_result_dir)
+        if drawing in 'tT':
+            try:
+                subprocess.call(['Rscript', r_script, strain_result_file, each_result_picture],
+                                stdout=devnull, stderr=devnull)
+            except OSError:
+                logger.info('Try to run {0} but failed, please check.'.format(r_script))
+                logger.error(last_exception())
+                sys.exit(1)
+            message = 'All pictures have been saved in {0}'.format(all_result_dir)
     return message
 
 
