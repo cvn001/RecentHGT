@@ -86,8 +86,8 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="1869">
-                <caret line="73" column="62" lean-forward="false" selection-start-line="73" selection-start-column="62" selection-end-line="73" selection-end-column="62" />
+              <first_editor relative-caret-position="175">
+                <caret line="14" column="12" lean-forward="false" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -596,13 +596,6 @@
       <option name="presentableId" value="Default" />
       <updated>1487167314598</updated>
     </task>
-    <task id="LOCAL-00010" summary="add some descriptions.">
-      <created>1487234399401</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1487234399401</updated>
-    </task>
     <task id="LOCAL-00011" summary="add an R script to draw histograms.">
       <created>1487255290527</created>
       <option name="number" value="00011" />
@@ -939,7 +932,14 @@
       <option name="project" value="LOCAL" />
       <updated>1496987145601</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="update">
+      <created>1496992162949</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1496992162949</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1378,8 +1378,8 @@
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="1869">
-            <caret line="73" column="62" lean-forward="false" selection-start-line="73" selection-start-column="62" selection-end-line="73" selection-end-column="62" />
+          <first_editor relative-caret-position="175">
+            <caret line="14" column="12" lean-forward="false" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
             <folding />
           </first_editor>
           <second_editor />

@@ -12,7 +12,7 @@ You will also need to install the other dependencies before running the scripts.
 I suggest the users have a knowledge of the command line or bioinformatics. If not, this strategy may not be suitable for you. 
 
 ### Dependencies:
-* Python 2.7 or 3.6
+* Python >= 2.7
 * BioPython
 * R > 3.10
 * ggplot2
