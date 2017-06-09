@@ -362,6 +362,7 @@ def each_strain_pair_run(strain_pair, all_genes_dir, result_dir, strain_dict, st
     with open(pair_result_collection_file, 'w') as f:
         f.write(pair_results)
     logger.info('{0} is over.'.format(strain_pair))
+    time.sleep(3)   # keep process safe
 
 
 def first_part():
