@@ -68,7 +68,7 @@ $ python recentHGT.py -h
 usage: average_nucleotide_identity.py [-h] [-o OUTDIRNAME] [-i INDIRNAME] 
                                       [-v VERBOSE] [-t THREADS] [-p PART]
                                       [-l LOGFILE] [-f FORCE] [--noclobber] 
-                                      [-g DISPLAYFORMAT]
+                                      [-g DISPLAYFORMAT] [-d DRAWING]
 […]
 ```
 You can simply use this command to finish all 4 steps automatically:
