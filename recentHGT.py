@@ -168,8 +168,9 @@ def load_strains_info(strain_file, form=1):
                 a_list = a_line.strip().split('\t')
                 strain_name = a_list[1].split(' ')[-1]
                 strain_id = a_list[2]
-                chr_id = a_list[3]
-                psym_id = a_list[4]
+                if len(a_list) > 3:
+                    chr_id = a_list[3]
+                    psym_id = a_list[4]
                 if form == 1:
                     strain_dict[strain_id] = [strain_name, chr_id, psym_id]
                 elif form == 2:
