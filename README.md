@@ -14,7 +14,7 @@ I suggest the users have a knowledge of the command line or bioinformatics. If n
 ### Dependencies:
 * Python >= 2.7
 * BioPython
-* R > 3.10
+* R >= 3.01
 * ggplot2
 * fitdistrplus
 * [BLAST+ CLI](https://blast.ncbi.nlm.nih.gov/Blast.cgi?PAGE_TYPE=BlastDocs&DOC_TYPE=Download)
