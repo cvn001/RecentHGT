@@ -100,7 +100,7 @@ def parse_cmdline():
                         help="Don't nuke existing files")
     parser.add_argument("-g", dest="gformat", action="store", default="pdf",
                         help="Graphics output format(s) [pdf|png|jpg|svg]")
-    parser.add_argument("-d", dest="drawing", action="store", default="f",
+    parser.add_argument("-d", dest="drawing", action="store", default="t",
                         help="Do we need to draw some distribution pictures? "
                              "[default 'f' or 'F', you can set 't' or 'T']")
     return parser.parse_args()
@@ -349,8 +349,6 @@ def each_strain_pair_run(strain_pair, all_genes_dir, result_dir, strain_dict, st
         shutil.rmtree(strain_pair_result_dir)
     os.makedirs(strain_pair_result_dir)
     tmp_gene_converted_dir = os.path.join(strain_pair_result_dir, 'tmp')
-    if os.path.exists(tmp_gene_converted_dir):
-        shutil.rmtree(tmp_gene_converted_dir)
     os.makedirs(tmp_gene_converted_dir)
     pair_results = 'Clusters\tProteins\tSimilarity\tAnnotation\n'
     for gene in gene_list:
@@ -362,7 +360,7 @@ def each_strain_pair_run(strain_pair, all_genes_dir, result_dir, strain_dict, st
     with open(pair_result_collection_file, 'w') as f:
         f.write(pair_results)
     logger.info('{0} is over.'.format(strain_pair))
-    time.sleep(3)   # keep process safe
+    # time.sleep(1)   # keep process safe
 
 
 def first_part():
@@ -482,18 +480,36 @@ def fourth_part():
     result_dir = args.outdirname
     logger.info('Part 4: Processing recent HGT detection...')
     strain_result_dir = os.path.join(result_dir, 'strain_pair_result')
+    (ani_matrix, matrix_strain_dict) = load_ani()
+    tmp_result_dir = os.path.join(result_dir, 'tmp')
+    if not os.path.exists(tmp_result_dir):
+        os.makedirs(tmp_result_dir)
+    else:
+        shutil.rmtree(tmp_result_dir)
+        os.makedirs(tmp_result_dir)
+    for root, dirs, files in os.walk(strain_result_dir):
+        for each_file in files:
+            f_name = os.path.splitext(each_file)[0]
+            f_path = os.path.join(strain_result_dir, each_file)
+            pairs = f_name.split('_')
+            # pair_name = str(pairs[0]) + ' ~ ' + str(pairs[1])
+            pair_ani = ani_matrix[matrix_strain_dict[pairs[0]]][matrix_strain_dict[pairs[1]]]
+            if pair_ani < 94:
+                tmp_file = os.path.join(tmp_result_dir, each_file)
+                shutil.copy(f_path, tmp_file)
     r_script = os.path.join(src_dir_name, 'rHGT_alpha.R')
     param_min = 40.0
     param_max = 98.5
     devnull = open(os.devnull, 'w')
     result_file = os.path.join(result_dir, 'recent_HGT_results.txt')
     try:
-        subprocess.call(['Rscript', r_script, strain_result_dir, result_file,
+        subprocess.call(['Rscript', r_script, tmp_result_dir, result_file,
                          str(param_min), str(param_max)], stdout=devnull, stderr=devnull)
     except OSError:
         logger.info('Try to run {0} but failed, please check.'.format(r_script))
         logger.error(last_exception())
         sys.exit(1)
+    shutil.rmtree(tmp_result_dir)
     message = 'Recent HGT detections have been finished.'
     return message
 

@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="08feb3a7-eff9-4e07-a141-440ecffdc126" name="Default" comment="update">
+    <list default="true" id="08feb3a7-eff9-4e07-a141-440ecffdc126" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/recentHGT.py" afterPath="$PROJECT_DIR$/recentHGT.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/rHGT_alpha.R" afterPath="$PROJECT_DIR$/src/rHGT_alpha.R" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -18,7 +19,7 @@
     <SUITE FILE_PATH="coverage/rHGT_EM$combine_strain_pair_results__2_.coverage" NAME="combine_strain_pair_results (2) Coverage Results" MODIFIED="1493235933646" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test_out_rhizobia" />
     <SUITE FILE_PATH="coverage/rHGT_EM$prepare_circos_data.coverage" NAME="prepare_circos_data Coverage Results" MODIFIED="1491157884078" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test_out" />
     <SUITE FILE_PATH="coverage/rHGT_EM$fetch_all_combined_results.coverage" NAME="fetch_all_combined_results Coverage Results" MODIFIED="1494115289774" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test_out_pha_mim_tri" />
-    <SUITE FILE_PATH="coverage/RecentHGT$fetch_hgt_core_symbiotic_genes.coverage" NAME="fetch_hgt_core_symbiotic_genes Coverage Results" MODIFIED="1495006506610" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test_out_pha_mim_tri" />
+    <SUITE FILE_PATH="coverage/RecentHGT$fetch_hgt_core_symbiotic_genes.coverage" NAME="fetch_hgt_core_symbiotic_genes Coverage Results" MODIFIED="1497098445662" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test_out_pha_mim_tri" />
     <SUITE FILE_PATH="coverage/rHGT_EM$combine_strain_pair_results__1_.coverage" NAME="combine_strain_pair_results (1) Coverage Results" MODIFIED="1493451363306" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test_out_pSym" />
     <SUITE FILE_PATH="coverage/rHGT_EM$fetch_hgt_core_gene_gc_content.coverage" NAME="fetch_hgt_core_gene_gc_content Coverage Results" MODIFIED="1493825054027" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test_out_pha_mim_tri/HGT_Core_Gene_GC_Content" />
     <SUITE FILE_PATH="coverage/rHGT_EM$fetch_strain_pair_high_similarity_gene_loc.coverage" NAME="fetch_strain_pair_high_similarity_gene_loc Coverage Results" MODIFIED="1490878725133" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test_out" />
@@ -53,53 +54,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="recentHGT.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/recentHGT.py">
+      <file leaf-file-name="fetch_hgt_core_symbiotic_genes.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/test_out_pha_mim_tri/fetch_hgt_core_symbiotic_genes.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="337">
-              <caret line="392" column="0" lean-forward="true" selection-start-line="392" selection-start-column="0" selection-end-line="392" selection-end-column="0" />
+            <state relative-caret-position="35">
+              <caret line="17" column="37" lean-forward="false" selection-start-line="17" selection-start-column="37" selection-end-line="17" selection-end-column="37" />
               <folding>
-                <element signature="n#!!doc" expanded="false" />
-                <element signature="e#4828#5033#0" expanded="false" />
-                <element signature="e#5059#6751#0" expanded="false" />
-                <element signature="e#6802#8046#0" expanded="false" />
-                <element signature="e#8089#8486#0" expanded="false" />
-                <element signature="e#8550#9386#0" expanded="false" />
-                <element signature="e#9447#10114#0" expanded="false" />
-                <element signature="e#10137#11684#0" expanded="false" />
-                <element signature="e#11796#14718#0" expanded="false" />
-                <element signature="e#16598#17740#0" expanded="false" />
-                <element signature="e#17766#19194#0" expanded="false" />
-                <element signature="e#19219#21758#0" expanded="false" />
-                <element signature="e#21784#22705#0" expanded="false" />
-                <element signature="e#22730#28660#0" expanded="false" />
-                <element signature="e#28683#29194#0" expanded="false" />
-                <element signature="e#29225#29664#0" expanded="false" />
-                <element signature="e#29698#32141#0" expanded="false" />
+                <element signature="e#100#109#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="FIRST">
-              <first_editor relative-caret-position="595">
-                <caret line="17" column="9" lean-forward="true" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
-                <folding />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="test.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="700">
-              <caret line="20" column="28" lean-forward="true" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="28" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -167,7 +129,6 @@
         <option value="$PROJECT_DIR$/test_out_pha_mim_tri/HGT_Core_Gene_GC_Content/fetch_hgt_core_gene_gc_content.py" />
         <option value="$PROJECT_DIR$/main_process.py" />
         <option value="$PROJECT_DIR$/test_out_pha_mim_tri/fetch_hgt_genes.py" />
-        <option value="$PROJECT_DIR$/test_out_pha_mim_tri/fetch_hgt_core_symbiotic_genes.py" />
         <option value="$PROJECT_DIR$/test_out_pha_mim_tri/high_similarity_gene_locus/build_alignment.py" />
         <option value="$PROJECT_DIR$/test_out/fetch_strain_pair_high_similarity_gene_loc.py" />
         <option value="$PROJECT_DIR$/test_out_pha_mim_tri/fetch_strain_pair_high_similarity_gene_loc.py" />
@@ -179,6 +140,7 @@
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/test.py" />
         <option value="$PROJECT_DIR$/recentHGT.py" />
+        <option value="$PROJECT_DIR$/test_out_pha_mim_tri/fetch_hgt_core_symbiotic_genes.py" />
       </list>
     </option>
   </component>
@@ -206,8 +168,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -230,12 +190,28 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="test_out_pha_mim_tri" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RecentHGT" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RecentHGT" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -255,7 +231,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.combine_strain_pair_results">
+  <component name="RunManager" selected="Python.fetch_hgt_core_symbiotic_genes">
     <configuration default="false" name="fetch_strain_pair_high_similarity_gene_loc" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -578,11 +554,11 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.combine_strain_pair_results" />
-        <item index="1" class="java.lang.String" itemvalue="Python.fetch_all_combined_results" />
-        <item index="2" class="java.lang.String" itemvalue="Python.fetch_strain_pair_high_similarity_gene_loc" />
-        <item index="3" class="java.lang.String" itemvalue="Python.fetch_strain_pair_high_similarity_gene_loc (1)" />
-        <item index="4" class="java.lang.String" itemvalue="Python.fetch_hgt_core_symbiotic_genes" />
+        <item index="0" class="java.lang.String" itemvalue="Python.fetch_hgt_core_symbiotic_genes" />
+        <item index="1" class="java.lang.String" itemvalue="Python.combine_strain_pair_results" />
+        <item index="2" class="java.lang.String" itemvalue="Python.fetch_all_combined_results" />
+        <item index="3" class="java.lang.String" itemvalue="Python.fetch_strain_pair_high_similarity_gene_loc" />
+        <item index="4" class="java.lang.String" itemvalue="Python.fetch_strain_pair_high_similarity_gene_loc (1)" />
       </list>
     </recent_temporary>
     <configuration default="true" type="tests" factoryName="Attests">
@@ -619,13 +595,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1487167314598</updated>
-    </task>
-    <task id="LOCAL-00013" summary="some modifications to rHGT script">
-      <created>1487258182184</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1487258182184</updated>
     </task>
     <task id="LOCAL-00014" summary="Overall structure has been completed preliminarily.">
       <created>1487318545217</created>
@@ -963,7 +932,14 @@
       <option name="project" value="LOCAL" />
       <updated>1497003152457</updated>
     </task>
-    <option name="localTasksCounter" value="62" />
+    <task id="LOCAL-00062" summary="update">
+      <created>1497013117815</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1497013117816</updated>
+    </task>
+    <option name="localTasksCounter" value="63" />
     <servers />
   </component>
   <component name="TodoView">
@@ -977,17 +953,15 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Regex Tester" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32527474" sideWeight="0.5021075" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32527474" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6681319" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32307693" sideWeight="0.49789253" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.45384616" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32307693" sideWeight="0.49789253" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.67362636" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297587" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16880342" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17521368" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="R Packages" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="R Graphics" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -998,6 +972,7 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32527474" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32967034" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1050,11 +1025,16 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/recentHGT.py</url>
-          <line>425</line>
+          <line>423</line>
           <option name="timeStamp" value="11" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/recentHGT.py</url>
+          <line>269</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="12" />
+      <option name="time" value="13" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1198,24 +1178,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test_out_pha_mim_tri/high_similarity_gene_locus/CFN42_N324.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="10" column="62" lean-forward="false" selection-start-line="10" selection-start-column="52" selection-end-line="10" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/test_out_pha_mim_tri/high_similarity_gene_locus/CFN42_N324.txt" />
     <entry file="file://$PROJECT_DIR$/test_out_pha_mim_tri/high_similarity_gene_locus/build_alignment.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="161">
           <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test_out_pha_mim_tri/fetch_hgt_core_symbiotic_genes.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="562">
-          <caret line="34" column="35" lean-forward="false" selection-start-line="34" selection-start-column="35" selection-end-line="34" selection-end-column="35" />
         </state>
       </provider>
     </entry>
@@ -1317,13 +1284,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test_out_pha_mim_tri/all_strain_pair_result.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test_out_pha_mim_tri/combine_strain_pair_results.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1050">
@@ -1343,9 +1303,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="35">
           <caret line="33" column="3" lean-forward="false" selection-start-line="33" selection-start-column="3" selection-end-line="33" selection-end-column="3" />
-          <folding>
-            <element signature="e#244#253#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1353,9 +1310,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="525">
           <caret line="15" column="84" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="15" selection-end-column="84" />
-          <folding>
-            <element signature="e#43#57#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1363,7 +1317,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2410">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1371,8 +1324,7 @@
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
           <first_editor relative-caret-position="595">
-            <caret line="17" column="9" lean-forward="true" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
-            <folding />
+            <caret line="17" column="9" lean-forward="false" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
           </first_editor>
           <second_editor />
         </state>
@@ -1381,15 +1333,14 @@
     <entry file="file://$PROJECT_DIR$/src/test.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="700">
-          <caret line="20" column="28" lean-forward="true" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="28" />
-          <folding />
+          <caret line="20" column="28" lean-forward="false" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="28" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/recentHGT.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="337">
-          <caret line="392" column="0" lean-forward="true" selection-start-line="392" selection-start-column="0" selection-end-line="392" selection-end-column="0" />
+        <state relative-caret-position="35">
+          <caret line="495" column="42" lean-forward="false" selection-start-line="495" selection-start-column="42" selection-end-line="495" selection-end-column="42" />
           <folding>
             <element signature="n#!!doc" expanded="false" />
             <element signature="e#4828#5033#0" expanded="false" />
@@ -1399,15 +1350,28 @@
             <element signature="e#8550#9386#0" expanded="false" />
             <element signature="e#9447#10114#0" expanded="false" />
             <element signature="e#10137#11684#0" expanded="false" />
-            <element signature="e#11796#14718#0" expanded="false" />
-            <element signature="e#16598#17740#0" expanded="false" />
-            <element signature="e#17766#19194#0" expanded="false" />
-            <element signature="e#19219#21758#0" expanded="false" />
-            <element signature="e#21784#22705#0" expanded="false" />
-            <element signature="e#22730#28660#0" expanded="false" />
-            <element signature="e#28683#29194#0" expanded="false" />
-            <element signature="e#29225#29664#0" expanded="false" />
-            <element signature="e#29698#32141#0" expanded="false" />
+            <element signature="e#16507#17649#0" expanded="false" />
+            <element signature="e#17675#19103#0" expanded="false" />
+            <element signature="e#29433#29944#0" expanded="false" />
+            <element signature="e#29975#30414#0" expanded="false" />
+            <element signature="e#30448#32891#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_out_pha_mim_tri/all_strain_pair_result.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_out_pha_mim_tri/fetch_hgt_core_symbiotic_genes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="35">
+          <caret line="17" column="37" lean-forward="false" selection-start-line="17" selection-start-column="37" selection-end-line="17" selection-end-column="37" />
+          <folding>
+            <element signature="e#100#109#0" expanded="true" />
           </folding>
         </state>
       </provider>
