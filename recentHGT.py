@@ -267,6 +267,17 @@ def load_ani():
     return ani_matrix, matrix_strain_dict
 
 
+def draw_distribution(item, result_file, r):
+    devnull = open(os.devnull, 'w')
+    try:
+        subprocess.call(['Rscript', r, item[2], result_file, item[0]],
+                        stdout=devnull, stderr=devnull)
+    except OSError:
+        logger.info('Try to run {0} but failed, please check.'.format(r))
+        logger.error(last_exception())
+        sys.exit(1)
+
+
 def each_needle_run(pair_gene_dir, tmp_gene_converted_dir, pair_gene_alignment_dir, og_id, strain_dict):
     """
     This function is used to call Needle program to do pairwise sequence alignment
@@ -432,43 +443,42 @@ def third_part():
     if not os.path.exists(all_result_dir):
         os.makedirs(all_result_dir)
     (ani_matrix, matrix_strain_dict) = load_ani()
-    result_dict = defaultdict(list)
+    # result_dict = defaultdict(list)
+    valid_pair_list = []
     for root, dirs, files in os.walk(strain_result_dir):
         for each_file in files:
             file_name = os.path.splitext(each_file)[0]
             file_path = os.path.join(strain_result_dir, each_file)
             pairs = file_name.split('_')
-            if pairs[0] not in result_dict:
-                result_dict[pairs[0]] = []
-            pair_name = str(pairs[0]) + ' ~ ' + str(pairs[1])
+            # if pairs[0] not in result_dict:
+            #     result_dict[pairs[0]] = []
             pair_ani = ani_matrix[matrix_strain_dict[pairs[0]]][matrix_strain_dict[pairs[1]]]
-            if pair_ani < 95:
-                with open(file_path) as f3:
-                    for line in f3.readlines()[1:]:
-                        result_line = '{0} ({1}%)\t{2}'.format(pair_name, str(pair_ani), line)
-                        result_dict[pairs[0]].append(result_line)
+            pair_name = '{0} ~ {1} (ANI={2}%)'.format(str(pairs[0]), str(pairs[1]), str(pair_ani))
+            if pair_ani < 94.0:
+                valid_pair_list.append([pair_name, file_name, file_path])
+                # with open(file_path) as f3:
+                #     for line in f3.readlines()[1:]:
+                #         result_line = '{0} ({1}%)\t{2}'.format(pair_name, str(pair_ani), line)
+                #         result_dict[pairs[0]].append(result_line)
     r_script = os.path.join(src_dir_name, 'draw_distribution.R')
-    header_line = 'Pair\tClusters\tProteins\tSimilarity\tAnnotation\n'
-    devnull = open(os.devnull, 'w')
-    logger.info('Saving {0} pictures to {1} format.'.format(str(len(result_dict)), args.gformat))
+    # header_line = 'Pair\tClusters\tProteins\tSimilarity\tAnnotation\n'
+    logger.info('Saving {0} pictures to {1} format.'.format(str(len(valid_pair_list)), args.gformat))
     drawing = args.drawing
     message = 'Do not draw the distributions.'
-    for each_strain, results in result_dict.items():
-        strain_result_file = os.path.join(all_result_dir, each_strain + '.txt')
-        with open(strain_result_file, 'w') as f4:
-            f4.write(header_line)
-            for each_result in results:
-                f4.write(each_result)
-        each_result_picture = os.path.join(all_result_dir, '{0}.{1}'.format(each_strain, args.gformat))
-        if drawing in 'tT':
-            try:
-                subprocess.call(['Rscript', r_script, strain_result_file, each_result_picture],
-                                stdout=devnull, stderr=devnull)
-            except OSError:
-                logger.info('Try to run {0} but failed, please check.'.format(r_script))
-                logger.error(last_exception())
-                sys.exit(1)
-            message = 'All pictures have been saved in {0}'.format(all_result_dir)
+    # for each_strain, results in result_dict.items():
+    #     strain_result_file = os.path.join(all_result_dir, each_strain + '.txt')
+    #     with open(strain_result_file, 'w') as f4:
+    #         f4.write(header_line)
+    #         for each_result in results:
+    #             f4.write(each_result)
+    if drawing in 'tT':
+        p = Pool(args.threads)
+        for each_item in valid_pair_list:
+            each_result_picture = os.path.join(all_result_dir, '{0}.{1}'.format(each_item[1], args.gformat))
+            p.apply_async(draw_distribution, args=(each_item, each_result_picture, r_script))
+        p.close()
+        p.join()
+        message = 'All pictures have been saved in {0}'.format(all_result_dir)
     return message
 
 
@@ -499,7 +509,7 @@ def fourth_part():
                 shutil.copy(f_path, tmp_file)
     r_script = os.path.join(src_dir_name, 'rHGT_alpha.R')
     param_min = 40.0
-    param_max = 98.5
+    param_max = 98.0
     devnull = open(os.devnull, 'w')
     result_file = os.path.join(result_dir, 'recent_HGT_results.txt')
     try:

@@ -25,7 +25,7 @@ em_implementation <- function(data_file, trim_min, trim_max, last_bin) {
   # EM implementation
   m <- c(0)
   fit_method <- 'mge'
-  all_gofs <- c('ADR', 'AD2R')
+  all_gofs <- c('AD2R')
   max_steps <- 100
   estimate_data <- trim_data
   all_aics <- c()
