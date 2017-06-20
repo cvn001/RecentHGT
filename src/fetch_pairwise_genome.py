@@ -25,13 +25,13 @@ def replace(cur_dir):
 
 my_path = os.getcwd()
 maxbit = 0.4
-source_file = os.path.join(my_path, 'SourceMe.sh')
-os.system('source {0}'.format(source_file))
+# source_file = os.path.join(my_path, 'SourceMe.sh')
+# os.system('source {0}'.format(source_file))
 strain_information_file = os.path.join(my_path, 'strain_info.txt')
 strain_dict = defaultdict()
 strain_list = []
 with open(strain_information_file, 'r') as f1:
-    for each_line in f1.readlines():
+    for each_line in f1.readlines()[1:]:
         a_list = each_line.strip().split('\t')
         strain_dict[a_list[1]] = [a_list[2]]
         strain_list.append(a_list[1])

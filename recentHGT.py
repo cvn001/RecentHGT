@@ -454,7 +454,7 @@ def third_part():
             #     result_dict[pairs[0]] = []
             pair_ani = ani_matrix[matrix_strain_dict[pairs[0]]][matrix_strain_dict[pairs[1]]]
             pair_name = '{0} ~ {1} (ANI={2}%)'.format(str(pairs[0]), str(pairs[1]), str(pair_ani))
-            if pair_ani < 94.0:
+            if pair_ani <= 100.0:
                 valid_pair_list.append([pair_name, file_name, file_path])
                 # with open(file_path) as f3:
                 #     for line in f3.readlines()[1:]:
