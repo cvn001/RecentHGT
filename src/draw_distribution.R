@@ -11,5 +11,7 @@ p <- ggplot(data, aes(x=Similarity)) +
   ylab("Gene Counts") + 
   xlab("Sequence Similarity") +
   ggtitle(distribution_title) +
-  theme(plot.title = element_text(hjust = 0.5))
+  theme(plot.title = element_text(hjust = 0.5)) +
+  scale_x_continuous(breaks=seq(0, 100, 2)) +
+  theme(axis.text.x=element_text(angle=90, hjust=1, vjust=0.5))
 ggsave(output_file)
