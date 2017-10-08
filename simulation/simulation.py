@@ -2,6 +2,7 @@
 # -*- coding: UTF-8 -*-
 # Introduction: Simulation, using with rHGT_sim.R,
 #               draw_distribution.R, pyani and needle in EMBOSS.
+#               Required Packages: Biopython, Numpy
 # Created by galaxy on 2017/6/21 20:30
 
 import os
