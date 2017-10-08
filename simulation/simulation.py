@@ -313,9 +313,9 @@ def draw_distribution(out_dir='', generations_number=0,
     r_script = os.path.join(my_path, 'draw_distribution.R')
     distribution_file = os.path.join(out_dir, 'pairwise_alignment_result.png')
     if not os.path.exists(distribution_file):
-        title = 'Total: {0} G | {1} HGT: {2} G | ANI: {3}%'\
-                .format(str(format(generations_number, '.1e')), str(hgt_number),
-                        str(format(hgt_generation, '.1e')), str(ani))
+        title = 'Total: {0} G | {1} HGT: {2} G | ANI: {3}%' \
+            .format(str(format(generations_number, '.1e')), str(hgt_number),
+                    str(format(hgt_generation, '.1e')), str(ani))
         devnull = open(os.devnull, 'w')
         try:
             subprocess.call(['Rscript', r_script, final_result_file,

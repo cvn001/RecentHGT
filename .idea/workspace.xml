@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/simulation/simulation_alpha.py" line="36" />
+    <bookmark url="file://$PROJECT_DIR$/Simulation/simulation_alpha.py" line="36" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="08feb3a7-eff9-4e07-a141-440ecffdc126" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/RecentHGT.iml" afterPath="$PROJECT_DIR$/.idea/RecentHGT.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/simulation/simulation.py" afterPath="$PROJECT_DIR$/simulation/simulation.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -15,30 +18,30 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/RecentHGT$fetch_all_combined_results.coverage" NAME="fetch_all_combined_results Coverage Results" MODIFIED="1496071413260" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test_out_pha_mim_tri" />
-    <SUITE FILE_PATH="coverage/rHGT_EM$combine_strain_pair_results__2_.coverage" NAME="combine_strain_pair_results (2) Coverage Results" MODIFIED="1493235933646" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test_out_rhizobia" />
-    <SUITE FILE_PATH="coverage/RecentHGT$fetch_hgt_results.coverage" NAME="fetch_hgt_results Coverage Results" MODIFIED="1506482957928" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Simulation/simulation_results_different_hgt" />
-    <SUITE FILE_PATH="coverage/rHGT_EM$combine_strain_pair_results__1_.coverage" NAME="combine_strain_pair_results (1) Coverage Results" MODIFIED="1493451363306" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test_out_pSym" />
-    <SUITE FILE_PATH="coverage/RecentHGT$fetch_hgt_core_symbiotic_genes.coverage" NAME="fetch_hgt_core_symbiotic_genes Coverage Results" MODIFIED="1497098445662" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test_out_pha_mim_tri" />
-    <SUITE FILE_PATH="coverage/rHGT_EM$fetch_hgt_core_gene_gc_content.coverage" NAME="fetch_hgt_core_gene_gc_content Coverage Results" MODIFIED="1493825054027" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test_out_pha_mim_tri/HGT_Core_Gene_GC_Content" />
-    <SUITE FILE_PATH="coverage/RecentHGT$fetch_strain_pair_high_similarity_gene_loc.coverage" NAME="fetch_strain_pair_high_similarity_gene_loc Coverage Results" MODIFIED="1495964190462" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test_out_pha_mim_tri" />
-    <SUITE FILE_PATH="coverage/rHGT_EM$fetch_hgt_proportion_pSym.coverage" NAME="fetch_hgt_proportion_pSym Coverage Results" MODIFIED="1492370105069" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test_out_pSym" />
-    <SUITE FILE_PATH="coverage/rHGT_EM$fetch_hgt_genes.coverage" NAME="fetch_hgt_genes Coverage Results" MODIFIED="1494116978433" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test_out_pha_mim_tri" />
     <SUITE FILE_PATH="coverage/RecentHGT$fetch_strain_pair_high_similarity_gene_loc__1_.coverage" NAME="fetch_strain_pair_high_similarity_gene_loc (1) Coverage Results" MODIFIED="1495871219969" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test_out" />
-    <SUITE FILE_PATH="coverage/rHGT_EM$prepare_circos_data.coverage" NAME="prepare_circos_data Coverage Results" MODIFIED="1491157884078" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test_out" />
+    <SUITE FILE_PATH="coverage/RecentHGT$fetch_hgt_core_symbiotic_genes.coverage" NAME="fetch_hgt_core_symbiotic_genes Coverage Results" MODIFIED="1497098445662" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test_out_pha_mim_tri" />
     <SUITE FILE_PATH="coverage/rHGT_EM$fetch_weibull_discription.coverage" NAME="fetch_weibull_discription Coverage Results" MODIFIED="1493232176225" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test_out_no_pSym" />
     <SUITE FILE_PATH="coverage/rHGT_EM$fetch_weibull_discription__1_.coverage" NAME="fetch_weibull_discription (1) Coverage Results" MODIFIED="1493236769172" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test_out_rhizobia" />
-    <SUITE FILE_PATH="coverage/rHGT_EM$fetch_all_combined_results.coverage" NAME="fetch_all_combined_results Coverage Results" MODIFIED="1494115289774" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test_out_pha_mim_tri" />
-    <SUITE FILE_PATH="coverage/rHGT_EM$fetch_gene_annotations.coverage" NAME="fetch_gene_annotations Coverage Results" MODIFIED="1492363533513" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test_out_pSym" />
-    <SUITE FILE_PATH="coverage/rHGT_EM$fetch_pSym_ogs.coverage" NAME="fetch_pSym_ogs Coverage Results" MODIFIED="1492361444119" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test_out_pSym" />
-    <SUITE FILE_PATH="coverage/RecentHGT$fetch_good_results.coverage" NAME="fetch_good_results Coverage Results" MODIFIED="1499610530024" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/simulation/different_HGT_generations/all_good_results" />
     <SUITE FILE_PATH="coverage/RecentHGT$combine_strain_pair_results.coverage" NAME="combine_strain_pair_results Coverage Results" MODIFIED="1496198146988" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test_out_pha_mim_tri" />
-    <SUITE FILE_PATH="coverage/rHGT_EM$fetch_high_similarity_gene_loc.coverage" NAME="fetch_high_similarity_gene_loc Coverage Results" MODIFIED="1490682667359" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test_out" />
+    <SUITE FILE_PATH="coverage/rHGT_EM$fetch_all_combined_results.coverage" NAME="fetch_all_combined_results Coverage Results" MODIFIED="1494115289774" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test_out_pha_mim_tri" />
+    <SUITE FILE_PATH="coverage/rHGT_EM$fetch_hgt_core_gene_gc_content.coverage" NAME="fetch_hgt_core_gene_gc_content Coverage Results" MODIFIED="1493825054027" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test_out_pha_mim_tri/HGT_Core_Gene_GC_Content" />
     <SUITE FILE_PATH="coverage/rHGT_EM$combine_strain_pair_results.coverage" NAME="combine_strain_pair_results Coverage Results" MODIFIED="1493231881860" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test_out_no_pSym" />
+    <SUITE FILE_PATH="coverage/RecentHGT$fetch_strain_pair_high_similarity_gene_loc.coverage" NAME="fetch_strain_pair_high_similarity_gene_loc Coverage Results" MODIFIED="1495964190462" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test_out_pha_mim_tri" />
+    <SUITE FILE_PATH="coverage/rHGT_EM$fetch_gene_annotations.coverage" NAME="fetch_gene_annotations Coverage Results" MODIFIED="1492363533513" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test_out_pSym" />
+    <SUITE FILE_PATH="coverage/rHGT_EM$combine_strain_pair_results__1_.coverage" NAME="combine_strain_pair_results (1) Coverage Results" MODIFIED="1493451363306" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test_out_pSym" />
     <SUITE FILE_PATH="coverage/RecentHGT$simulation_alpha.coverage" NAME="simulation_alpha Coverage Results" MODIFIED="1499002331154" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/simulation" />
+    <SUITE FILE_PATH="coverage/rHGT_EM$prepare_circos_data.coverage" NAME="prepare_circos_data Coverage Results" MODIFIED="1491157884078" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test_out" />
+    <SUITE FILE_PATH="coverage/rHGT_EM$fetch_pSym_ogs.coverage" NAME="fetch_pSym_ogs Coverage Results" MODIFIED="1492361444119" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test_out_pSym" />
+    <SUITE FILE_PATH="coverage/rHGT_EM$fetch_hgt_genes.coverage" NAME="fetch_hgt_genes Coverage Results" MODIFIED="1494116978433" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test_out_pha_mim_tri" />
     <SUITE FILE_PATH="coverage/rHGT_EM$fetch_strain_pair_high_similarity_gene_loc.coverage" NAME="fetch_strain_pair_high_similarity_gene_loc Coverage Results" MODIFIED="1490878725133" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test_out" />
     <SUITE FILE_PATH="coverage/rHGT_EM$prepare_circos_data__1_.coverage" NAME="prepare_circos_data (1) Coverage Results" MODIFIED="1491221805166" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test_out_pha_mim_tri" />
+    <SUITE FILE_PATH="coverage/RecentHGT$fetch_all_combined_results.coverage" NAME="fetch_all_combined_results Coverage Results" MODIFIED="1496071413260" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test_out_pha_mim_tri" />
     <SUITE FILE_PATH="coverage/rHGT_EM$1.coverage" NAME="1 Coverage Results" MODIFIED="1488122389527" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/RecentHGT$fetch_good_results.coverage" NAME="fetch_good_results Coverage Results" MODIFIED="1499610530024" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/simulation/different_HGT_generations/all_good_results" />
+    <SUITE FILE_PATH="coverage/rHGT_EM$fetch_high_similarity_gene_loc.coverage" NAME="fetch_high_similarity_gene_loc Coverage Results" MODIFIED="1490682667359" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test_out" />
+    <SUITE FILE_PATH="coverage/rHGT_EM$combine_strain_pair_results__2_.coverage" NAME="combine_strain_pair_results (2) Coverage Results" MODIFIED="1493235933646" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test_out_rhizobia" />
+    <SUITE FILE_PATH="coverage/RecentHGT$fetch_hgt_results.coverage" NAME="fetch_hgt_results Coverage Results" MODIFIED="1506482957928" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Simulation/simulation_results_different_hgt" />
+    <SUITE FILE_PATH="coverage/rHGT_EM$fetch_hgt_proportion_pSym.coverage" NAME="fetch_hgt_proportion_pSym Coverage Results" MODIFIED="1492370105069" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test_out_pSym" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -64,24 +67,13 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="simulation.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/simulation/simulation.py">
+        <entry file="file://$PROJECT_DIR$/Simulation/simulation.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="630">
-              <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+            <state relative-caret-position="-5227">
+              <caret line="242" column="29" lean-forward="false" selection-start-line="242" selection-start-column="29" selection-end-line="242" selection-end-column="29" />
               <folding>
-                <element signature="e#250#259#0" expanded="true" />
                 <element signature="e#1148#2306#0" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="simulation_beta.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/simulation/simulation_beta.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1992">
-              <caret line="383" column="19" lean-forward="true" selection-start-line="383" selection-start-column="19" selection-end-line="383" selection-end-column="19" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -165,13 +157,13 @@
         <option value="$PROJECT_DIR$/simulation/draw_distribution.R" />
         <option value="$PROJECT_DIR$/simulation/different_HGT_generations/all_good_results/fetch_good_results.py" />
         <option value="$PROJECT_DIR$/simulation/simulation_alpha.py" />
-        <option value="$PROJECT_DIR$/Simulation/simulation.py" />
         <option value="$PROJECT_DIR$/src/rHGT_alpha.R" />
         <option value="$PROJECT_DIR$/recentHGT.py" />
         <option value="$PROJECT_DIR$/Simulation/simulation_beta.py" />
         <option value="$PROJECT_DIR$/Simulation/simulation_results_different_hgt/fetch_hgt_results.py" />
         <option value="$PROJECT_DIR$/Simulation/simulation_alpha.py" />
         <option value="$PROJECT_DIR$/simulation/simulation.py" />
+        <option value="$PROJECT_DIR$/Simulation/simulation.py" />
       </list>
     </option>
   </component>
@@ -205,6 +197,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -212,23 +206,16 @@
               <item name="RecentHGT" type="b2602c69:ProjectViewProjectNode" />
               <item name="RecentHGT" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="RecentHGT" type="b2602c69:ProjectViewProjectNode" />
-              <item name="RecentHGT" type="462c0819:PsiDirectoryNode" />
-              <item name="simulation" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="C:/Program Files/R/R-3.4.1/bin/R.exe" />
-    <property name="settings.editor.selected.configurable" value="net.vektah.codeglance.config.ConfigEntry" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -638,13 +625,6 @@
       <option name="presentableId" value="Default" />
       <updated>1487167314598</updated>
     </task>
-    <task id="LOCAL-00021" summary="A lot of changes to main_process.py script.">
-      <created>1487684493374</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1487684493374</updated>
-    </task>
     <task id="LOCAL-00022" summary="A lot of changes to main_process.py script.">
       <created>1487775881324</created>
       <option name="number" value="00022" />
@@ -981,7 +961,14 @@
       <option name="project" value="LOCAL" />
       <updated>1507448817926</updated>
     </task>
-    <option name="localTasksCounter" value="70" />
+    <task id="LOCAL-00070" summary="Add Simulation Framework">
+      <created>1507448823799</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1507448823799</updated>
+    </task>
+    <option name="localTasksCounter" value="71" />
     <servers />
   </component>
   <component name="TodoView">
@@ -994,20 +981,17 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <frame x="-11" y="-11" width="1942" height="1056" extended-state="6" />
     <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1961824" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32166302" sideWeight="0.5021075" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32275712" sideWeight="0.49789253" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32159624" sideWeight="0.49789253" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.66993463" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" x="11" y="102" width="1898" height="845" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.66630197" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297587" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19444445" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="R Packages" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="R Graphics" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32959402" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297587" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.32969153" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1018,6 +1002,8 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32527474" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="R Packages" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="R Graphics" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32959402" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32967034" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -1302,28 +1288,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/simulation/draw_distribution.R">
+    <entry file="file://$PROJECT_DIR$/Simulation/draw_distribution.R">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
           <caret line="12" column="31" lean-forward="true" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/simulation/different_HGT_generations/all_good_results/good_generation_result.txt">
+    <entry file="file://$PROJECT_DIR$/Simulation/different_HGT_generations/all_good_results/good_generation_result.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-677925">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/simulation/different_HGT_generations/all_good_results/fetch_good_results.py">
+    <entry file="file://$PROJECT_DIR$/Simulation/different_HGT_generations/all_good_results/fetch_good_results.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="350">
           <caret line="11" column="17" lean-forward="false" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/simulation/different_HGT_generations/all_good_results/0.1.txt">
+    <entry file="file://$PROJECT_DIR$/Simulation/different_HGT_generations/all_good_results/0.1.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="30" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="30" />
@@ -1332,14 +1318,14 @@
     </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Continuum/Anaconda3/Lib/site-packages/rpy2/robjects/packages.py" />
     <entry file="file://D:/根瘤菌质粒研究/基因组/get_plasmid_from_complete_genome.py" />
-    <entry file="file://$PROJECT_DIR$/simulation/simulation_alpha_2.py">
+    <entry file="file://$PROJECT_DIR$/Simulation/simulation_alpha_2.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1060">
           <caret line="313" column="38" lean-forward="false" selection-start-line="313" selection-start-column="4" selection-end-line="313" selection-end-column="38" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/simulation/build_genes_length/example_homologous_genes.txt">
+    <entry file="file://$PROJECT_DIR$/Simulation/build_genes_length/example_homologous_genes.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-144403">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1355,58 +1341,55 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/recentHGT.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="736">
-          <caret line="515" column="73" lean-forward="false" selection-start-line="515" selection-start-column="62" selection-end-line="515" selection-end-column="73" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Simulation/sim_seqs_500000_0_1/pairwise_alignment_result.txt" />
-    <entry file="file://$PROJECT_DIR$/simulation/rHGT_sim.R">
+    <entry file="file://$PROJECT_DIR$/Simulation/rHGT_sim.R">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/simulation/simulation_alpha.py">
+    <entry file="file://$PROJECT_DIR$/Simulation/simulation_alpha.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="12388">
           <caret line="357" column="38" lean-forward="false" selection-start-line="357" selection-start-column="4" selection-end-line="357" selection-end-column="38" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/simulation/simulation_results_different_hgt/0.1g/all_hgt_results_5.0g_98.5_100.5.txt" />
-    <entry file="file://$PROJECT_DIR$/simulation/simulation_results_different_hgt/fetch_hgt_results.py">
+    <entry file="file://$PROJECT_DIR$/Simulation/simulation_results_different_hgt/0.1g/all_hgt_results_5.0g_98.5_100.5.txt" />
+    <entry file="file://$PROJECT_DIR$/Simulation/simulation_results_different_hgt/fetch_hgt_results.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="540">
           <caret line="19" column="76" lean-forward="false" selection-start-line="19" selection-start-column="76" selection-end-line="19" selection-end-column="76" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/simulation/rHGT_sim_beta.R">
+    <entry file="file://$PROJECT_DIR$/Simulation/rHGT_sim_beta.R">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-336">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/simulation/simulation_beta.py">
+    <entry file="file://$PROJECT_DIR$/Simulation/simulation_beta.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1992">
-          <caret line="383" column="19" lean-forward="true" selection-start-line="383" selection-start-column="19" selection-end-line="383" selection-end-column="19" />
-          <folding />
+        <state relative-caret-position="14098">
+          <caret line="383" column="19" lean-forward="false" selection-start-line="383" selection-start-column="19" selection-end-line="383" selection-end-column="19" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/simulation/simulation.py">
+    <entry file="file://$PROJECT_DIR$/recentHGT.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+        <state relative-caret-position="271">
+          <caret line="616" column="13" lean-forward="true" selection-start-line="616" selection-start-column="13" selection-end-line="616" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Simulation/simulation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-5227">
+          <caret line="242" column="29" lean-forward="false" selection-start-line="242" selection-start-column="29" selection-end-line="242" selection-end-column="29" />
           <folding>
-            <element signature="e#250#259#0" expanded="true" />
             <element signature="e#1148#2306#0" expanded="false" />
           </folding>
         </state>
