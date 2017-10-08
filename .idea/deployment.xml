@@ -5,7 +5,7 @@
       <paths name="bio_sever">
         <serverdata>
           <mappings>
-            <mapping deploy="/lxc/rHGT_bak" local="$PROJECT_DIR$" web="/" />
+            <mapping deploy="/" local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>

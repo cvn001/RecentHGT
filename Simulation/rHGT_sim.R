@@ -1,7 +1,7 @@
 #' This script is used to detect recent horizontal gene transfers.
 #' @param collections_dir, should be the address of the input directory, string.
 #' @param result_file, should be the address of the result file, string.
-#' @param param_min, should be a value of lower limit of the distribuiton.
+#' param param_min, should be a value of lower limit of the distribuiton.
 #' @param param_max, should be a value of upper limit of the distribuiton.
 #' @export result_file, a text file with the number of rHGTs between every strain pair.
 
@@ -25,7 +25,7 @@ em_implementation <- function(data_file, trim_min, trim_max, last_bin) {
   # EM implementation
   m <- c(0)
   fit_method <- 'mge'
-  all_gofs <- c('AD2R')
+  all_gofs <- c('AD2R', 'ADR', 'CvM')
   max_steps <- 100
   estimate_data <- trim_data
   all_aics <- c()
@@ -63,7 +63,8 @@ em_implementation <- function(data_file, trim_min, trim_max, last_bin) {
   hgt_num <- length(last_bin_data) - best_fit_num
   return(list(all_gofs[best_fit], best_fit_num, hgt_num))
 }
-infer_HGT <- function(collections_dir, result_file, p_min = 25.0, p_max = 98.5) {
+infer_HGT <- function(collections_dir, result_file, p_max = 98.5) {
+  p_min = 0.0 
   all_files <- list.files(collections_dir)
   p_last_bin = c(p_max, 100.0)
   # run each file
